@@ -1,0 +1,248 @@
+/* @import url('https://fonts.googleapis.com/css?family=Lato&display=swap'); */
+/* latin-ext */
+@font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/lato/v23/S6uyw4BMUTPHjxAwXjeu.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/lato/v23/S6uyw4BMUTPHjx4wXg.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+#CBthree * {
+    box-sizing: border-box;
+}
+
+#CBthree .music-container {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 20px 20px 0 rgba(8, 182, 212, 0.4);
+    display: flex;
+    padding: 20px 30px !important;
+    position: relative;
+    margin: 60px 0 40px 0;
+    transform: translateY(20px) scale(0.9);
+}
+
+#CBthree .img-container {
+    position: relative;
+    width: 110px;
+}
+
+#CBthree .img-container::after {
+    content: "";
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 100%;
+    left: 120%;
+    width: 15px;
+    height: 15px;
+}
+
+#CBthree .img-container img {
+    border-radius: 50%;
+    height: 110px;
+    width: inherit;
+    -o-object-fit: cover;
+    object-fit: cover;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    /* 封面360°旋转，默认不动 */
+    -webkit-animation: rotate 7s linear infinite;
+    animation: rotate 7s linear infinite;
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+}
+
+#CBthree .music-container.play .img-container img {
+    /* 播放 */
+    -webkit-animation-play-state: running;
+    animation-play-state: running;
+}
+
+/* 定义旋转动画 */
+@-webkit-keyframes rotate {
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+#CBthree .navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    transform: translateX(40px);
+}
+
+#CBthree .action-btn {
+    /* 取消默认样式 */
+    border: 0;
+    background-color: #fff;
+    /* ----- */
+    color: #0decfc;
+    font-size: 20px;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+#CBthree .action-btn:focus {
+    /* 取消默认样式 */
+    outline: 0;
+}
+
+#CBthree .action-btn.action-btn-big {
+    color: #0cdae9;
+    font-size: 30px;
+}
+
+#CBthree .music-info {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    /* 父元素宽度-40px */
+    width: calc(100% - 40px);
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 15px 15px 0 0;
+    padding: 10px 10px 10px 150px !important;
+    /* 没播放时默认隐藏 */
+    opacity: 0;
+    transform: translateY(0%);
+    transition: transform 0.3s ease-in, opacity 0.3s ease-in;
+    z-index: 0;
+}
+
+#CBthree .music-info h4 {
+    /* 取消默认边距 */
+    margin: 0;
+}
+
+#CBthree .music-container.play .music-info {
+    opacity: 1;
+    transform: translateY(-100%);
+}
+
+#CBthree .music-container .music-info #title {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+/* 进度条 */
+#CBthree .progress-container {
+    padding: 0 !important;
+    background-color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 0;
+    height: 4px;
+    width: 100%;
+}
+
+#CBthree .progress {
+    padding: 0 !important;
+    background-color: #0decfc;
+    border-radius: 5px;
+    height: 100%;
+    /* 一开始进度条长度为0 */
+    width: 0%;
+    transition: width 0.1s linear;
+}
+
+/* 列表 */
+main #zhuyao #ceBian #CBthree #musicList {
+    height: 120px;
+    overflow: auto;
+    margin: 20px 0;
+}
+
+main #zhuyao #ceBian #CBthree #musicList div {
+    padding-left: 0;
+}
+
+main #zhuyao #ceBian #CBthree #musicList>div.musliIng {
+    color: violet;
+}
+
+main #zhuyao #ceBian #CBthree #musicList h2 {
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: -5px;
+    backdrop-filter: blur(5px);
+    z-index: 90;
+}
+
+main #zhuyao #ceBian #CBthree #musicList h2 div {
+    padding: 0 !important;
+}
+
+main #zhuyao #ceBian #CBthree #musicList h2 span {
+    filter: opacity(0);
+    transition: 0.6s;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+main #zhuyao #ceBian #CBthree #musicList h2:hover span {
+    filter: opacity(1);
+}
+
+main #zhuyao #ceBian #CBthree #musicList h2 img {
+    width: 30px;
+}
+
+main #zhuyao #ceBian #CBthree #musicList div {
+    z-index: 0;
+    position: relative;
+}
+
+/* #CBthree #musicList div[style="cursor: pointer;"]::before {
+    content: '♫';/* ♩♪ 改用字体图标
+    font-size: 20px;
+    position: absolute;
+    top: 0px;
+    left: 1px;
+} */
+
+main #zhuyao #ceBian #CBthree #musicList div .musicItem {
+    opacity: 0;
+    text-align: end;
+    min-width: 22px;
+    transition: .3s;
+    display: inline-block;
+}
+
+main #zhuyao #ceBian #CBthree #musicList div:hover .musicItem {
+    opacity: 0.9;
+}
+
+main #zhuyao #ceBian #CBthree #musicList div svg.icon {
+    width: 20px;
+    height: 20px;
+}

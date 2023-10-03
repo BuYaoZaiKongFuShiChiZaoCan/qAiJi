@@ -1,0 +1,31 @@
+/* 音乐列表开始 */
+#musicList.maxsc {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 40px !important;
+    margin-bottom: 0px !important;
+    z-index: 10000;
+    color: #fff;
+    width: 100vw !important;
+    height: auto !important;
+    text-align: center;
+    transition: .6s;
+    text-align: center;
+}
+
+#musicList.maxsc .musicItem {
+    opacity: 1 !important;
+}
+
+#musicList.maxsc #mlength {
+    filter: opacity(1) !important;
+}
+
+#musicList.maxsc h2 {
+    justify-content: center;
+}
+
+/* 音乐列表结束 */
