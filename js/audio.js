@@ -311,7 +311,7 @@ function getLrc(titC) {
             break;
 
         default:
-            $.get(`https://buyaozaikongfushichizaocan.github.io/qAiJi/music/lrc/${titC}.lrc`, function (data) {
+            $.get(`/music/lrc/${titC}.lrc`, function (data) {
                 lrcContent = data
                 lrcNone = false
                 parseLrc()
