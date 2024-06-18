@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>一个帅逼的个人简历</title>
+        <style>
+            ::-webkit-scrollbar {
+                display: none;
+            }
+
+            @font-face {
+                font-family: "千图小兔体";
+                src: url("../../font/QTXTT.ttf");
+                font-weight: normal;
+                font-style: normal;
+            }
+
+            body {
+                font-family: 千图小兔体;
+                margin: 0;
+            }
+
+            a {
+                color: #000;
+                font-size: 24px;
+                border-width: 2px;
+                border-style: dotted;
+                border-color: #000;
+                transition: all 0.3s;
+                text-decoration: none;
+            }
+
+            a:hover {
+                text-decoration: underline;
+                color: aqua;
+                border-color: red;
+            }
+
+            table {
+                width: 100%;
+                font-size: 18px;
+                background: linear-gradient(300deg, rgba(204, 255, 102, 0.3), rgba(221, 187, 119, 0.3));
+            }
+
+            table tr th {
+                font-size: 30px;
+                text-align: left;
+            }
+
+            table tr th span {
+                margin-left: 30%;
+            }
+
+            table tr td[colspan="3"] span {
+                padding: 3px;
+                margin: 0 4px;
+                font-size: 16px;
+                border-radius: 10px;
+                border: 1px solid lightskyblue;
+                box-shadow: 0 0 10px 5px #fff inset;
+            }
+
+            table tr td {
+                width: 140px;
+                height: 20px;
+            }
+
+            table tr td:has(details) {
+                text-align: center;
+            }
+
+            table tr td:nth-of-type(even) {
+                text-align: center;
+            }
+
+            .tal {
+                text-align: left !important;
+            }
+
+            ol {
+                transition: all 1s;
+                position: relative;
+            }
+
+            ol:hover :not(li:hover) {
+                filter: blur(2px);
+            }
+
+            ol li img {
+                filter: none !important;
+                pointer-events: none;
+                /* 禁止元素交互、其中包括hover等其它交互属性 */
+                background: aliceblue;
+                opacity: 0;
+                height: 100%;
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                z-index: 9;
+                transition: .7s;
+                margin-right: 5%;
+                box-shadow: 5px 10px 20px 0px gray;
+            }
+
+            li:hover img {
+                opacity: 1;
+            }
+        </style>
+    </head>
+    <body>
+        <table border="1" cellspacing="0" cellpadding="5">
+            <tr>
+                <th colspan="5">
+                    <a href="../../index.html">点击返回首页</a>
+                    <span>一个帅逼的个人简历</span>
+                </th>
+            </tr>
+            <tr>
+                <td>姓名</td>
+                <td>
+                    <details>
+                        <summary>点击查看姓名</summary>
+                        <span>看不见看不见看不见看不见看不见略略略~</span>
+                    </details>
+                </td>
+                <td>性别</td>
+                <td>男</td>
+                <td rowspan="8">
+                    <details>
+                        <summary>点击查看照片</summary>
+                        <span>聪明的都能看见他的帅，相信你也是个聪明人</span>
+                    </details>
+                </td>
+            </tr>
+            <tr>
+                <td>民族</td>
+                <td>汉族</td>
+                <td>籍贯</td><!-- 出生地，只需要写到区县一级 -->
+                <td>甘肃省宕昌县</td>
+            </tr>
+            <tr>
+                <td>第一学历</td>
+                <td>专科</td>
+                <td>专业</td>
+                <td>电子商务</td>
+            </tr>
+            <tr>
+                <td>出生年月</td>
+                <td>2004-04-xx</td>
+                <td>政治面貌</td>
+                <td>群众</td>
+            </tr>
+            <tr>
+                <td>婚姻状况</td>
+                <td>
+                    <details>
+                        <summary>嘿嘿嘿！(>ω･* )ﾉ</summary>
+                        <span>求姻缘应该去哪个寺庙？A、灵隐寺B、光法寺C、广济寺D、化城寺<b>E、找我试一寺。</b></span>
+                    </details>
+                </td>
+                <td>健康状况</td>
+                <td>非常健康</td>
+            </tr>
+            <tr>
+                <td>联系电话</td>
+                <td>1*1 **** **85</td>
+                <td>QQ</td>
+                <td>1*2 *9*9 3*0</td>
+            </tr>
+            <tr>
+                <td>爱好特长</td>
+                <td colspan="3">发呆++</td>
+            </tr>
+            <tr>
+                <td>个性标签</td>
+                <td colspan="3">
+                    <span>天然呆</span>
+                    <span>钢琴</span>
+                    <span>尤克里里</span>
+                    <span>社恐</span>
+                    <span>口琴</span>
+                    <span>音乐</span>
+                    <span>夜猫子</span>
+                    <span>QQ飞车</span>
+                    <span>王者荣耀</span>
+                    <span>宅男拯救世界</span>
+                    <span>唱</span>
+                    <span>跳</span>
+                    <span>rap</span>
+                    <span>篮球</span>
+                    <span>全能</span>
+                </td>
+            </tr>
+            <tr>
+                <td>联系地址</td>
+                <td colspan="4">甘肃</td>
+            </tr>
+            <tr>
+                <td>毕业院校</td>
+                <td colspan="4" class="tal">
+                    2011~2017年毕业于：富坪小学
+                    <br />
+                    2017~2020年毕业于：新寨初级中学
+                    <br />
+                    2020~2023年毕业于：宕昌县职业中等专业学校
+                    <br />
+                    2023~2026年毕业于：甘肃农业职业技术学院
+                </td>
+            </tr>
+            <tr style="height: 128px;">
+                <td>个人荣誉</td>
+                <td colspan="4" class="tal">
+                    <ol type="1">
+                        <li>
+                            2015年第一学期获得“最佳进步奖”
+                            <img src="" alt="暂无照片">
+                        </li>
+                        <li>
+                            2020年11月17日获得职业资格四级/中级工“保育员”证
+                            <img src="./img/个人简历/2 职业资格四级中级工“保育员”证.jpg" alt="">
+                        </li>
+                        <li>
+                            2022年1月8日获得县级学生技能大赛“电子商务”项目一等奖
+                            <img src="./img/个人简历/3 县级学生技能大赛“电子商务”项目一等奖.jpg" alt="">
+                        </li>
+                        <li>
+                            2022年4月7日获得“电子商务数据分析职业技能等级证书（初级）”
+                            <img src="./img/个人简历/4 电子商务数据分析职业技能等级证书（初级）.jpg" alt="">
+                        </li>
+                        <li>
+                            2022年6月28日获得第二学期“技能之星三等奖”
+                            <img src="./img/个人简历/5 第二学期“技能之星三等奖“.jpg" alt="">
+                        </li>
+                        <li>
+                            2022年10月28日获得县级学生技能大赛“电子商务”项目二等奖
+                            <img src="./img/个人简历/6 县级学生技能大赛“电子商务”项目二等奖.jpg" alt="">
+                        </li>
+                        <li>
+                            2022年12月28日获得市级学生技能大赛“电子商务”项目一等奖
+                            <img src="./img/个人简历/7 市级学生技能大赛“电子商务”项目一等奖.jpg" alt="">
+                        </li>
+                        <li>
+                            2023年10月2日在中国大学生计算机知识竞赛全国总决赛中获得一等奖
+                            <img src="./img/个人简历/8 中国大学生计算机知识竞赛全国总决赛中获得一等奖.jpg" alt="">
+                        </li>
+                        <li>
+                            2024年1月7日获得省级职业院校学生技能大赛“电子商务”项目一等奖<!-- 第三名 -->
+                            <img src="./img/个人简历/9 省级职业院校学生技能大赛“电子商务”项目一等奖.jpg" alt="">
+                        </li>
+                    </ol>
+                </td>
+            </tr>
+            <tr>
+                <td>教育背景</td>
+                <td colspan="4" class="tal"></td>
+            </tr>
+            <tr style="height: 160px;">
+                <td>实习经历</td>
+                <td colspan="4" class="tal">
+                    <ul>
+                        <li>
+                            <!-- 2022年在宕昌县邮政物流中转公司实习一天 -->
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            <tr style="height: 160px;">
+                <td>工作经历</td>
+                <td colspan="4" class="tal"></td>
+            </tr>
+            <tr style="height: 64px;">
+                <td>自我评价</td>
+                <td colspan="4" class="tal">
+                    本人敬业，工作认真，积极主动，有坚强的意志和耐劳吃苦之心。性格成熟、稳重、有一点幽默，待人热情。做事情有耐心、责任心以及谨慎，细心。坚信“没有做不到的事，只有不想做的事”。所以只要本人喜欢，愿意做的事，本人相信会做到的。本人具有一定组织能力、协调能力。
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>

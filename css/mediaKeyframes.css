@@ -1,0 +1,87 @@
+@media screen and (max-width: 1100px) {
+
+    /* 手机、平板《1100 */
+    #main nav {
+        justify-content: space-between;
+        margin: auto;
+    }
+
+    #main nav a {
+        width: 39vw;
+        float: left;
+        text-align: center;
+    }
+
+    main #main-body {
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-content: center;
+        align-items: self-start;
+    }
+
+    main #main-body #biJi {
+        order: -1;
+        /* 调整笔记与时钟的顺序 */
+        margin-top: 50px;
+    }
+
+    main #main-body #ceBian {
+        align-items: center;
+    }
+
+    #header nav ul li {
+        width: 7vw;
+    }
+
+    #header nav ul li span {
+        padding: 0 5px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    footer div[footer] svg {
+        animation: none;
+        transform: translateX(0px);
+    }
+
+    #dog {
+        width: 80%;
+    }
+}
+
+@media screen and (min-width: 1001px) {
+
+    /* 电脑》1000 */
+    #spsjhy {
+        display: none !important;
+    }
+
+    main #main-body {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-content: flex-start;
+        justify-content: space-between;
+    }
+}
+
+@media screen and (max-width: 1001px) {
+    main #main-body {
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 500px) {
+
+    /* 小于500px */
+    #header nav {
+        min-width: 60px;
+    }
+
+    #main nav {
+        justify-content: center;
+    }
+
+    #main nav a {
+        width: 70%;
+    }
+}

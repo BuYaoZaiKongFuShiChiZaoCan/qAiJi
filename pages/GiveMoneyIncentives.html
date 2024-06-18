@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>打赏</title>
+        <style>
+            ::-webkit-scrollbar {
+                display: none;
+            }
+
+            body {
+                margin: 0;
+                height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+            }
+
+            img {
+                vertical-align: bottom;
+            }
+
+            body>* {
+                margin: 10px;
+                padding: 20px;
+                border-radius: 20px;
+                box-shadow: 0 0 10px 5px slateblue, 0 0 5px 2px slateblue inset;
+            }
+
+            body>a {
+                position: fixed;
+                top: 1px;
+                left: 2px;
+                color: black;
+                box-shadow: none;
+                text-decoration: none;
+            }
+
+            body>a:hover {
+                color: blueviolet;
+                text-decoration: underline;
+            }
+
+            .zhifubao img {
+                max-width: 50%;
+                max-height: 60vh;
+            }
+        </style>
+    </head>
+    <body>
+        <a href="../index.html">回首页</a>
+        <div class="weixin">微信[更新中...]</div>
+        <div class="zhifubao">
+            <img src="./img/GiveMoneyIncentives_zfb_one.jpg" alt="">
+            <img src="./img/GiveMoneyIncentives_zfb_two.jpg" alt="">
+            <br />
+            1. 用支付宝扫第一个二维码领红包
+            <br />
+            2. 扫第二个二维码将刚才领到的金额支付[支付时显示支付金额为0元为正常，因为金额用红包代替了]
+        </div>
+    </body>
+</html>

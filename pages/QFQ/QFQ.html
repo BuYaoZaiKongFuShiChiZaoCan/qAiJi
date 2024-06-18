@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>祁富强 - Q爱记</title>
+        <meta name="description" content="描述">
+        <meta name="keywords" content="关键词,祁富强,Re01成员,元岛社区管理员,甘肃不大,创造神话,DAO,梗">
+        <meta name="copyright" content="祁富强">
+        <meta name="author" content="祁富强">
+        <meta property="og:image" content="../../images/logo.png">
+        <meta name="og:title" content="祁富强">
+        <meta name="og:url" content="http://apicloud.fun">
+        <meta name="og:description" content="">
+        <meta name="apple-mobile-web-app-title" content="祁富强">
+        <style>
+            :root {
+                --icon-size: 50px;
+            }
+
+            * {
+                margin: 0;
+            }
+
+            marquee span {
+                color: #16A085;
+            }
+
+            marquee {
+                width: 300px;
+            }
+
+            ::-webkit-scrollbar {
+                display: none;
+            }
+
+            body {
+                color: #FFFFFF;
+                font-size: 18px;
+                background: #34495E;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+            }
+
+            header,
+            footer {
+                width: 100%;
+                padding: 40px 0;
+                background: #2F4254;
+                text-align: center;
+            }
+
+            header div:nth-of-type(2) {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                justify-content: center;
+                align-items: center;
+            }
+
+            header div:nth-of-type(2) button:nth-of-type(1) {
+                margin-right: 10px;
+            }
+
+            header div:nth-of-type(2) button:nth-of-type(2) {
+                margin-left: 10px;
+                border-color: #16A085;
+            }
+
+            footer {
+                font-size: 14px;
+                margin-top: 50px;
+            }
+
+            a {
+                color: #FFFFFF;
+                text-decoration: none;
+            }
+
+            a:hover {
+                text-decoration: underline;
+            }
+
+            video {
+                margin: 10px;
+            }
+
+            button {
+                color: #FFFFFF;
+                background: none;
+                border-radius: 10px;
+                width: 120px;
+                height: 40px;
+                position: relative;
+                z-index: 8;
+                border: 2px solid;
+                border-bottom: 4px solid;
+            }
+
+            article {
+                margin: 50px;
+                max-width: 760px;
+                text-align: justify;
+            }
+
+            article>h3 {
+                width: 20%;
+                transition: all .3s;
+                margin-bottom: 30px;
+                border-bottom: 3px solid #DDD;
+            }
+
+            article>h3:hover {
+                width: 100%;
+                border-bottom: 3px dashed rgb(119, 82, 250);
+            }
+
+            article .content div {
+                text-indent: 2em;
+            }
+
+            details {
+                text-align: center;
+            }
+
+            details :not(video) {
+                text-align: left;
+            }
+
+            /* 时间轴 */
+            .timeline {
+                margin: 20px 0;
+            }
+
+            .timeline .item {
+                margin-top: 50px;
+                display: flex;
+                flex-wrap: nowrap;
+            }
+
+            .timeline .item a {
+                color: #000;
+            }
+
+            .timeline .item .left {
+                margin-right: var(--icon-size);
+            }
+
+            .timeline .item .left .icon {
+                font-size: var(--icon-size);
+                color: #16A085;
+            }
+
+            .timeline .item:not(:last-of-type) .left::after {
+                content: '';
+                display: block;
+                width: 0px;
+                height: calc(100% - .8rem);
+                border: 1px dashed;
+                margin: auto;
+            }
+
+            .timeline .item .right {
+                width: 100%;
+                text-align: justify;
+                background: white;
+                border-radius: 12px;
+            }
+
+            .timeline .item .right h4 {
+                display: flex;
+                flex-wrap: nowrap;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                padding: 10px;
+                border-radius: 10px;
+                background: rebeccapurple;
+            }
+
+            .timeline .item .right h4 span {
+                margin-left: 2em;
+            }
+
+            .timeline .item .right .content {
+                margin: 10px;
+                color: #000;
+            }
+
+            .timeline .item .right .content p {
+                margin: 10px;
+            }
+
+            .timeline .item .right .content img,
+            .timeline .item .right .content video {
+                width: 80%;
+                margin-left: 5%;
+                border-radius: 5px;
+                /* vertical-align: bottom; */
+            }
+
+            .Ttime {
+                color: #16A085;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <a href="../../index.html">
+                <img src="../../images/logo.png" alt="" style="border-radius: 50%;">
+            </a>
+            <div>
+                <h3>关于</h3>
+                <marquee behavior="summary" direction="1000">
+                    Q爱记 <span>&lt;/&gt;</span>
+                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                    点头像进入首页 <span>&lt;/&gt;</span>
+                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                    欢迎━(*｀∀´*)ノ亻! <span>&lt;/&gt;</span>
+                </marquee>
+            </div>
+            <div>
+                <button>
+                    <a href="./个人简历.html">(oﾟ▽ﾟ)o我的简介</a>
+                </button>
+                <button>
+                    <a href="https://qaiji.gitee.io/yuandao-learning/#/">☈ 留言</a>
+                </button>
+            </div>
+        </header>
+        <article>
+            <h3>. 是匿蝶吖 .</h3>
+            <div class="content">
+                <div>在座的各位同志，大家好，我是<strong>Q爱记</strong>的作者：祁富强，生于2004年5月15日。号来自甘肃(不大，创造神话)。</div>
+                <div>根据我的专业得知这个销售很重要、营销更重要，所以我要营销自己，哎就是玩儿，非常的nice好吧。</div>
+                <div>
+                    <div>不开玩笑了，作为DAO管理员，正经的宣布一件事</div>
+                    <details>
+                        <summary>点击展开</summary>
+                        <div>
+                            我个人认为这个意大利面就应该拌42号混凝土，因为这个螺丝钉的长度，它很容易会直接影响到挖掘机的扭矩，你知道吧?你往里砸的时候，一瞬间它就会产生大量的高能蛋白，俗称UFO，
+                            会严重影响经济的发展，甚至对这个太平洋以及充电器都会造成一定的核污染
+                        </div>
+                        <video src="./mp4/卧龙凤雏.mp4" height="600vh" controls preload="metadata"></video><!-- metadata仅加载元数据 -->
+                        <div>看完视频，大家应该懂什么叫爱情了吧(*^▽^*)</div>
+                    </details>
+                </div>
+                <div>其实你可能觉得这并没有什么，但没关系，因为你的感觉是对的。毕竟人每呼吸六十秒，生命就会减少一分钟，你在这待了5分钟，就笑了4分钟，还有一分钟为你浪费了5分钟而叹息。然后接着度过下一个五分钟</div>
+                <div>那根据大家都知道每个人身上都有毛毛，让我为你唱年轻人不讲武德，耗子尾汁，得知奇怪的知识增加了，我只希望看到这里你不要给我提意见，不然我会以为 你在教我做事？</div>
+                <!-- <div>其实我并不喜欢那种什么体质内啊，洗脑啊什么的，因为每个人都要有自己的生活方式，外国人自由也挺好的，但应该结合，或者说可以替换。平民就由机器人去供养，增加思想上的知识，而不是一味的只知道进厂洗脑，挺可悲的。说起来就是没有给到正反馈，他们的行为就是以恶制恶，陷入恶性循环。</div> -->
+                <!-- <div>历年梗</div> -->
+            </div>
+            <br />
+            <br />
+            <!-- 时间轴 -->
+            <h3 id="MyPast">. My past .</h3>
+            <div class="timeline">
+                <!-- itemOne -->
+                <div class="item">
+                    <div class="left">
+                        <icon class="icon">☆</icon>
+                    </div>
+                    <div class="right">
+                        <h4 id="特别鸣谢">特别鸣谢<span class="itemTime">2022/10/24</span></h4>
+                        <div class="content">
+                            <p>元岛-QQ频道</p>
+                            <p style="margin-left: 2em;"><strong>农药君</strong>、<strong>无聊的霜霜</strong>、<strong>零丶</strong>、<strong>NullPointerException</strong> 对联系我页面样式优化帮助</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="left">
+                        <icon class="icon">☆</icon><!--  type="success|success_no_circle|info|warn|waiting|cancel|download|search|clear" -->
+                    </div>
+                    <div class="right">
+                        <h4>时间轴上线<span class="itemTime">2023/12/10</span></h4>
+                        <div class="content">
+                            <p>历经重重困难（战胜懒惰），终于搞上了这个简单的时间线了。</p>
+                            <img src="./img/item_huaji.jpeg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="left">
+                        <icon class="icon">☆</icon>
+                    </div>
+                    <div class="right">
+                        <h4>甘肃临夏州积石山县6.2级地震震源深度10公里<span class="itemTime">2023年12月18日23时59分</span></h4>
+                        <div class="content">
+                            <p>积石山6.2级地震已致127人遇难。</p>
+                            <p>截至19日13时，甘肃省临夏回族自治州积石山保安族东乡族撒拉族自治县6.2级地震已造成当地113人遇难，536人受伤，房屋损毁155393间。</p>
+                            <p>截至19日16时50分，地震累计造成青海海东市212人伤亡（死亡14人、受伤198人）。</p>
+                            <img src="./img/item_jishishan.jpg" alt="">
+                            <img src="./img/item_jishishan2.jpg" alt="">
+                            <img src="./img/item_jishishan3.jpg" alt="">
+                            <img src="./img/item_jishishan4.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="left">
+                        <icon class="icon">☆</icon>
+                    </div>
+                    <div class="right">
+                        <h4>My sister got married.<span class="itemTime">2023年12月25日</span></h4>
+                        <div class="content">
+                            <p></p>
+                            <img src="./img/married (1).jpg" alt="">
+                            <!-- <img src="./img/married (2).jpg" alt=""> -->
+                            <!-- <img src="./img/married (3).jpg" alt=""> -->
+                            <video src="./mp4/i4 (1).mp4" controls></video>
+                            <video src="./mp4/i4 (2).mp4" controls></video>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="left">
+                        <icon class="icon">☆</icon>
+                    </div>
+                    <div class="right">
+                        <h4>My sister got married.<span class="itemTime">2023年12月25日</span></h4>
+                        <div class="content">
+                            <p>
+                                2024年啦，大家新年快乐🏮🧨🎉🎇🏮🧧💰，浅更新一波
+                                <a href="#v3.9.3">[v3.9.3]</a>
+                                <br />
+                                记得要吃饺子🥟🥟🥟。😋
+                                <br />
+                                (又将是获得快乐和解决困难的一年)
+                                <br />
+                                🐇年快乐，各位👯‍♂️👯‍♀️
+                                <br />
+                                加油！！你可以的！
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="left">
+                        <icon class="icon">☆</icon>
+                    </div>
+                    <div class="right">
+                        <h4>甘肃省博<span class="itemTime">2024年04月14日</span></h4>
+                        <div class="content">
+                            <img src="./img/item_6 (1).jpg" alt="">
+                            <img src="./img/item_6 (2).jpg" alt="">
+                            <img src="./img/item_6 (3).jpg" alt="">
+                            <img src="./img/item_6 (4).jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <!-- itemOther -->
+            </div>
+            <!-- 历史更新 -->
+            <h3 id="更新日志">. 更新日志 .</h3>
+            <div class="timeline">
+                <div class="item">
+                    <div class="left">
+                        <icon class="icon">𝕶</icon>
+                    </div>
+                    <div class="right">
+                        <h4>v1.0<span class="itemTime"></span></h4>
+                        <div class="content">
+                            <ol>
+                                <li>上传基本网站，第一版[无备份]</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <!-- itemTWo -->
+                <div class="item">
+                    <div class="left">
+                        <icon class="icon">𝕶</icon>
+                    </div>
+                    <div class="right">
+                        <h4>v2.0<span class="itemTime"></span></h4>
+                        <div class="content">
+                            <ol>
+                                <li>整体UI优化</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="left">
+                        <icon class="icon">𝕶</icon>
+                    </div>
+                    <div class="right">
+                        <h4>v2.3<span class="itemTime"></span></h4>
+                        <div class="content">
+                            <ol>
+                                <li>上传轮播图</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="left">
+                        <icon class="icon">𝕶</icon>
+                    </div>
+                    <div class="right">
+                        <h4>v2.4.0<span class="itemTime"></span></h4>
+                        <div class="content">
+                            <ol>
+                                <li>鼠标点击页面弹出文字</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="left">
+                        <icon class="icon">𝕶</icon>
+                    </div>
+                    <div class="right">
+                        <h4>v2.4.1<span class="itemTime"></span></h4>
+                        <div class="content">
+                            <ol>
+                                <li>鼠标划入导航放大效果</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="left">
+                        <icon class="icon">𝕶</icon>
+                    </div>
+                    <div class="right">
+                        <h4>v2.4.2<span class="itemTime"></span></h4>
+                        <div class="content">
+                            <ol>
+                                <li>整体界面优化、加入温馨提示</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="left">
+                        <icon class="icon">𝕶</icon>
+                    </div>
+                    <div class="right">
+                        <h4>v2.5<span class="itemTime"></span></h4>
+                        <div class="content">
+                            <ol>
+                                <li>main内容区优化，并为最后一块内容加上语录</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="left">
+                        <icon class="icon">𝕶</icon>
+                    </div>
+                    <div class="right">
+                        <h4>v2.6<span class="itemTime"></span></h4>
+                        <div class="content">
+                            <ol>
+                                <li>增加小灰机[至4.0版本已移除]</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="left">
+                        <icon class="icon">𝕶</icon>
+                    </div>
+                    <div class="right">
+                        <h4>v2.7<span class="itemTime"></span></h4>
+                        <div class="content">
+                            <ol>
+                                <li>增加联系我功能，优化小飞机Bug上传基本网站[无备份]上传基本网站[无备份]</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="left">
+                        <icon class="icon">𝕶</icon>
+                    </div>
+                    <div class="right">
+                        <h4>v2.7.1<span class="itemTime"></span></h4>
+                        <div class="content">
+                            <ol>
+                                <li>网页窗口宽度大于600像素时，网页部分控件修改</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="left">
+                        <icon class="icon">𝕶</icon>
+                    </div>
+                    <div class="right">
+                        <h4>v2.8<span class="itemTime"></span></h4>
+                        <div class="content">
+                            <ol>
+                                <li>添加必应搜索功能</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="left">
+                        <icon class="icon">𝕶</icon>
+                    </div>
+                    <div class="right">
+                        <h4>v2.8.1<span class="itemTime"></span></h4>
+                        <div class="content">
+                            <ol>
+                                <li>小灰机修改，随时间渐变小飞机</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="left">
+                        <icon class="icon">𝕶</icon>
+                    </div>
+                    <div class="right">
+                        <h4>v2.9<span class="itemTime"></span></h4>
+                        <div class="content">
+                            <ol>
+                                <li>404页面配置</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="left">
+                        <icon class="icon">𝕶</icon>
+                    </div>
+                    <div class="right">
+                        <h4>v2.10<span class="itemTime"></span></h4>
+                        <div class="content">
+                            <ol>
+                                <li>页面背景音乐（目前设置了十首音乐且随机播放）</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="left">
+                        <icon class="icon">𝕶</icon>
+                    </div>
+                    <div class="right">
+                        <h4>v2.10.1<span class="itemTime"></span></h4>
+                        <div class="content">
+                            <ol>
+                                <li>背景音乐bug修复，打算为控制台增加小惊喜</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="left">
+                        <icon class="icon">𝕶</icon>
+                    </div>
+                    <div class="right">
+                        <h4>v2.10.2<span class="itemTime"></span></h4>
+                        <div class="content">
+                            <ol>
+                                <li>音乐播放完毕事件，音乐标签设置到行内</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="left">
+                        <icon class="icon">𝕶</icon>
+                    </div>
+                    <div class="right">
+                        <h4>v2.11<span class="itemTime"></span></h4>
+                        <div class="content">
+                            <ol>
+                                <li>增加软件/好文推荐，界面美化，音乐整体优化，增加控制按钮，图片压缩加快页面加载速度</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="left">
+                        <icon class="icon">𝕶</icon>
+                    </div>
+                    <div class="right">
+                        <h4>v2.11.1<span class="itemTime"></span></h4>
+                        <div class="content">
+                            <ol>
+                                <li>增加前端学习路线、离开页面标题改变</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="left">
+                        <icon class="icon">𝕶</icon>
+                    </div>
+                    <div class="right">
+                        <h4>v3.2<span class="itemTime"></span></h4>
+                        <div class="content">
+                            <ol>
+                                <li>切换音乐路径，音乐文件上传至七牛云</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="left">
+                        <icon class="icon">𝕶</icon>
+                    </div>
+                    <div class="right">
+                        <h4>v3.3<span class="itemTime"></span></h4>
+                        <div class="content">
+                            <ol>
+                                <li>注释保留</li>
+                                <li>备份版本</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="left">
+                        <icon class="icon">𝕶</icon>
+                    </div>
+                    <div class="right">
+                        <h4>v3.4<span class="itemTime">2023/02/15 17:00</span></h4>
+                        <div class="content">
+                            <ol>
+                                <li>更新readme.md文件</li>
+                                <li>去掉大部分注释代码</li>
+                                <li>移除width&lt;850px时的动画</li>
+                                <li>
+                                    uniCloud收费，以下功能已失效移除：
+                                    <br />
+                                    ①恋爱记
+                                    <br />
+                                    ②同学录
+                                    <br />
+                                    ③留言板1
+                                    <br />
+                                    ④留言板2
+                                </li>
+                                <li>因音乐封面修改从api获取有延迟，封面更新速度有所下降</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="left">
+                        <icon class="icon">𝕶</icon>
+                    </div>
+                    <div class="right">
+                        <h4>v3.5<span class="itemTime">2023/02/22 23:00</span></h4>
+                        <div class="content">
+                            <ol>
+                                <li>增加音乐列表粘性定位</li>
+                                <li>增加歌词（api经常不好，所以大多数时间都是没有歌词的）</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="left">
+                        <icon class="icon">𝕶</icon>
+                    </div>
+                    <div class="right">
+                        <h4>v3.5.1<span class="itemTime">2023/04/26</span></h4>
+                        <div class="content">
+                            <ol>
+                                同下
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="left">
+                        <icon class="icon">𝕶</icon>
+                    </div>
+                    <div class="right">
+                        <h4>v3.5.2<span class="itemTime">2023/04/27</span></h4>
+                        <div class="content">
+                            <ol>
+                                <li>更新音乐路径不再从七牛云获取</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="left">
+                        <icon class="icon">𝕶</icon>
+                    </div>
+                    <div class="right">
+                        <h4>v3.5.3<span class="itemTime">2023/05/11</span></h4>
+                        <div class="content">
+                            <ol>
+                                <li>代码优化，切换音乐歌词位置调整</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="left">
+                        <icon class="icon">𝕶</icon>
+                    </div>
+                    <div class="right">
+                        <h4>v3.6<span class="itemTime">2023/07/27</span></h4>
+                        <div class="content">
+                            <ol>
+                                <li>歌词重构</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="left">
+                        <icon class="icon">𝕶</icon>
+                    </div>
+                    <div class="right">
+                        <h4>v3.6.1<span class="itemTime">2023/08/06</span></h4>
+                        <div class="content">
+                            <ol>
+                                <li>歌词优化</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="left">
+                        <icon class="icon">𝕶</icon>
+                    </div>
+                    <div class="right">
+                        <h4>v3.7<span class="itemTime">2023/08/20</span></h4>
+                        <div class="content">
+                            <ol>
+                                <li>歌词获取调整，改用GitHub仓库获取</li>
+                                <li>优化网页加载速度</li>
+                                <li>nav icon更新</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="left">
+                        <icon class="icon">𝕶</icon>
+                    </div>
+                    <div class="right">
+                        <h4>v3.7.1<span class="itemTime">2023/08/25</span></h4>
+                        <div class="content">
+                            <ol>
+                                <li>歌词bug优化</li>
+                                <li>后续将增加歌词</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="left">
+                        <icon class="icon">𝕶</icon>
+                    </div>
+                    <div class="right">
+                        <h4>v3.8<span class="itemTime">2023/09/06</span></h4>
+                        <div class="content">
+                            <ol>
+                                <li>加入秒针声音控制，使用“sa_paused”变量控制秒针声音的开启和关闭，值为“true”、“false”</li>
+                                <li>歌词列表最大化</li>
+                                <li>正在播放的音乐在歌词列表特别显示</li>
+                                <li>更新了列表点击后如果音乐是暂停状态先播放再弹窗提示，否则暂停播放音乐</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="left">
+                        <icon class="icon">𝕶</icon>
+                    </div>
+                    <div class="right">
+                        <h4>v3.8.1<span class="itemTime">2023/12/03</span></h4>
+                        <div class="content">
+                            <ol>
+                                <li>更新了留言和音乐列表</li>
+                                <ol type="a">
+                                    <li>留言增加100多条</li>
+                                    <li>音乐增加至110首</li>
+                                </ol>
+                                <li>加入PWA</li>
+                                <li>增加监听a标签点击后如果音乐播放状态就在新标签页打开这个链接</li>
+                                <li>音乐lrc优化，增加变量urlIng为window.location.host，并从获取到的当前网址去获取lrc</li>
+                                <li>歌词滚动原本transform替换为scroll，并增加onmouse事件增加体验</li>
+                                <li>给所有元素都增加scroll-behavior: smooth;使得锚点跳转时和滚动条滚动时会有一个过渡动画，不那么生硬</li>
+                                <li>增加点击歌词的length的span标签后定位到当前播放的音乐列表</li>
+                                <li>img增加loading属性懒加载优化性能</li>
+                                <li>适当调整图片大小，节省移动数据网络流量并缩短加载用时</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="left">
+                        <icon class="icon">𝕶</icon>
+                    </div>
+                    <div class="right">
+                        <h4>v3.9<span class="itemTime">2023/12/10</span></h4>
+                        <div class="content">
+                            <ol>
+                                <li>首页底部页面跳转优化</li>
+                                <li>页面内容更新</li>
+                                <li>秒针声音与歌曲声音冲突bug优化</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="left">
+                        <icon class="icon">𝕶</icon>
+                    </div>
+                    <div class="right">
+                        <h4>v3.9.1<span class="itemTime">2023.12.23</span></h4>
+                        <div class="content">
+                            <ol>
+                                <li>使用dialog来展示最大化窗口，在audio.js更新代码会再次去更新dialog里的代码，在最大化时等于执行时歌词更新了两遍，但使用体验优化</li>
+                                <li>
+                                    <strong class="Ttime">[12.20D]</strong>
+                                    <ul>
+                                        <li>增加加载动画<strong class="Ttime">[13:24M]</strong></li>
+                                        <li>去掉首页css用不到的字体图标加载，提升网页加载速度。<strong class="Ttime">[17:51M]</strong></li>
+                                    </ul>
+                                </li>
+                                <li><strong class="Ttime">[12.21D EVEN]</strong>增加navigator.mediaSession耳机按钮事件 [实验性功能、跟浏览器和不同耳机都会影响使用]</li>
+                                <li><strong class="Ttime">[12.21D EVEN]</strong>去掉dialog在focus-visible状态下outline有边框线问题</li>
+                                <li><strong class="Ttime">[12.23D 10.00M]</strong>移除搜索框autofocus功能，避免影响音乐的快捷键</li>
+                                <li><strong class="Ttime">[12.23D 10.10M]</strong>搜索框快捷键 [ Alt + K ]</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="left">
+                        <icon class="icon">𝕶</icon>
+                    </div>
+                    <div class="right">
+                        <h4 id="v3.9.3">v3.9.3<span class="itemTime">2024.01.03</span></h4>
+                        <div class="content">
+                            <ol>
+                                <li><strong class="Ttime">[01.03D 00.24M]</strong>dialog歌词使用体验优化</li>
+                                <li><strong class="Ttime">[01.03D 13.44M]</strong>dogLrc歌词滚动效果</li>
+                                <li><strong class="Ttime">[01.03D 13.44M]</strong>audio.js使用mediaSession API设置耳机控制音乐事件 [Chrome for Android And Safari for iOS 提供了 navigator.mediaSession API，可以用来监听耳机按钮事件。与使用的设备也有关系，某些设备可能无法正常使用]</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="left">
+                        <icon class="icon">𝕶</icon>
+                    </div>
+                    <div class="right">
+                        <h4>v4.0.0<span class="itemTime">2024.01.03~2024.3.17</span></h4>
+                        <div class="content">
+                            <ol>
+                                <li><strong class="Ttime">[03.14D]</strong>最近几个月跟新了好多东西，没保存重装系统东西都没了，哎</li>
+                                <li><strong class="Ttime">[2024/3/17 23:20]</strong>虽然说呢最近几个月更新的东西没了，但至少这个还在吧，为了更好的维护发展，决定对项目再去确定一下页面、主题等的一些基本的信息，确定好思路再做项目，不然总是做着做着没思路，增加制作、维护成本</li>
+                                <li><strong class="Ttime">[2024/3/23 15:06]</strong>历时两天半，Lrc歌词制作工具也是简单上线了哈。</li>
+                                <li><strong class="Ttime">[2024/3/25 01:31]</strong>Lrc歌词制作工具简单优化了一下下。</li>
+                                <li><strong class="Ttime">[2024/3/25 23:57]</strong>侧边第二块导航链接移除，移动到header头部</li>
+                                <li><strong class="Ttime">[2024/4/01 12:39]</strong>歌词制作bug优化、4.0上线</li>
+                                <li><strong class="Ttime">[2024/4/13 12:34]</strong>audio.js列表更新优化使用分时函数</li>
+                                <li><strong class="Ttime">[2024/4/13 xx:xx]</strong>dialog性能优化</li>
+                                <li><strong class="Ttime">[2024/4/16 00:14]</strong>yiYan.js内容更新</li>
+                                <li><strong class="Ttime">[2024/4/17 13:09]</strong>index.html:footer界面优化</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="left">
+                        <icon class="icon">𝕶</icon>
+                    </div>
+                    <div class="right">
+                        <h4>v4.0.1<span class="itemTime">2024.04.19~2024.04.26</span></h4>
+                        <div class="content">
+                            <ol>
+                                <li><strong class="Ttime">[2024/4/19 19:34] and [2024/4/23 15:42]</strong>css手机端优化</li>
+                                <li><strong class="Ttime">[2024/4/26 16:23]</strong>soSuoItem.js 针对中文输入法导致高频事件触发优化</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="left">
+                        <icon class="icon">𝕶</icon>
+                    </div>
+                    <div class="right">
+                        <h4>v4.2.0<span class="itemTime">2024.05.1 And 14</span></h4>
+                        <div class="content">
+                            <ol>
+                                <li><strong class="Ttime">[2024/5/01 00:56]</strong>audio.js setOffset的是否有歌词使用惰性函数，只在音乐改变后进行一次判断是否有歌词，而不需要每运行一次setOffset都去判断，有一定优化作用。</li>
+                                <li><strong class="Ttime">[2024/5/14 12:11]</strong>更新了 Q爱记影院</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="left">
+                        <icon class="icon">𝕶</icon>
+                    </div>
+                    <div class="right">
+                        <h4>v4.2.5<span class="itemTime">2024.06.01</span></h4>
+                        <div class="content">
+                            <ol>
+                                <li><strong class="Ttime">[2024/5/22 14:07]</strong>设置音乐播放时间，在下次打开页面后自动跳转到上次播放位置。</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="left">
+                        <icon class="icon">𝕶</icon>
+                    </div>
+                    <div class="right">
+                        <h4>v4.2.6<span class="itemTime">2024.06.08</span></h4>
+                        <div class="content">
+                            <ol>
+                                <li><strong class="Ttime">[2024/6/7]</strong>音乐列表、图片等更新。</li>
+                                <li><strong class="Ttime">[2024/6/8 18:43]</strong>Lrc歌词制作体验优化。</li>
+                                <li><strong class="Ttime">[2024/6/8 19:46]</strong>更新了一些失效的音乐</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="left">
+                        <icon class="icon">𝕶</icon>
+                    </div>
+                    <div class="right">
+                        <h4>v4.2.7<span class="itemTime">2024.06.18</span></h4>
+                        <div class="content">
+                            <ol>
+                                <li><strong class="Ttime">[2024/06/16]</strong>影院页面优化</li>
+                                <li><strong class="Ttime">[2024/06/18]</strong>音乐更新。</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <!-- lastItem -->
+                <div class="item" id="接下来更新日志">
+                    <div class="left">
+                        <icon class="icon">𝕹</icon>
+                    </div>
+                    <div class="right">
+                        <h4>Next version<span class="itemTime">Time</span></h4>
+                        <div class="content">
+                            <ol>
+                                <li>目前浏览器还没有对应的耳机是否连接的标准API，所以暂时没有实现耳机连接断开事件</li>
+                                <li>预计后续会增加论坛、同源标签页互通、muted视频静音播放（包括其它页面）等功能</li>
+                                <li>
+                                    无障碍
+                                    <ul>
+                                        <li>
+                                            对比度
+                                            <ul>
+                                                <li>低明度(灰色)</li>
+                                                <li>色彩搭配-黑色和红色，黑色和蓝色，黄色和绿色 - 都会使人产生视觉疲劳</li>
+                                            </ul>
+                                        </li>
+                                        <li>文字间距</li>
+                                        <li>文字行距</li>
+                                        <li>
+                                            避免花哨的字体
+                                            <ul>
+                                                <li>过小字体</li>
+                                                <li>难以识别的字体</li>
+                                            </ul>
+                                        </li>
+                                        <li>尽量少用斜体</li>
+                                    </ul>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <footer>
+            Copyright © qAiJi
+            <br />
+            备案是不阔能备案滴
+        </footer>
+    </body>
+</html>
