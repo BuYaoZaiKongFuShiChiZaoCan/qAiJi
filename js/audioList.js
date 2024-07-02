@@ -146,7 +146,7 @@ if (urlIng == 'buyaozaikongfushichizaocan.github.io') {
     urlIng = 'https://buyaozaikongfushichizaocan.github.io/qAiJi';
 } else if (urlIng == 'qaiji.gitee.io') {
     urlIng = 'https://qaiji.gitee.io/';
-} else if (urlIng.startsWith("http")) {// 判断字符串开头
+} else if (window.location.href.startsWith("http")) {// 判断字符串开头
     // urlIng = urlIng.replace("http", "https");
     urlIng = window.location.href;
 } else if (urlIng.match('127.0.0.1') || urlIng.match('192.168.0.1') || urlIng.match('localhost')) {
