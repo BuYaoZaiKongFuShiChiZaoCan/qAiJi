@@ -141,17 +141,20 @@ let songs = [
 // 获取一下当前网址，好从当前网址获取lrc文件    应用于getLrc()和songs[]的音乐列表
 let urlIng = window.location.host;
 let localhostTion = false;
-console.log(urlIng);
+// console.log(urlIng);
 if (urlIng == 'buyaozaikongfushichizaocan.github.io') {
     urlIng = 'https://buyaozaikongfushichizaocan.github.io/qAiJi';
 } else if (urlIng == 'qaiji.gitee.io') {
     urlIng = 'https://qaiji.gitee.io/';
+} else if (urlIng.startsWith("http")) {// 判断字符串开头
+    // urlIng = urlIng.replace("http", "https");
+    urlIng = window.location.href;
 } else if (urlIng.match('127.0.0.1') || urlIng.match('192.168.0.1') || urlIng.match('localhost')) {
     urlIng = '';
     localhostTion = true;
 } else {
     localhostTion = true;
-    console.log('当前url为file://网址，非http,https网址');
+    console.log('当前url非http,https网址，可能为为file:// 。 歌词加载受限。');
 }
 
 // bak.music
