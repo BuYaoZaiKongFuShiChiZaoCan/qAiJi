@@ -1,0 +1,20 @@
+{
+    "short_name": "Q爱记",
+    "name": "Q爱记-官网",
+    "lang": "zh_CN",
+    "description": "Q爱记，一个平台",
+    "start_url": "/",
+    "background_color": "#00AAE7",
+    "theme_color": "#00AAE7",
+    "dir": "auto",
+    "display": "standalone",
+    "orientation": "any",
+    "icons": [
+        {
+            "src": "/images/logo.png",
+            "type": "image/png",
+            "sizes": "512x512",
+            "purpose": "any maskable"
+        }
+    ]
+}
