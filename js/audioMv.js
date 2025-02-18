@@ -111,9 +111,8 @@ let mvList = [
     {
         id: "说散就散-袁娅维TIA RAY",
         title: '《前任3：再见前任》电影插曲 《说散就散》',
-        srcLocalhost: '../music/mv/说散就散-袁娅维TIA RAY.mp4',
-        srcLocalhost2: '../music/mv/说散就散-袁娅维.mp4',
-        srcNetwork: null,
+        srcLocalhost: '../music/mv/说散就散-袁娅维.mp4',
+        srcNetwork: "https://music.163.com/#/mv?id=5741462",
         poster: null,
         desc: '袁娅维献声电影《前任3：再见前任》「灵魂新锋」TIA袁娅维再度为爱献声，剖心演绎最催人泪下版《说散就散》。电影「前任3：再见前任」主题曲《说散就散》洒脱上线'
     }

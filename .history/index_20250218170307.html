@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1 -->
+        <meta http-equiv='content-language' content='zh-CN'>
+        <meta name="theme-color" content="#ECF4FF" /><!-- 设置WPA需要设置地址栏主题色 -->
+        <title>Q爱记-官网</title>
+        <!-- loading加载 -->
+        <script>
+            // 刚进入页面[DOM加载完毕后执行的事件]
+            document.addEventListener('DOMContentLoaded', function (event) {
+                // 在DOM加载完成后执行的操作
+            });
+            // 页面及其依赖资源加载完成
+            window.addEventListener('load', function (event) {
+                offLoad();
+            });
+            setTimeout(() => {
+                offLoad();
+            }, 8000);
+            function offLoad() {
+                document.querySelector('.loader-body').style.opacity = 0;
+                document.querySelector('.loader-body').style.filter = `blur(10px)`;
+                if (window.CSS.supports("--loader-soucer", 0)) {
+                    setTimeout(() => {
+                        document.querySelector('.loader-body').style.display = 'none';
+                    }, parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--loader-soucer').trim()));
+                } else {
+                    setTimeout(() => {
+                        document.querySelector('.loader-body').style.display = 'none';
+                    }, 1500);
+                }
+            }
+        </script>
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/font-awesome_5.10.2_css_all.min.css">
+        <!-- 加载动画 -->
+        <style>
+            .loader-body * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            .loader-body {
+                height: 100vh;
+                font-size: 28px;
+                background-color: #000;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 999;
+                opacity: 1;
+                filter: blur(0);
+                transition: all var(--loader-soucer);
+            }
+
+            .loader {
+                color: aqua;
+                width: 500px;
+                height: 500px;
+                /* 弹性布局 居中 */
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                /* 垂直排列 */
+                flex-direction: column;
+                /* 绑定动画：动画名 时长 线性 无限播放 */
+                animation: tiltSpin 8s linear infinite;
+            }
+
+            .loader,
+            .loader-ring {
+                /* 开启3D */
+                transform-style: preserve-3d;
+            }
+
+            .loader-ring {
+                font-size: 56px;
+                position: relative;
+                width: 42px;
+                height: 84px;
+                /* 绑定动画 */
+                animation: spin 4s linear infinite;
+            }
+
+            /* 第二个环 */
+            .loader-ring:nth-child(2) {
+                /* 反向动画 */
+                animation-direction: reverse;
+            }
+
+            .loader-sector {
+                font-weight: 600;
+                /* 转大写 */
+                text-transform: uppercase;
+                /* 绝对定位 */
+                position: absolute;
+                top: 0;
+                left: 0;
+                text-align: center;
+                transform: translateZ(200px);
+            }
+
+            .loader-sector,
+            .loader-sector:empty::before {
+                display: inline-block;
+                width: 100%;
+                height: 100%;
+            }
+
+            /* 画线段 */
+            .loader-sector:empty::before {
+                content: '';
+                background: linear-gradient(transparent 45%, currentColor 45% 50%, transparent 55%);
+            }
+
+            /* 分别为每个div设置旋转角度和Z轴偏移量 */
+            .loader-sector:nth-child(2) {
+                transform: rotateY(12deg) translateZ(200px);
+            }
+
+            .loader-sector:nth-child(3) {
+                transform: rotateY(24deg) translateZ(200px);
+            }
+
+            .loader-sector:nth-child(4) {
+                transform: rotateY(36deg) translateZ(200px);
+            }
+
+            .loader-sector:nth-child(5) {
+                transform: rotateY(48deg) translateZ(200px);
+            }
+
+            .loader-sector:nth-child(6) {
+                transform: rotateY(60deg) translateZ(200px);
+            }
+
+            .loader-sector:nth-child(7) {
+                transform: rotateY(72deg) translateZ(200px);
+            }
+
+            .loader-sector:nth-child(8) {
+                transform: rotateY(84deg) translateZ(200px);
+            }
+
+            .loader-sector:nth-child(9) {
+                transform: rotateY(96deg) translateZ(200px);
+            }
+
+            .loader-sector:nth-child(10) {
+                transform: rotateY(108deg) translateZ(200px);
+            }
+
+            .loader-sector:nth-child(11) {
+                transform: rotateY(120deg) translateZ(200px);
+            }
+
+            .loader-sector:nth-child(12) {
+                transform: rotateY(132deg) translateZ(200px);
+            }
+
+            .loader-sector:nth-child(13) {
+                transform: rotateY(144deg) translateZ(200px);
+            }
+
+            .loader-sector:nth-child(14) {
+                transform: rotateY(156deg) translateZ(200px);
+            }
+
+            .loader-sector:nth-child(15) {
+                transform: rotateY(168deg) translateZ(200px);
+            }
+
+            .loader-sector:nth-child(16) {
+                transform: rotateY(180deg) translateZ(200px);
+            }
+
+            .loader-sector:nth-child(17) {
+                transform: rotateY(192deg) translateZ(200px);
+            }
+
+            .loader-sector:nth-child(18) {
+                transform: rotateY(204deg) translateZ(200px);
+            }
+
+            .loader-sector:nth-child(19) {
+                transform: rotateY(216deg) translateZ(200px);
+            }
+
+            .loader-sector:nth-child(20) {
+                transform: rotateY(228deg) translateZ(200px);
+            }
+
+            .loader-sector:nth-child(21) {
+                transform: rotateY(240deg) translateZ(200px);
+            }
+
+            .loader-sector:nth-child(22) {
+                transform: rotateY(252deg) translateZ(200px);
+            }
+
+            .loader-sector:nth-child(23) {
+                transform: rotateY(264deg) translateZ(200px);
+            }
+
+            .loader-sector:nth-child(24) {
+                transform: rotateY(276deg) translateZ(200px);
+            }
+
+            .loader-sector:nth-child(25) {
+                transform: rotateY(288deg) translateZ(200px);
+            }
+
+            .loader-sector:nth-child(26) {
+                transform: rotateY(300deg) translateZ(200px);
+            }
+
+            .loader-sector:nth-child(27) {
+                transform: rotateY(312deg) translateZ(200px);
+            }
+
+            .loader-sector:nth-child(28) {
+                transform: rotateY(324deg) translateZ(200px);
+            }
+
+            .loader-sector:nth-child(29) {
+                transform: rotateY(336deg) translateZ(200px);
+            }
+
+            .loader-sector:nth-child(30) {
+                transform: rotateY(348deg) translateZ(200px);
+            }
+
+            /* 定义动画 */
+            /* 倾斜旋转动画 */
+            @keyframes tiltSpin {
+                from {
+                    transform: rotateY(0) rotateX(30deg);
+                }
+
+                to {
+                    transform: rotateY(1turn) rotateX(30deg);
+                }
+            }
+
+            /* 旋转动画 */
+            @keyframes spin {
+                from {
+                    transform: rotateY(0);
+                }
+
+                to {
+                    transform: rotateY(1turn);
+                }
+            }
+        </style>
+        <link rel="stylesheet" href="./css/max.css">
+        <link rel="stylesheet" href="./css/mediaKeyframes.css">
+        <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+        <!-- 字体图标 -->
+        <script src="./font/icon_font/iconfont.js">/* 阿里 */</script>
+        <!-- SEO开始 -->
+        <meta name="robots" content="All">
+        <meta name="author" content="Q爱记 祁富强">
+        <meta name="generator" content="Me">
+        <meta name="expires" content="2023">
+        <meta name="designer" content="sPro">
+        <meta name="og:title" content="Q爱记 祁富强">
+        <meta name="language" content="zh-CN">
+        <meta name="publisher" content="Q爱记 祁富强">
+        <meta name="title" content="Q爱记 祁富强-官网">
+        <meta name="copyright" content="qAiJi.com">
+        <meta property="og:image" content="./images/logo.png">
+        <meta name="description" content="专注于资源、笔记分享，Re01精品，Q愛记 愛 Q爱记 祁富强 官网 笔记 下载 download 资源  分享 sPro 音乐 一言">
+        <meta name="keywords" content="Q爱记 Q愛记 祁富强 官网 笔记 下载 download 资源  分享 sPro 音乐 一言">
+        <!-- SEO结束 -->
+        <!-- PWA开始 -->
+        <link rel="manifest" href="./js/manifest.json"><!-- manifest清单、告诉浏览器安装一些应用信息 -->
+        <!-- PWA结束 -->
+    </head>
+    <body><!-- oncontextmenu="return false" onselect="return false"禁用鼠标右键 -->
+        <div class="loader-body">
+            <div class="loader">
+                <div class="loader-ring">
+                    <div class="loader-sector">Q</div>
+                    <div class="loader-sector">爱</div>
+                    <div class="loader-sector">记</div>
+                    <div class="loader-sector"> </div>
+                    <div class="loader-sector">加</div>
+                    <div class="loader-sector">载</div>
+                    <div class="loader-sector">中</div>
+                    <div class="loader-sector">.</div>
+                    <div class="loader-sector">.</div>
+                    <div class="loader-sector">.</div>
+                    <div class="loader-sector"></div>
+                    <div class="loader-sector"></div>
+                    <div class="loader-sector"></div>
+                    <div class="loader-sector"></div>
+                    <div class="loader-sector"></div>
+                    <div class="loader-sector"></div>
+                    <div class="loader-sector"></div>
+                    <div class="loader-sector"></div>
+                    <div class="loader-sector"></div>
+                    <div class="loader-sector"></div>
+                    <div class="loader-sector"></div>
+                    <div class="loader-sector"></div>
+                    <div class="loader-sector"></div>
+                    <div class="loader-sector"></div>
+                    <div class="loader-sector"></div>
+                    <div class="loader-sector"></div>
+                    <div class="loader-sector"></div>
+                    <div class="loader-sector"></div>
+                    <div class="loader-sector"></div>
+                    <div class="loader-sector"></div>
+                </div>
+                <div class="loader-ring">
+                    <div class="loader-sector">l</div>
+                    <div class="loader-sector">o</div>
+                    <div class="loader-sector">a</div>
+                    <div class="loader-sector">d</div>
+                    <div class="loader-sector">i</div>
+                    <div class="loader-sector">n</div>
+                    <div class="loader-sector">g</div>
+                    <div class="loader-sector">.</div>
+                    <div class="loader-sector">.</div>
+                    <div class="loader-sector">.</div>
+                    <div class="loader-sector"></div>
+                    <div class="loader-sector"></div>
+                    <div class="loader-sector"></div>
+                    <div class="loader-sector"></div>
+                    <div class="loader-sector"></div>
+                    <div class="loader-sector"></div>
+                    <div class="loader-sector"></div>
+                    <div class="loader-sector"></div>
+                    <div class="loader-sector"></div>
+                    <div class="loader-sector"></div>
+                    <div class="loader-sector"></div>
+                    <div class="loader-sector"></div>
+                    <div class="loader-sector"></div>
+                    <div class="loader-sector"></div>
+                    <div class="loader-sector"></div>
+                    <div class="loader-sector"></div>
+                    <div class="loader-sector"></div>
+                    <div class="loader-sector"></div>
+                    <div class="loader-sector"></div>
+                    <div class="loader-sector"></div>
+                </div>
+            </div>
+        </div>
+        <!-- 头部 -->
+        <header id="header">
+            <div id="spsjhb" onclick="headers()">
+                <span></span><span></span><span></span>
+            </div>
+            <div id="spsjhbtwo">
+                <img src="./images/logo.png" alt="" />
+                <span>Q愛记</span>
+            </div>
+            <script>
+                let ran;
+                let one = document.getElementById('spsjhb').style;
+                let two = document.getElementById('spsjhbtwo').style;
+
+                function os() {
+                    // 取可见宽度
+                    let kjwidth = document.documentElement.clientWidth;
+                    // 窗口大于600像素时
+                    if (kjwidth > 600) {
+                        one.display = 'none'
+                        two.display = 'flex'
+                    } else {
+                        one.display = 'flex'
+                        two.display = 'none'
+                    }
+                }
+
+                // 窗口大小改变
+                window.onresize = function () {
+                    clearTimeout(ran);
+                    ran = setTimeout(os, 200); // 延迟执行os函数，减少频繁调用
+                    // os() 不直接调用减少频繁调用
+                }
+
+                os(); // 初始化调用一次os函数
+            </script>
+            <nav>
+                <ul>
+                    <li>
+                        <span>实时信息 资讯</span>
+                        <div class="list">
+                            <dl>
+                                <dt>
+                                    <div class="title">1</div>
+                                    <div class="content"></div>
+                                </dt>
+                                <dt>
+                                    <div class="title">导航</div>
+                                    <div class="content">
+                                        <span>1</span>
+                                        <span>2</span>
+                                    </div>
+                                </dt>
+                            </dl>
+                        </div>
+                    </li><!-- 实时资讯End 一般就是一些文章一般资讯都是有时间期限的，比如短期类的近期热榜、稍微长一点的、更长期的游戏的玩法信息一般在软件教程但如果在这里出现有效期应该和游戏挂钩、对于永久性的等等可能需要手动去过期。以及真实性、来源。灵活性 -->
+                    <li>
+                        <span>知识 技能学习</span>
+                        <div class="list">
+                            <dl>
+                                <dt>
+                                    <div class="title">教程</div>
+                                    <div class="content">
+                                        <span>
+                                            <a href="./biJI/摆钟的工作原理.mhtml" target="_blank">摆钟的工作原理</a>
+                                        </span>
+                                        <span>
+                                            <a href="https://www.51zxw.net/Show.aspx?cid=729&id=78077" target="_blank">Adobe PR教学</a>
+                                        </span>
+                                        <span>
+                                            <a href="./biJI/C盘全面清理教程！彻底清理所有垃圾！.mhtml" target="_blank">C盘全面清理教程！彻底清理所有垃圾！</a>
+                                        </span>
+                                    </div>
+                                </dt>
+                                <dt>
+                                    <div class="title">知识概念</div>
+                                    <div class="content">
+                                        <span>Null</span>
+                                    </div>
+                                </dt>
+                            </dl>
+                        </div>
+                    </li><!-- 概念、教程文章End -->
+                    <li>
+                        <span>实用工具 软件</span>
+                        <div class="list">
+                            <dl>
+                                <dt>
+                                    <div class="title">官方工具</div>
+                                    <div class="content">
+                                        <a href="./pages/影院/index.html">观影院</a>
+                                        <a href="./pages/Lrc歌词制作/Lrc歌词制作.html">Lrc歌词制作</a>
+                                        <a href="http://lriswww.gitee.io/l-ai-ji/">简爱</a>
+                                        <a href="http://qaiji.gitee.io/school-yearbook/">同学录</a>
+                                        <a href="./pages/视频解析.html">视频解析</a>
+                                        <a href="./pages/HTML样式生成器.html">HTML样式生成器（开发中）</a>
+                                        <a href="JavaScript:;">[拍摄]证件照</a>
+                                        <a href="JavaScript:;">音频转文字（开发中）</a>
+                                        <a href="JavaScript:;">音乐解密</a>
+                                        <a href="JavaScript:;">[图片类]ICO制作</a>
+                                        <a href="JavaScript:;">[图片类]图片压缩</a>
+                                        <a href="JavaScript:;">二维码/条码</a>
+                                        <a href="JavaScript:;">[文本类]中文简体繁体转换</a>
+                                    </div>
+                                </dt>
+                                <dt>
+                                    <div class="title">站外导航</div>
+                                    <div class="content">
+                                        <a href="https://www.redpandacompress.com/zh/">
+                                            <img src="./images/nav/Redpanda.ico">
+                                            Redpanda 视频压缩
+                                        </a>
+                                        <a href="https://online-video-cutter.com/">
+                                            <img src="./images/nav/apple-touch-icon.png" alt="">
+                                            Video Trimmer - 视频音频等文件在线编辑器
+                                        </a>
+                                        <a href="https://www.capcut.cn/">
+                                            <img src="./images/nav/剪映官网.ico" alt="">
+                                            剪映官网
+                                        </a>
+                                        <a href="https://tool.lu/">
+                                            <img src="./images/nav/在线工具-你的工具箱.ico" alt="" loading="lazy">
+                                            在线工具-你的工具箱
+                                        </a>
+                                        <a href="https://gitee.com/">
+                                            <img src="./images/nav/Gitee.ico" alt="" loading="lazy">
+                                            Gitee
+                                        </a>
+                                        <a href="https://github.com/">
+                                            <img src="./images/nav/GitHub.svg" alt="" loading="lazy">
+                                            GitHub
+                                        </a>
+                                        <a href="https://www.zhihu.com/">
+                                            <img src="./images/nav/知乎.ico" alt="" loading="lazy">
+                                            知乎
+                                        </a>
+                                        <a href="https://mail.163.com/">
+                                            <img src="./images/nav/163邮箱.ico" alt="" loading="lazy">
+                                            163邮箱
+                                        </a>
+                                        <a href="http://email.qq.com/">
+                                            <img src="./images/nav/QQ邮箱.png" alt="" loading="lazy">
+                                            QQ邮箱
+                                        </a>
+                                        <a href="https://www.midorg.com/">
+                                            <img src="./images/nav/元岛.ico" alt="" loading="lazy">
+                                            元岛
+                                        </a>
+                                        <a href="https://web.baimiaoapp.com/">
+                                            <img src="./images/nav/白猫.png" alt="" loading="lazy">
+                                            白猫在线识别
+                                        </a>
+                                        <a href="https://docs.qq.com/">
+                                            <img src="./images/nav/腾讯文档.ico" alt="" loading="lazy">
+                                            腾讯文档
+                                        </a>
+                                        <a href="https://tv.cctv.com/">
+                                            <img src="./images/nav/CCTV央视网.jpg" alt="" loading="lazy">
+                                            CCTV央视网
+                                        </a>
+                                        <a href="https://www.csdn.net/">
+                                            <img src="./images/nav/csdn.ico" alt="" loading="lazy">
+                                            CSDN
+                                        </a>
+                                        <a href="https://www.wetools.com/">
+                                            <img src="./images/nav/微工具.ico" alt="" loading="lazy">
+                                            微工具
+                                        </a>
+                                        <a href="https://www.iqiyi.com/">
+                                            <img src="./images/nav/爱奇艺.ico" alt="" loading="lazy">
+                                            爱奇艺
+                                        </a>
+                                        <a href="https://www.kugou.com/">
+                                            <img src="./images/nav/酷狗音乐.ico" alt="" loading="lazy">
+                                            酷狗音乐
+                                        </a>
+                                        <a href="https://wx.qq.com/">
+                                            <img src="./images/nav/微信.ico" alt="" loading="lazy">
+                                            微信网页版
+                                        </a>
+                                        <a href="https://szfilehelper.weixin.qq.com/">
+                                            <img src="./images/nav/微信.ico" alt="" loading="lazy">
+                                            微信文件传输助手网页版
+                                        </a>
+                                        <a href="https://fanyi.youdao.com/index.html#/">
+                                            <img src="./images/nav/有道翻译.ico" alt="" loading="lazy">
+                                            有道翻译
+                                        </a>
+                                        <a href="https://www.shodan.io/">
+                                            <img src="./images/nav/Shodan.png" alt="" loading="lazy">
+                                            Shodan
+                                        </a>
+                                        <a href="https://www.baidu.com">
+                                            <img src="./images/nav/百度.ico" alt="" loading="lazy">
+                                            百度
+                                        </a>
+                                        <a href="https://youku.com/">
+                                            <img src="./images/nav/优酷.png" alt="" loading="lazy">
+                                            优酷
+                                        </a>
+                                        <a href="https://www.runoob.com/">
+                                            <img src="./images/nav/菜鸟教程.ico" alt="" loading="lazy">
+                                            菜鸟教程
+                                        </a>
+                                        <a href="https://www.yikm.net/">
+                                            <img src="./images/nav/小霸王.ico" alt="" loading="lazy">
+                                            小霸王游戏机
+                                        </a>
+                                        <a href="https://www.bilibili.com/">
+                                            <img src="./images/nav/哔哩哔哩.ico" alt="" loading="lazy">
+                                            哔哩哔哩
+                                        </a>
+                                        <a href="https://www.w3.org/zh-hans/">
+                                            <img src="./images/nav/W3C.ico" alt="" loading="lazy">
+                                            w3C
+                                        </a>
+                                        <a href="https://tikolu.net/emojimix/">
+                                            <img src="./images/nav/emoji合成.ico" alt="" loading="lazy">
+                                            emoji合成
+                                        </a>
+                                        <a href="https://codingfantasy.com/">
+                                            <img src="./images/nav/玩游戏学Flex.ico" alt="" loading="lazy">
+                                            玩游戏学Flex
+                                        </a>
+                                    </div>
+                                    <div class="content">
+                                        <h3>Adobe</h3>
+                                        <label for="edition">PhotoShop</label>
+                                        <select name="editions" id="edition">
+                                            <!-- https://www.bilibili.com/read/cv12899581/ 各历史版本介绍 -->
+                                            <optgroup label="初期"><!-- label不可选，值就是显示的内容 -->
+                                                <option value="1.0">1.0 (1990)</option>
+                                                <option value="2.5">2.5 (1992)</option>
+                                                <option value="3.0">3.0 (1994)</option>
+                                                <option value="4.0">4.0 (1996)</option>
+                                                <option value="5.0">5.0 (1998)</option>
+                                                <option value="6.0">6.0 (2000)</option>
+                                                <option value="7.0">7.0 (2002)</option>
+                                            </optgroup>
+                                            <optgroup label="CS">
+                                                <option value="CS">CS (2003)</option>
+                                                <option value="CS2">CS2 (2005)</option>
+                                                <option value="CS3">CS3 (2007)</option>
+                                                <option value="CS4">CS4 (2008)</option>
+                                                <option value="CS5">CS5 (2010)</option>
+                                                <option value="CS6">CS6 (2012)</option>
+                                            </optgroup>
+                                            <optgroup label="CC">
+                                                <option value="2014">CC 2014</option>
+                                                <option value="2015">CC 2015</option>
+                                                <option value="2016">CC 2016</option>
+                                                <option value="2017">CC 2017</option>
+                                                <option value="2018">CC 2018</option>
+                                                <option value="2019">CC 2019</option>
+                                            </optgroup>
+                                            <optgroup label="20">
+                                                <option value="2020">2020</option>
+                                                <option value="2021">2021</option>
+                                                <option value="2022">2022</option>
+                                                <option value="2023">2023</option>
+                                            </optgroup>
+                                            <optgroup label="Beta">
+                                                <option value="" selected>2024 Ai</option><!-- selected设置为下拉列表默认值 -->
+                                            </optgroup>
+                                            <optgroup label="上次更新：23.10.1"></optgroup>
+                                        </select>
+                                        <span>Creative Cloud</span>
+                                    </div>
+                                </dt>
+                            </dl>
+                        </div>
+                    </li><!-- 工具、软件End -->
+                    <li>
+                        <span>软件素材 文件</span>
+                        <div class="list">
+                            <dl>
+                                <dt>
+                                    <div class="title">1</div>
+                                    <div class="content"></div>
+                                </dt>
+                                <dt>
+                                    <div class="title">导航</div>
+                                    <div class="content">
+                                        <span>1</span>
+                                        <span>2</span>
+                                    </div>
+                                </dt>
+                            </dl>
+                        </div>
+                    </li><!-- 视频、音频、图片、文档、软件插件End -->
+                    <!-- 知道know sth.[资讯、知识技能]    学习learn sth.[知识技能、素材文件、工具软件]    创作create sth.[知识技能、素材文件、工具软件]     完工do sth.[工具] -->
+                </ul>
+            </nav>
+            <div>
+                <form action="https://www.bing.com/search?q="><!-- target="_blank" -->
+                    <img src="./images/logoBing.png" alt="">
+                    <input type="text" name="q" placeholder="Bing [ Alt + K ]" id="input"><!-- 自动获得焦点autofocus 暂时不用type search了，改起来没必要 -->
+                    <svg class="icon" id="clear" aria-hidden="true" width="35px" onclick="clearInput()">
+                        <use xlink:href="#icon-qingchu"></use>
+                    </svg>
+                    <button title="搜索">
+                        <img src="./images/soSuo.png" alt="">
+                    </button>
+                    <ul id="soSuoItem"></ul>
+                </form>
+                <img src="./images/toXiang.jpg" id="toXiang" alt="" onclick="toXiang()">
+            </div>
+        </header>
+        <!-- 侧边：屏幕小于600px点击右上角按钮事件 -->
+        <div id="spsjhy" style="display: none; transform: translateX(-1000px);">
+            <img src="./images/logo.png" alt="" loading="lazy" /><!-- eager立即加载（默认） -->
+            <span>Q爱记</span>
+            <audio src="./audio/time/秒针.mp3" id="seconds"></audio>
+            <span id="a_paused">秒针声音：关(默认)</span>
+            <span>忍一时风平浪静、退一步越想越气</span>
+        </div>
+        <!-- 中间部分main：中间的内容都写在main里 竖轴三栏式 -->
+        <main id="main-body">
+            <div id="time">
+                <img src="./images/time/BZ1.png" class="img-one" alt="">
+                <img src="./images/time/BZ2.png" class="img-two" alt="">
+                <img src="./images/time/BZ3.png" class="img-three" alt="">
+                <!--绘制秒、分、时针-->
+                <div id="second"></div>
+                <div id="min"></div>
+                <div id="hour"></div>
+                <div id="sj">
+                    <span id="shi">18</span><span>:</span><span id="fen">00</span>&nbsp;<span id="miao">00</span><br>
+                    <span id="wzday">2022-10-04 星期二</span>
+                </div>
+                <script src="./js/time.js"></script>
+            </div>
+            <div id="Center">
+                <div id="maxImportant">
+                    <input type="text" id="content" placeholder="最重要的事?">
+                    <span id="anNiu" onclick="change()">√</span>
+                </div>
+                <div id="audioMv">
+
+                </div>
+                <script src="./js/maxImportant.js"></script>
+            </div>
+            <div id="ceBian">
+                <!-- 第一块 -->
+                <div id="CBone">
+                    <h2>扫榻相迎</h2>
+                    <span>设备访问次数：</span><span id="fangWenLiang"></span>
+                </div>
+                <!-- 第二块 -->
+                <!-- 引入jQuery -->
+                <script src="./js/jquery.min.js"></script>
+                <script src="./js/fangWenLiang.js"></script>
+                <!-- 第三块 -->
+                <div id="CBthree">
+                    <h2>雅乐</h2>
+                    <div class="music-container" id="music-container">
+                        <!-- 音乐信息 -->
+                        <div class="music-info">
+                            <!-- 音乐标题 -->
+                            <marquee id="title" scrollamount="2" scrolldelay="30">宿敌_田人</marquee>
+                            <!-- scrollamount滚动速度（像素）、scrolldelay停留时间：mm（毫秒） -->
+                            <!-- 音乐播放进度条 -->
+                            <div class="progress-container" id="progress-container">
+                                <div class="progress" id="progress"></div>
+                            </div>
+                            <div class="setTime"></div>
+                        </div>
+                        <!-- 默认第一首音乐 -->
+                        <audio src="" id="audio" preload="auto"></audio>
+                        <!-- 音乐封面 -->
+                        <div class="img-container">
+                            <img src="" alt="" id="music-cover">
+                        </div>
+                        <!-- 播放控制 -->
+                        <div class="navigation">
+                            <button id="prev" class="action-btn">
+                                <i class="fas fa-backward" title=".或&gt;"></i>
+                            </button>
+                            <button id="play" class="action-btn action-btn-big">
+                                <i class="fas fa-play" id="playpf" title="?或/播放/暂停"></i>
+                            </button>
+                            <button id="next" class="action-btn">
+                                <i class="fas fa-forward" title=",或&lt;"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="container" id="musicLrcHand" title="点击最大化查看歌词">
+                        <ul id="lrc"></ul>
+                    </div>
+                    <!-- 音乐列表 -->
+                    <div id="musicList">
+                        <h2 id="musicListHand" title="点击最大化查看歌词列表">
+                            <div>播放列表</div>
+                            <span id="mlength" title="点击定位到当前播放的音乐"></span>
+                            <img src="./images/list-circle-outline.svg" alt="">
+                        </h2>
+                    </div>
+                    <!-- 提示 -->
+                    <div id="tiShi">
+                        <div><kbd>?/</kbd> 播放 暂停<br><kbd>.&lt;</kbd> 下一首<br><kbd>,&gt;</kbd> 上一首<br><kbd>←</kbd> 后退5秒<br><kbd>→</kbd> 前进5秒</div>
+                        <div id="tSan" onclick="tiShi()">
+                            <span>《</span>
+                        </div>
+                    </div>
+                    <script>
+                        let fwllocal = window.localStorage.getItem('fwllocal');
+                        function tiShi() {
+                            const tiShiElement = document.getElementById('tiShi');
+                            tiShiElement.style.right = '0';
+                            tiShiElement.style.transform = 'scale3d(1.2, 1.2, 1.6)';
+                            setTimeout(() => {
+                                tiShiElement.style.transform = 'scale3d(1, 1, 1)';
+                                tiShiElement.style.right = '-150px';
+                            }, 5000);
+                        }
+                        // 获取
+                        // 判断fwllocal为空就是第一次进入
+                        if (fwllocal == null || fwllocal <= 2) {
+                            // 前两次打开
+                            setTimeout(() => {
+                                tiShi();
+                            }, 0);
+                        } else {
+                            window.localStorage.setItem('fwllocal', fwllocal)
+                        }
+                    </script>
+                </div>
+                <!-- 第四块 -->
+                <div id="CBfour">
+                    <h2>雅言</h2>
+                    <!-- 引入动画库 -->
+                    <!-- <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.9"></script> -->
+                    <script src="./js/typed/node_modules/typed.js/dist/typed.umd.js"></script>
+                    <div id="liuYan">
+                        <div class="element"></div>
+                    </div>
+                    <script src="./js/yiYan.js"></script>
+                </div>
+            </div>
+        </main>
+        <!-- 页脚，定位，向下滚动隐藏 -->
+        <footer>
+            <div footer>
+                <svg class="shake-horizontal wave" fill="#133c55" xmlns="http://www.w3.org/2000/svg" version="1.1"
+                     width="100%" viewBox="0 -0.5 1024 182" preserveAspectRatio="none">
+                    <path style="opacity:.12"
+                          d="M0 182.086h1024V41.593c-28.058-21.504-60.109-37.581-97.075-37.581-112.845 0-198.144 93.798-289.792 93.798S437.658 6.777 351.846 6.777s-142.234 82.125-238.49 82.125c-63.078 0-75.776-31.744-113.357-53.658L0 182.086z">
+                    </path>
+                    <path style="opacity:.18"
+                          d="M1024 181.062v-75.878c-39.731 15.872-80.794 27.341-117.658 25.805-110.387-4.506-191.795-109.773-325.53-116.224-109.158-5.12-344.166 120.115-429.466 166.298H1024v-.001z">
+                    </path>
+                    <path style="opacity:.24"
+                          d="M0 182.086h1024V90.028C966.451 59.103 907.059 16.3 824.115 15.071 690.278 13.023 665.19 102.93 482.099 102.93S202.138-1.62 74.24.019C46.49.326 21.811 4.217 0 9.849v172.237z">
+                    </path>
+                    <path style="opacity:.3"
+                          d="M0 182.086h1024V80.505c-37.171 19.558-80.691 35.328-139.571 36.25-151.142 2.355-141.619-28.57-298.496-29.184s-138.854 47.002-305.459 43.725C132.813 128.428 91.238 44.563 0 28.179v153.907z">
+                    </path>
+                    <path
+                          d="M0 182.086h1024v-77.312c-49.05 20.07-120.525 42.394-193.229 42.086-128.922-.512-159.846-72.294-255.795-72.294-89.088 0-134.656 80.179-245.043 82.022S169.063 99.346 49.971 97.401C32.768 97.094 16.077 99.244 0 103.135v78.951z">
+                    </path>
+                </svg>
+            </div>
+            <div>
+                <a href="">备案是不阔能备案滴</a>
+                <a href="http://www.beian.gov.cn/portal/index.do">
+                    <img id="gaico" src="./images/gongAnBei.png" alt="">
+                    <span>公安备12345678901234号</span>
+                </a>
+                <a href="http://beian.miit.gov.cn/publish/query/indexFirst.action">陇ICP备12345678号</a>
+                <span>&copy;2019~<span id="footerYear">2021</span> Q爱记</span>
+                <a href="./pages/GiveMoneyIncentives.html">赞赏</a>
+                <a href="./pages/QFQ/QFQ.html" data-src="./pages/QFQ/个人简历.html">关于我</a>
+                <a href="./pages/联系我.html">
+                    <!-- <img src="./images/footer/客服中心.png" alt=""> -->
+                    联系我们
+                </a>
+                <a href="./pages/QFQ/QFQ.html#接下来更新日志">历史更新</a>
+                <a href="./pages/QFQ/QFQ.html#特别鸣谢">特别鸣谢</a>
+                <a href="JavaScript:;" content="无障碍">
+                    <img src="./images/footer/无障碍.png" alt="">
+                    <img src="./images/footer/残疾人辅助工具.png" alt="" title="无障碍优化">
+                </a>
+            </div>
+            <script src="./js/footer.js"></script>
+        </footer>
+        <!-- 最大化-蒙版 -->
+        <dialog id="dog" onclose="delMaxScreeen()"></dialog>
+    </body>
+    <!-- 时钟 -->
+    <script src="./js/header.js"></script>
+    <script src="./js/shizhongaudio.js"></script>
+    <!-- 灰色 -->
+    <script src="./js/qingmingFestival.js"></script>
+    <!-- 搜索提示内容 -->
+    <script src="./js/soSuoItem.js"></script>
+    <!-- 键盘事件 -->
+    <script src="./js/key.js"></script>
+    <!-- 音乐 -->
+    <script src="./js/audioList.js"></script>
+    <script src="./js/audio.js"></script>
+    <script src="./js/audioLrcSetOffSet.js"></script>
+    <script src="./js/audioMv.js"></script>
+    <!-- 窗口 -->
+    <script src="./js/window.js"></script>
+    <!-- 彩蛋 -->
+    <script src="./js/caiDan.js"></script>
+    <!-- 最大化窗口 -->
+    <script src="./js/maxScreen.js"></script>
+    <!-- Click on the pop-up text -->
+    <script src="./js/ClickOnThePop-UpText.js"></script>
+    <!-- 标题整蛊 -->
+    <script type="text/javascript">
+        /*自动刷新页面，避免无法访问*/
+        var OriginTitile = document.title;// 记录原来的标题
+        var titleTime;
+        document.addEventListener('visibilitychange', function () {
+            if (document.hidden) {
+                document.title = '404啦！!!!∑(ﾟДﾟノ)ノ ';
+                clearTimeout(titleTime);
+            }
+            else {
+                document.title = '哈哈，骗你的！ヾ(ﾟ∀ﾟゞ)';
+                titleTime = setTimeout(function () {
+                    document.title = OriginTitile;
+                }, 2000);
+            }
+        });
+    </script>
+    <!-- PWA -->
+    <script>
+        /* 如果浏览器支持加载完成后就开启PWA功能 */
+        if ("serviceWorker" in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('./js/sw.js')
+            })
+        }
+    </script>
+</html>
