@@ -153,7 +153,17 @@ function playSong() {
     playBtn.querySelector('i.fas').classList.remove('fa-play');
     playBtn.querySelector('i.fas').classList.add('fa-pause');
 
-    audio.play();
+    let musicinfo = findMusic(title.textContent);
+    updateVideo();
+    console.log(musicinfo);
+    // 判断视频是否存在于显示的列表
+    if (musicinfo) {
+        // Mv 有MV的歌曲会切换后会优先自动播放MV
+        audioMvmain(musicinfo);
+    } else {
+        // tanChuang("此歌曲暂无MV");
+        audio.play();
+    }
 
     // 如果因为错误暂停就自动下一首
     if (songs[songIndex] == '已暂停') {
@@ -226,19 +236,6 @@ const observer = new MutationObserver((mutationsList) => {
             scrollToIng();
 
             window.localStorage.setItem('musicTime', '0');
-
-            let musicinfo = findMusic(title.textContent);
-            updateVideo();
-            // 判断视频是否存在于显示的列表
-            console.log(musicinfo);
-            if (musicinfo) {
-                // Mv 有MV的歌曲会切换后会优先自动播放MV
-                audioMvmain(musicinfo);
-                // 暂停音乐
-                pauseSong();
-            } else {
-                // tanChuang("此歌曲暂无MV");
-            }
         }
     }
 });
