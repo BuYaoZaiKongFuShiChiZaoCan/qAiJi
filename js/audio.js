@@ -100,20 +100,18 @@ window.musicList.addEventListener('click', function (e) {
 })
 
 let mErrTimeout = null;
-function lastChange() {
-    nextSong();
-}
+let lastChange = "nextSong";
 // 音乐加载错误
 function MusicError() {
-    tanChuang('音乐播放错误，2秒后播放下一首', 2000);
+    tanChuang('加载错误，即将自动切换', 2000);
     clearTimeout(mErrTimeout);
     mErrTimeout = setTimeout(() => {
-        let a = playBtn.querySelector('i.fas').classList;
-        a.forEach(item => {
-            if (['fa-pause', 'fa-play'].includes(item)) {
-                item === 'fa-pause' ? lastChange() : tanChuang('已暂停，可手动切换下一首', 3700);
-            }
-        });
+        let playIconClassList = playBtn.querySelector('i.fas').classList;
+        if (playIconClassList.contains('fa-pause')) {
+            lastChange === "prevSong" ? prevSong() : nextSong();
+        } else if (playIconClassList.contains('fa-play')) {
+            tanChuang('已暂停，请手动切换', 3700)
+        }
     }, 2000)
 }
 audio.addEventListener('error', MusicError);
@@ -193,9 +191,7 @@ function prevSong() {
     // 清除错误超时
     clearTimeout(mErrTimeout);
 
-    function lastChange() {
-        prevSong();
-    }
+    lastChange = "prevSong";
 }
 // 下一首
 function nextSong() {
@@ -208,9 +204,7 @@ function nextSong() {
     loadSong(songs[songIndex]);
     playSong();
 
-    function lastChange() {
-        nextSong();
-    }
+    lastChange = "nextSong";
 }
 
 // 创建一个MutationObserver实例
