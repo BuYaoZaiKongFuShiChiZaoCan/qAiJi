@@ -479,7 +479,7 @@ progressContainer.onclick = setProgress
 audio.ontimeupdate = updateProgress
 // 3.3 歌曲结束后自动下一首
 audio.onended = function () {
-    nextSong();
+    lastChange === "prevSong" ? prevSong() : nextSong();
 }
 
 // 监听a标签点击后如果播放音乐就在新标签页打开
