@@ -105,12 +105,13 @@ let lastChange = "nextSong";
 function MusicError() {
     tanChuang('加载错误，即将自动切换', 2000);
     clearTimeout(mErrTimeout);
+    title.textContent = '已暂停';
     mErrTimeout = setTimeout(() => {
         let playIconClassList = playBtn.querySelector('i.fas').classList;
         if (playIconClassList.contains('fa-pause')) {
             lastChange === "prevSong" ? prevSong() : nextSong();
         } else if (playIconClassList.contains('fa-play')) {
-            tanChuang('已暂停，请手动切换', 3700)
+            tanChuang('已暂停自动切换', 3700)
         }
     }, 2000)
 }
@@ -157,7 +158,16 @@ function playSong() {
     playBtn.querySelector('i.fas').classList.remove('fa-play');
     playBtn.querySelector('i.fas').classList.add('fa-pause');
 
-    audio.play();
+    updateVideo();
+    let musicinfo = findMusic(title.textContent);
+    // 判断视频是否存在于显示的列表
+    if (musicinfo) {
+        // Mv 有MV的歌曲会切换后会优先自动播放MV
+        audioMvmain(musicinfo);
+    } else {
+        // tanChuang("此歌曲暂无MV");
+        audio.play();
+    }
 
     // 如果因为错误暂停就自动下一首
     if (songs[songIndex] == '已暂停') {
@@ -237,16 +247,6 @@ const observer = new MutationObserver((mutationsList) => {
             scrollToIng();
 
             window.localStorage.setItem('musicTime', '0');
-
-            updateVideo();
-            let musicinfo = findMusic(title.textContent);
-            // 判断视频是否存在于显示的列表
-            if (musicinfo) {
-                // Mv 有MV的歌曲会切换后会优先自动播放MV
-                audioMvmain(musicinfo);
-            } else {
-                // tanChuang("此歌曲暂无MV");
-            }
         }
     }
 });
