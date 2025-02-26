@@ -114,19 +114,6 @@ function findMusic(id) {
     }
 }
 
-// 加载完后触发一次
-let musicinfo = findMusic(title.textContent);
-updateVideo();
-// 判断视频是否存在于显示的列表
-if (musicinfo) {
-    setTimeout(() => {
-        pauseSong();
-    }, 0);
-    // Mv 有MV的歌曲会切换后会优先自动播放MV
-    audioMvmain(musicinfo);
-} else {
-    // tanChuang("此歌曲暂无MV");
-}
 
 let videoList = [
     {

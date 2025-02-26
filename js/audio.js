@@ -98,19 +98,19 @@ window.musicList.addEventListener('click', function (e) {
 
 let mErrTimeout = null;
 // 音乐加载错误
-let lastChange = nextSong();
-audio.addEventListener('error', () => {
-    tanChuang('音乐加载错误，即将自动切换', 2000);
+function MusicError() {
+    tanChuang('音乐播放错误，2秒后播放下一首', 2000);
     clearTimeout(mErrTimeout);
     mErrTimeout = setTimeout(() => {
         let a = playBtn.querySelector('i.fas').classList;
         a.forEach(item => {
             if (['fa-pause', 'fa-play'].includes(item)) {
-                item === 'fa-pause' ? lastChange : tanChuang('已暂停，可手动切换下一首', 3700);
+                item === 'fa-pause' ? nextSong() : tanChuang('已暂停，可手动切换下一首', 3700);
             }
         });
     }, 2000)
-});
+}
+audio.addEventListener('error', MusicError);
 
 // 默认从第一首开始
 let songIndex = +window.localStorage.getItem('songIndex');
@@ -185,8 +185,6 @@ function prevSong() {
     // 加载歌曲信息并播放
     loadSong(songs[songIndex]);
     playSong();
-
-    lastChange = pauseSong();
 
     // 清除错误超时
     clearTimeout(mErrTimeout);
