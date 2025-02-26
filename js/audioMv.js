@@ -119,7 +119,9 @@ let musicinfo = findMusic(title.textContent);
 updateVideo();
 // 判断视频是否存在于显示的列表
 if (musicinfo) {
-    pauseSong();
+    setTimeout(() => {
+        pauseSong();
+    }, 0);
     // Mv 有MV的歌曲会切换后会优先自动播放MV
     audioMvmain(musicinfo);
 } else {

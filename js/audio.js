@@ -236,11 +236,10 @@ const observer = new MutationObserver((mutationsList) => {
 
             window.localStorage.setItem('musicTime', '0');
 
-            let musicinfo = findMusic(title.textContent);
             updateVideo();
             // 判断视频是否存在于显示的列表
             if (musicinfo) {
-                // 添加到延时队列，避免io操作过快导致频繁切换播放组件
+                // 添加到延时队列，避免io操作过快导致为频繁切换播放组件
                 setTimeout(() => {
                     pauseSong();
                 }, 0);
