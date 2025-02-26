@@ -77,8 +77,9 @@ function audioMvmain(musicInfo = findMusic(title.textContent)) {
         // setTimeout(() => {
         video.webkitRequestFullScreen();
         // }, 17);
+        video.play();
         video.onended = function () {
-            nextSong();
+            lastChange = 'prevSong' ? prevSong() : nextSong();
         };
     };
     // 添加标题等表述元素
