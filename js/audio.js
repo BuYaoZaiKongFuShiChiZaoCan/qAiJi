@@ -94,7 +94,6 @@ window.musicList.addEventListener('click', function (e) {
             // 点击后设置一下当前播放音乐的index，不然songindex还是之前的，到下一首就会以之前播放的音乐为下一首跳转
             songIndex = targetIndex;
             loadSong(songs[songIndex]);
-            playSong();
         }
     }
 })
@@ -239,7 +238,7 @@ const observer = new MutationObserver((mutationsList) => {
             // 放在播放时判断导致 只能播放音乐或mv一个
             updateVideo();
             // 判断视频是否存在于显示的列表
-            if (musicinfo) {
+            if (musicinfo = findMusic(title.textContent)) {
                 // Mv 有MV的歌曲会切换后会优先自动播放MV
                 audioMvmain(musicinfo);
             } else {
