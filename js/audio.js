@@ -100,7 +100,8 @@ let mErrTimeout = null;
 // 音乐加载错误
 function MusicError() {
     tanChuang('音乐播放错误，2秒后播放下一首', 2000);
-    let mErrTimeout = setTimeout(() => {
+    clearTimeout(mErrTimeout);
+    mErrTimeout = setTimeout(() => {
         let a = playBtn.querySelector('i.fas').classList;
         a.forEach(item => {
             if (['fa-pause', 'fa-play'].includes(item)) {
