@@ -98,19 +98,19 @@ window.musicList.addEventListener('click', function (e) {
 
 let mErrTimeout = null;
 // 音乐加载错误
-function MusicError() {
-    tanChuang('音乐播放错误，2秒后播放下一首', 2000);
+let lastChange = nextSong();
+audio.addEventListener('error', () => {
+    tanChuang('音乐加载错误，即将自动切换', 2000);
     clearTimeout(mErrTimeout);
     mErrTimeout = setTimeout(() => {
         let a = playBtn.querySelector('i.fas').classList;
         a.forEach(item => {
             if (['fa-pause', 'fa-play'].includes(item)) {
-                item === 'fa-pause' ? nextSong() : tanChuang('已暂停，可手动切换下一首', 3700);
+                item === 'fa-pause' ? lastChange : tanChuang('已暂停，可手动切换下一首', 3700);
             }
         });
     }, 2000)
-}
-audio.addEventListener('error', MusicError);
+});
 
 // 默认从第一首开始
 let songIndex = +window.localStorage.getItem('songIndex');
@@ -186,6 +186,8 @@ function prevSong() {
     loadSong(songs[songIndex]);
     playSong();
 
+    lastChange = prevSong();
+
     // 清除错误超时
     clearTimeout(mErrTimeout);
 }
@@ -199,6 +201,8 @@ function nextSong() {
 
     loadSong(songs[songIndex]);
     playSong();
+
+    lastChange = nextSong();
 }
 
 // 创建一个MutationObserver实例
@@ -236,7 +240,10 @@ const observer = new MutationObserver((mutationsList) => {
             updateVideo();
             // 判断视频是否存在于显示的列表
             if (musicinfo) {
-                pauseSong();
+                // 添加到延时队列，避免io操作过快导致频繁切换播放组件
+                setTimeout(() => {
+                    pauseSong();
+                }, 0);
                 // Mv 有MV的歌曲会切换后会优先自动播放MV
                 audioMvmain(musicinfo);
             } else {
