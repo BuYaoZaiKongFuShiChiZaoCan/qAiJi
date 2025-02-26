@@ -179,12 +179,16 @@ function pauseSong() {
     audio.pause();
 }
 
-// 上一首 上、下共同代码放到切换后哪里
+// 上一首 
 function prevSong() {
     songIndex--;
     if (songIndex < 0) {
         songIndex = songs.length - 1
     }
+
+
+    // 加载歌曲信息并播放 上、下共同代码放到切换歌曲后那里，load是点击后在对音乐src做切换，有这个才能知道音乐切换了
+    loadSong(songs[songIndex]);
 
     lastChange = "prevSong";
 }
@@ -195,6 +199,8 @@ function nextSong() {
     if (songIndex > songs.length - 1) {
         songIndex = 0;
     }
+
+    loadSong(songs[songIndex]);
 
     lastChange = "nextSong";
 }
@@ -232,7 +238,6 @@ const observer = new MutationObserver((mutationsList) => {
 
             // 放在播放时判断导致 只能播放音乐或mv一个
             updateVideo();
-            let musicinfo = findMusic(title.textContent);
             // 判断视频是否存在于显示的列表
             if (musicinfo) {
                 // Mv 有MV的歌曲会切换后会优先自动播放MV
@@ -241,8 +246,6 @@ const observer = new MutationObserver((mutationsList) => {
                 // tanChuang("此歌曲暂无MV");
                 // 清除错误超时
                 clearTimeout(mErrTimeout);
-                // 加载歌曲信息并播放
-                loadSong(songs[songIndex]);
                 playSong();
             }
         }

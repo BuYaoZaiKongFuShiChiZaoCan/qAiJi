@@ -114,6 +114,17 @@ function findMusic(id) {
     }
 }
 
+// 页面加载初始化判断有没有视频
+let musicinfo = findMusic(title.textContent);
+// 判断视频是否存在于显示的列表
+if (musicinfo) {
+    // Mv 有MV的歌曲会切换后会优先自动播放MV
+    audioMvmain(musicinfo);
+} else {
+    // tanChuang("此歌曲暂无MV");
+    playSong();
+}
+
 let videoList = [
     {
         "name": "《尸潮往生录》惊变/余阳",
