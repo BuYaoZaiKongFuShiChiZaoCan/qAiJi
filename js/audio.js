@@ -10,9 +10,6 @@ const title = document.getElementById("title");
 const musicCover = document.getElementById("music-cover");
 const musicList = document.getElementById('musicList');
 
-// 默认从第一首开始
-let songIndex = +window.localStorage.getItem('songIndex');
-
 // 向页面输出音乐数量
 document.getElementById('mlength').textContent = songs.length;
 function listupdate() {
@@ -115,6 +112,8 @@ audio.addEventListener('error', () => {
     }, 2000)
 });
 
+// 默认从第一首开始
+let songIndex = +window.localStorage.getItem('songIndex');
 // 更新歌曲细节
 function loadSong(song) {
     title.textContent = song;
@@ -187,7 +186,7 @@ function prevSong() {
     loadSong(songs[songIndex]);
     playSong();
 
-    lastChange = prevSong();
+    lastChange = pauseSong();
 
     // 清除错误超时
     clearTimeout(mErrTimeout);
@@ -202,8 +201,6 @@ function nextSong() {
 
     loadSong(songs[songIndex]);
     playSong();
-
-    lastChange = nextSong();
 }
 
 // 创建一个MutationObserver实例
@@ -237,13 +234,11 @@ const observer = new MutationObserver((mutationsList) => {
 
             window.localStorage.setItem('musicTime', '0');
 
+            let musicinfo = findMusic(title.textContent);
             updateVideo();
             // 判断视频是否存在于显示的列表
             if (musicinfo) {
-                // 添加到延时队列，避免io操作过快导致为频繁切换播放组件
-                setTimeout(() => {
-                    pauseSong();
-                }, 0);
+                pauseSong();
                 // Mv 有MV的歌曲会切换后会优先自动播放MV
                 audioMvmain(musicinfo);
             } else {
