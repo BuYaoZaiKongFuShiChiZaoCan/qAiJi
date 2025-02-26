@@ -232,7 +232,7 @@ const observer = new MutationObserver((mutationsList) => {
             // 判断视频是否存在于显示的列表
             if (musicInfo) {
                 // Mv 有MV的歌曲会切换后会优先自动播放MV
-                audioMvmain();
+                audioMvmain(musicInfo);
                 // 暂停音乐
                 pauseSong();
             } else {

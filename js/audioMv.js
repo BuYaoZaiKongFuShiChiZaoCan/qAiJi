@@ -2,9 +2,10 @@ const audioMv = document.querySelector('#audioMv');
 /**
  * 主函数
  * @param {boolean} autoplay 是否自动播放
+ * @param {object} musicInfo 音乐信息
  * @returns {null} 无返回
  */
-function audioMvmain(autoplay = true) {
+function audioMvmain(autoplay = true, musicInfo = findMusic(title.textContent)) {
     // 创建一个video元素
     let video = document.createElement('video');
     // 设置ID为audioMvVideo
