@@ -96,10 +96,11 @@ window.musicList.addEventListener('click', function (e) {
     }
 })
 
+let mErrTimeout = null;
 // 音乐加载错误
 function MusicError() {
     tanChuang('音乐播放错误，2秒后播放下一首', 2000);
-    setTimeout(() => {
+    let mErrTimeout = setTimeout(() => {
         let a = playBtn.querySelector('i.fas').classList;
         a.forEach(item => {
             if (['fa-pause', 'fa-play'].includes(item)) {
@@ -155,7 +156,6 @@ function playSong() {
 
     let musicinfo = findMusic(title.textContent);
     updateVideo();
-    console.log(musicinfo);
     // 判断视频是否存在于显示的列表
     if (musicinfo) {
         // Mv 有MV的歌曲会切换后会优先自动播放MV
@@ -193,6 +193,9 @@ function prevSong() {
     // 加载歌曲信息并播放
     loadSong(songs[songIndex]);
     playSong();
+
+    // 清除错误超时
+    clearTimeout(mErrTimeout);
 }
 // 下一首
 function nextSong() {
