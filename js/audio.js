@@ -231,6 +231,7 @@ const observer = new MutationObserver((mutationsList) => {
             updateVideo();
             // 判断视频是否存在于显示的列表
             if (musicInfo) {
+                console.log(musicInfo);
                 // Mv 有MV的歌曲会切换后会优先自动播放MV
                 audioMvmain(musicInfo);
                 // 暂停音乐

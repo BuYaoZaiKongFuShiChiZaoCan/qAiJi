@@ -5,7 +5,7 @@ const audioMv = document.querySelector('#audioMv');
  * @param {object} musicInfo 音乐信息
  * @returns {null} 无返回
  */
-function audioMvmain(autoplay = true, musicInfo = findMusic(title.textContent)) {
+function audioMvmain(musicInfo = findMusic(title.textContent)) {
     // 创建一个video元素
     let video = document.createElement('video');
     // 设置ID为audioMvVideo
@@ -50,13 +50,7 @@ function audioMvmain(autoplay = true, musicInfo = findMusic(title.textContent)) 
     desc.textContent = musicInfo.desc;
     audioMv.appendChild(title);
     audioMv.appendChild(desc);
-
 }
-
-setTimeout(() => {
-    // 刚开始加载一次
-    audioMvmain(false);
-}, 0);
 
 // 更新video元素
 function updateVideo() {
