@@ -238,10 +238,13 @@ const observer = new MutationObserver((mutationsList) => {
 
             window.localStorage.setItem('musicTime', '0');
 
-            // 判断视频是否存在于显示的列表
             updateVideo();
+            let musicinfo = findMusic(title.textContent);
+            // 判断视频是否存在于显示的列表
             if (musicinfo) {
-                pauseSong();
+                setTimeout(() => {
+                    pauseSong();
+                }, 1000);
                 // Mv 有MV的歌曲会切换后会优先自动播放MV
                 audioMvmain(musicinfo);
             } else {
