@@ -230,8 +230,8 @@ const observer = new MutationObserver((mutationsList) => {
             let musicinfo = findMusic(title.textContent);
             updateVideo();
             // 判断视频是否存在于显示的列表
+            console.log(musicinfo);
             if (musicinfo) {
-                console.log(musicinfo);
                 // Mv 有MV的歌曲会切换后会优先自动播放MV
                 audioMvmain(musicinfo);
                 // 暂停音乐
