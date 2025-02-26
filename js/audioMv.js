@@ -5,7 +5,6 @@ const audioMv = document.querySelector('#audioMv');
  * @returns {null} 无返回
  */
 function audioMvmain(autoplay = true) {
-    updateVideo();
     // 创建一个video元素
     let video = document.createElement('video');
     // 设置ID为audioMvVideo

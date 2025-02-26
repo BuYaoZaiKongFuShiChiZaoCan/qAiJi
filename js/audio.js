@@ -227,8 +227,9 @@ const observer = new MutationObserver((mutationsList) => {
 
             window.localStorage.setItem('musicTime', '0');
 
-            // 判断视频是否存在于显示的列表
             let musicInfo = findMusic(title.textContent);
+            updateVideo();
+            // 判断视频是否存在于显示的列表
             if (musicInfo) {
                 // Mv 有MV的歌曲会切换后会优先自动播放MV
                 audioMvmain();
