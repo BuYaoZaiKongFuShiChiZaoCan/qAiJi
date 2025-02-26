@@ -71,6 +71,8 @@ function audioMvmain(musicInfo = findMusic(title.textContent)) {
     audioMv.appendChild(video);
     // 元素加载完成后
     video.onloadedmetadata = function () {
+        // 暂停音乐
+        pauseSong();
         // 设置音乐进度为视频进度
         video.currentTime = window.localStorage.getItem('musicTime');
         // 视频最大化
