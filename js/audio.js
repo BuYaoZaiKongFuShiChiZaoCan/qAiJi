@@ -10,6 +10,9 @@ const title = document.getElementById("title");
 const musicCover = document.getElementById("music-cover");
 const musicList = document.getElementById('musicList');
 
+// 默认从第一首开始
+let songIndex = +window.localStorage.getItem('songIndex');
+
 // 向页面输出音乐数量
 document.getElementById('mlength').textContent = songs.length;
 function listupdate() {
@@ -112,8 +115,6 @@ function MusicError() {
 }
 audio.addEventListener('error', MusicError);
 
-// 默认从第一首开始
-let songIndex = +window.localStorage.getItem('songIndex');
 // 更新歌曲细节
 function loadSong(song) {
     title.textContent = song;
