@@ -205,11 +205,12 @@ const observer = new MutationObserver((mutationsList) => {
             if (musliIngOpt !== undefined && musliIngOpt !== '') {
                 musliIng.style.opacity = parseFloat(musliIngOpt) - 0.2;
                 if (musliIngOpt <= 0.2) {
-                    musliIng.style.opacity = 0.2; // 确保不小于0.2
+                    musliIng.style.opacity = 0.2; // 确保透明度不小于0.2
                 }
             } else {
                 musliIng.style.opacity = 0.8;
             }
+
             // src属性发生变化时的处理逻辑 音乐改变
             getLrc(songs[songIndex]);
 
@@ -226,8 +227,16 @@ const observer = new MutationObserver((mutationsList) => {
 
             window.localStorage.setItem('musicTime', '0');
 
-            // Mv 有MV的歌曲会切换后会优先自动播放MV
-            audioMvmain();
+            // 判断视频是否存在于显示的列表
+            let musicInfo = findMusic(title.textContent);
+            if (musicInfo) {
+                // Mv 有MV的歌曲会切换后会优先自动播放MV
+                audioMvmain();
+                // 暂停音乐
+                pauseSong();
+            } else {
+                // tanChuang("此歌曲暂无MV");
+            }
         }
     }
 });

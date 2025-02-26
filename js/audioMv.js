@@ -6,58 +6,51 @@ const audioMv = document.querySelector('#audioMv');
  */
 function audioMvmain(autoplay = true) {
     updateVideo();
-    // 判断视频是否存在于显示的列表
-    let musicInfo = findMusic(title.textContent);
-    if (musicInfo) {
-        // 创建一个video元素
-        let video = document.createElement('video');
-        // 设置ID为audioMvVideo
-        video.id = 'audioMvVideo1';
-        video.className = 'audioMvVideo';
-        // 设置样式
-        video.style.cssText = `
+    // 创建一个video元素
+    let video = document.createElement('video');
+    // 设置ID为audioMvVideo
+    video.id = 'audioMvVideo1';
+    video.className = 'audioMvVideo';
+    // 设置样式
+    video.style.cssText = `
             width: 100%;
             height: auto;
         `;
-        // 设置src属性为视频地址
-        video.src = musicInfo.srcLocalhost;
-        // 设置自动播放
-        video.autoplay = autoplay;
-        // 设置循环播放
-        // video.loop = true;
-        // 设置静音播放
-        // video.muted = true;
-        // 设置音量
-        // video.volume = 0.5;
-        // 控制条
-        video.controls = true;
-        audioMv.appendChild(video);
-        // 元素加载完成后
-        video.onloadedmetadata = function () {
-            // 设置音乐进度为视频进度
-            video.currentTime = window.localStorage.getItem('musicTime');
-            // 暂停音乐
-            pauseSong();
-            // 视频最大化
-            // setTimeout(() => {
-            video.webkitRequestFullScreen();
-            // }, 17);
-            video.onended = function () {
-                nextSong();
-            };
+    // 设置src属性为视频地址
+    video.src = musicInfo.srcLocalhost;
+    // 设置自动播放
+    video.autoplay = autoplay;
+    // 设置循环播放
+    // video.loop = true;
+    // 设置静音播放
+    // video.muted = true;
+    // 设置音量
+    // video.volume = 0.5;
+    // 控制条
+    video.controls = true;
+    audioMv.appendChild(video);
+    // 元素加载完成后
+    video.onloadedmetadata = function () {
+        // 设置音乐进度为视频进度
+        video.currentTime = window.localStorage.getItem('musicTime');
+        // 视频最大化
+        // setTimeout(() => {
+        video.webkitRequestFullScreen();
+        // }, 17);
+        video.onended = function () {
+            nextSong();
         };
-        // 添加标题等表述元素
-        let title = document.createElement('h2');
-        title.classList.add('audioMvTitle');
-        title.textContent = musicInfo.title;
-        let desc = document.createElement('p');
-        desc.classList.add('audioMvDesc');
-        desc.textContent = musicInfo.desc;
-        audioMv.appendChild(title);
-        audioMv.appendChild(desc);
-    } else {
-        // tanChuang("此歌曲暂无MV");
-    }
+    };
+    // 添加标题等表述元素
+    let title = document.createElement('h2');
+    title.classList.add('audioMvTitle');
+    title.textContent = musicInfo.title;
+    let desc = document.createElement('p');
+    desc.classList.add('audioMvDesc');
+    desc.textContent = musicInfo.desc;
+    audioMv.appendChild(title);
+    audioMv.appendChild(desc);
+
 }
 
 setTimeout(() => {
