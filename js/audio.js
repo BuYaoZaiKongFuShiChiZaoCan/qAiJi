@@ -235,6 +235,7 @@ const observer = new MutationObserver((mutationsList) => {
 
             window.localStorage.setItem('musicTime', '0');
 
+            pauseSong(); // 仅用于设置状态
             // 放在播放时判断导致 只能播放音乐或mv一个
             updateVideo();
             // 判断视频是否存在于显示的列表
