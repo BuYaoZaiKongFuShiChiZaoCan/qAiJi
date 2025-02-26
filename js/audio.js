@@ -100,6 +100,7 @@ window.musicList.addEventListener('click', function (e) {
 })
 
 let mErrTimeout = null;
+let lastChange = nextSong();
 // 音乐加载错误
 function MusicError() {
     tanChuang('音乐播放错误，2秒后播放下一首', 2000);
@@ -108,7 +109,7 @@ function MusicError() {
         let a = playBtn.querySelector('i.fas').classList;
         a.forEach(item => {
             if (['fa-pause', 'fa-play'].includes(item)) {
-                item === 'fa-pause' ? nextSong() : tanChuang('已暂停，可手动切换下一首', 3700);
+                item === 'fa-pause' ? lastChange : tanChuang('已暂停，可手动切换下一首', 3700);
             }
         });
     }, 2000)
@@ -189,6 +190,8 @@ function prevSong() {
 
     // 清除错误超时
     clearTimeout(mErrTimeout);
+
+    lastChange = prevSong();
 }
 // 下一首
 function nextSong() {
@@ -200,6 +203,8 @@ function nextSong() {
 
     loadSong(songs[songIndex]);
     playSong();
+
+    lastChange = nextSong();
 }
 
 // 创建一个MutationObserver实例
@@ -233,8 +238,6 @@ const observer = new MutationObserver((mutationsList) => {
 
             window.localStorage.setItem('musicTime', '0');
 
-            let musicinfo = findMusic(title.textContent);
-            updateVideo();
             // 判断视频是否存在于显示的列表
             if (musicinfo) {
                 pauseSong();
@@ -243,6 +246,7 @@ const observer = new MutationObserver((mutationsList) => {
             } else {
                 // tanChuang("此歌曲暂无MV");
             }
+            updateVideo();
         }
     }
 });
