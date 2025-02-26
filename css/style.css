@@ -539,6 +539,8 @@ main#main-body #Center #audioMv {
 }
 
 main#main-body #Center #audioMv video {
+    width: 100%;
+    height: auto;
     border-radius: inherit;
 }
 

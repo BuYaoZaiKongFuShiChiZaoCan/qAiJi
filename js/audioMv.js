@@ -52,10 +52,7 @@ function audioMvmain(musicInfo = findMusic(title.textContent)) {
     video.id = 'audioMvVideo1';
     video.className = 'audioMvVideo';
     // 设置样式
-    video.style.cssText = `
-            width: 100%;
-            height: auto;
-        `;
+    // video.style.cssText = ``;
     // 设置src属性为视频地址
     video.src = musicInfo.srcLocalhost;
     // 设置自动播放
