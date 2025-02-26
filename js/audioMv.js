@@ -19,7 +19,7 @@ function audioMvmain(musicInfo = findMusic(title.textContent)) {
     // 设置src属性为视频地址
     video.src = musicInfo.srcLocalhost;
     // 设置自动播放
-    video.autoplay = autoplay;
+    // video.autoplay = true;
     // 设置循环播放
     // video.loop = true;
     // 设置静音播放
