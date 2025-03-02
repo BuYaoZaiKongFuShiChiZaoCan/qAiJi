@@ -108,7 +108,7 @@ function MusicError() {
     mErrTimeout = setTimeout(() => {
         let playIconClassList = playBtn.querySelector('i.fas').classList;
         if (playIconClassList.contains('fa-pause')) {
-            changeMusic();
+            lastChange === "prevSong" ? prevSong() : nextSong();
         } else if (playIconClassList.contains('fa-play')) {
             tanChuang('已暂停自动切换', 3700)
         }
@@ -463,15 +463,6 @@ function setProgress(e) {
     // audio.currentTime: 音频播放位置
     audio.currentTime = (clickX / width) * duration
 }
-
-function changeMusic() {
-    if (lastChange === "prevSong") {
-        prevSong();
-    } else {
-        nextSong();
-    }
-}
-
 // 事件监听
 // 1.播放歌曲
 playBtn.onclick = function () {
@@ -488,7 +479,7 @@ progressContainer.onclick = setProgress
 audio.ontimeupdate = updateProgress
 // 3.3 歌曲结束后自动下一首
 audio.onended = function () {
-    changeMusic();
+    lastChange === "prevSong" ? prevSong() : nextSong();
 }
 
 // 监听a标签点击后如果播放音乐就在新标签页打开
