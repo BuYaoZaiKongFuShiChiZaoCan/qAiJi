@@ -72,6 +72,7 @@ function audioMvmain(musicInfo = findMusic(title.textContent), autoplay = true) 
         video.currentTime = window.localStorage.getItem('musicTime');
         // 视频最大化
         // setTimeout(() => {
+        video.focus();
         video.webkitRequestFullScreen();
         // }, 17);
         video.play();
