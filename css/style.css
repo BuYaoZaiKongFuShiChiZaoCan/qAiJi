@@ -1,11 +1,11 @@
 @font-face {
     font-family: 千图小兔体;
-    src: url(/font/QTXTT.ttf) format('truetype');
+    src: url(../font/QTXTT.ttf) format('truetype');
 }
 
 @font-face {
     font-family: 华文彩云;
-    src: url(/font/HWCY.ttf) format('truetype');
+    src: url(../font/HWCY.ttf) format('truetype');
 }
 
 /* 设置变量 */
@@ -576,7 +576,7 @@ main#main-body #ceBian {
 
 main#main-body #ceBian>* {
     width: 300px;
-    background: url('/images/ceBian/1.png');
+    background: url('../images/ceBian/1.png');
     background-size: 98%;
     background-repeat: no-repeat;
     background-position: 0 3px;
