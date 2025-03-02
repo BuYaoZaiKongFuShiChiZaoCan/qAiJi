@@ -41,11 +41,11 @@ let mvList = [
 
 /**
  * 主函数
- * @param {boolean} autoplay 是否自动播放
  * @param {object} musicInfo 音乐信息
+ * @param {boolean} autoplay 是否自动播放
  * @returns {null} 无返回
  */
-function audioMvmain(musicInfo = findMusic(title.textContent)) {
+function audioMvmain(musicInfo = findMusic(title.textContent), autoplay = true) {
     // 创建一个video元素
     let video = document.createElement('video');
     // 设置ID为audioMvVideo
@@ -56,7 +56,7 @@ function audioMvmain(musicInfo = findMusic(title.textContent)) {
     // 设置src属性为视频地址
     video.src = musicInfo.srcLocalhost;
     // 设置自动播放
-    video.autoplay = true;
+    video.autoplay = autoplay;
     // 设置循环播放
     // video.loop = true;
     // 设置静音播放
@@ -116,7 +116,7 @@ function findMusic(id) {
 // 判断视频是否存在于显示的列表
 if (musicinfo = findMusic(title.textContent)) {
     // Mv 有MV的歌曲会切换后会优先自动播放MV
-    audioMvmain(musicinfo);
+    audioMvmain(musicinfo, false);
 } else {
     // tanChuang("此歌曲暂无MV");
     playSong();
