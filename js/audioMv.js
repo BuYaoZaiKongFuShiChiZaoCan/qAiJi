@@ -4,7 +4,7 @@ let mvList = [
     {
         id: "浮夸-陈奕迅",
         title: '《浮夸》2010DUO演唱会 现场版',
-        srcLocalhost: '../music/mv/浮夸-陈奕迅.mp4',
+        srcLocalhost: './music/mv/浮夸-陈奕迅.mp4',
         srcNetwork: null,
         poster: null,
         desc: '《浮夸》现场版，演唱陈奕迅，粵语经典歌曲，太好听了来源 qq.com · 时长 4 分钟35 秒 · 上传时间 2021年2月7日 · 上传人 娟子v音乐'
@@ -16,7 +16,7 @@ let mvList = [
     {
         id: "体面-于文文",
         title: '《前任3：再见前任》电影插曲 体面-于文文',
-        srcLocalhost: '../music/mv/体面-于文文.mp4',
+        srcLocalhost: './music/mv/体面-于文文.mp4',
         srcNetwork: "https://tv.sohu.com/v/dXMvMzQ2NjQwNzg3LzQyMjA0MzQ2OS5zaHRtbA==.html",
         poster: null,
         desc: '《体面》由于文文作曲并演唱，唐恬作词，郑楠编曲，单曲于2017年12月25日发行，是电影《前任3：再见前任》的插曲。 后收录在于文文于2018年11月7日发行的专辑《尚未界定》中。 2018年4月8日，该曲获第23届华鼎奖中国电影最佳歌曲奖；8月29日，该歌曲获得华人歌曲音乐盛典年度金曲；12月18日，获得Billboard Radio China 2018年度华语十大金曲。'
@@ -24,7 +24,7 @@ let mvList = [
     {
         id: "说散就散-袁娅维TIA RAY",
         title: '《前任3：再见前任》电影插曲 《说散就散》',
-        srcLocalhost: '../music/mv/说散就散-袁娅维.mp4',
+        srcLocalhost: './music/mv/说散就散-袁娅维.mp4',
         srcNetwork: "https://music.163.com/#/mv?id=5741462",
         poster: null,
         desc: '袁娅维献声电影《前任3：再见前任》「灵魂新锋」TIA袁娅维再度为爱献声，剖心演绎最催人泪下版《说散就散》。电影「前任3：再见前任」主题曲《说散就散》洒脱上线'
@@ -32,7 +32,7 @@ let mvList = [
     {
         id: "挪威的森林-伍佰",
         title: '挪威的森林 伍佰',
-        srcLocalhost: '../music/mv/挪威的森林-伍佰.mp4',
+        srcLocalhost: './music/mv/挪威的森林-伍佰.mp4',
         srcNetwork: null,
         poster: null,
         desc: '《挪威的森林》是由伍佰创作词曲并演唱的流行摇滚歌曲，由伍佰与China Blue乐队共同编曲，收录在伍佰&China Blue于1996年6月18日发行的专辑《爱情的尽头》中 。创作灵感来源于日本作家村上春树出版的同名长篇小说《挪威的森林》，是伍佰有感而发创作出的歌曲。伍佰音乐生涯中传唱度最高的音乐作品。'
