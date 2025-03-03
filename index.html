@@ -362,7 +362,7 @@
             <div id="spsjhb" onclick="headers()">
                 <span></span><span></span><span></span>
             </div>
-            <div id="spsjhbtwo">
+            <div id="spsjhbtwo" role="link" data-href="https://qaiji.netlify.app/">
                 <img src="./images/logo.png" alt="" />
                 <span>Q愛记</span>
             </div>
@@ -392,6 +392,21 @@
                 }
 
                 os(); // 初始化调用一次os函数
+
+                window.spsjhbtwo.addEventListener('click', function () {
+                    let url = this.dataset.href;
+                    if (url) {
+                        // 判断是否支持window.open
+                        if (window.open) {
+                            window.open(url);
+                        } else {
+                            // 不支持window.open
+                            window.location.href = url;
+                        }
+                    } else {
+                        alert('链接地址错误！');
+                    }
+                })
             </script>
             <nav>
                 <ul>
