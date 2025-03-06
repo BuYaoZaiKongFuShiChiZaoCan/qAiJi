@@ -57,6 +57,7 @@ let songs = [
         不知不觉就找了好多歌
     */
     /* New Songs 241225 */
+    "越来越不懂-蔡健雅",
     "DJ马哥 - C哩C哩",
     "Gamper & Dadoni、Ember Island - Creep",
     "Mike Zhou - The Dawn (亡灵序曲完美钢琴版)",
