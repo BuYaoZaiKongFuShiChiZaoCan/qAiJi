@@ -168,7 +168,7 @@ function playSong() {
         clearTimeout(mErrTimeout);
     }
     // 存在mv且在播放状态就暂停播放
-    if (findMusic(title.textContent) && window.audioMvVideo1 && window.audioMvVideo1.paused == false) {
+    if (findMusic(title.textContent) && window.audioMvVideo1 && !window.audioMvVideo1.paused) {
         pauseSong();
     } else {
         audio.play();
@@ -246,6 +246,8 @@ const observer = new MutationObserver((mutationsList) => {
             listupdate();
             scrollToIng();
 
+            // 先暂停，判断完有没有mv后再播放
+            pauseSong();
             playSong();
         }
     }
