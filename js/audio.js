@@ -157,8 +157,18 @@ function playSong() {
     playBtn.querySelector('i.fas').classList.remove('fa-play');
     playBtn.querySelector('i.fas').classList.add('fa-pause');
 
+    updateVideo();
+    // 判断视频是否存在于显示的列表
+    if (musicinfo = findMusic(title.textContent)) {
+        // Mv 有MV的歌曲会切换后会优先自动播放MV
+        audioMvmain(musicinfo);
+    } else {
+        // tanChuang("此歌曲暂无MV");
+        // 清除错误超时
+        clearTimeout(mErrTimeout);
+    }
     // 存在mv且在播放状态就暂停播放
-    if (findMusic(title.textContent & window.audioMvVideo1.pause == false)) {
+    if (findMusic(title.textContent) & window.audioMvVideo1.paused == false) {
         pauseSong();
     } else {
         audio.play();
@@ -167,10 +177,6 @@ function playSong() {
     // 如果因为错误暂停就自动下一首
     if (songs[songIndex] == '已暂停') {
         nextSong();
-    }
-
-    if (window.audioMvVideo1) {
-        window.audioMvVideo1.pause();
     }
 }
 
@@ -229,6 +235,8 @@ const observer = new MutationObserver((mutationsList) => {
 
             // 存储正在播放的音乐下标到应用程序
             window.localStorage.setItem('songIndex', songIndex);
+            // 设置播放进度
+            window.localStorage.setItem('musicTime', '0');
 
             // 对歌词位置做初始化
             lrc.style.transform = `translateY(0px)`;
@@ -238,20 +246,7 @@ const observer = new MutationObserver((mutationsList) => {
             listupdate();
             scrollToIng();
 
-            window.localStorage.setItem('musicTime', '0');
-
-            // 放在播放时判断导致 只能播放音乐或mv一个
-            updateVideo();
-            // 判断视频是否存在于显示的列表
-            if (musicinfo = findMusic(title.textContent)) {
-                // Mv 有MV的歌曲会切换后会优先自动播放MV
-                audioMvmain(musicinfo);
-            } else {
-                // tanChuang("此歌曲暂无MV");
-                // 清除错误超时
-                clearTimeout(mErrTimeout);
-                playSong();
-            }
+            playSong();
         }
     }
 });
