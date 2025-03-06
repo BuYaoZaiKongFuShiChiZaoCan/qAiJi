@@ -78,7 +78,11 @@ function audioMvmain(musicInfo = findMusic(title.textContent), autoplay = true) 
         // setTimeout(() => {
         video.webkitRequestFullScreen();
         // }, 17);
-        video.play();
+        try {
+            video.play();
+        } catch (error) {
+            console.log(`视频播放失败：${error}`);
+        }
         video.onended = function () {
             lastChange === "prevSong" ? prevSong() : nextSong();
         };
