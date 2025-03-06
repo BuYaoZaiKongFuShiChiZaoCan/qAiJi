@@ -3,6 +3,7 @@ const audioMv = document.querySelector('#audioMv');
 let mvList = [
     {
         id: "浮夸-陈奕迅",
+        type: 'video/mp4',
         title: '《浮夸》2010DUO演唱会 现场版',
         srcLocalhost: './music/mv/浮夸-陈奕迅.mp4',
         srcNetwork: null,
@@ -15,6 +16,7 @@ let mvList = [
     },
     {
         id: "体面-于文文",
+        type: 'video/mp4',
         title: '《前任3：再见前任》电影插曲 体面-于文文',
         srcLocalhost: './music/mv/体面-于文文.mp4',
         srcNetwork: "https://tv.sohu.com/v/dXMvMzQ2NjQwNzg3LzQyMjA0MzQ2OS5zaHRtbA==.html",
@@ -23,6 +25,7 @@ let mvList = [
     },
     {
         id: "说散就散-袁娅维TIA RAY",
+        type: 'video/mp4',
         title: '《前任3：再见前任》电影插曲 《说散就散》',
         srcLocalhost: './music/mv/说散就散-袁娅维.mp4',
         srcNetwork: "https://music.163.com/#/mv?id=5741462",
@@ -31,6 +34,7 @@ let mvList = [
     },
     {
         id: "挪威的森林-伍佰",
+        type: 'video/mp4',
         title: '挪威的森林 伍佰',
         srcLocalhost: './music/mv/挪威的森林-伍佰.mp4',
         srcNetwork: null,
@@ -66,6 +70,11 @@ function audioMvmain(musicInfo = findMusic(title.textContent), autoplay = true) 
     // 控制条
     video.controls = true;
     audioMv.appendChild(video);
+    /* 解决206 start */
+    if (checkVideoStatus(musicInfo.srcLocalhost) == "206") {
+        return
+    }
+    /* 解决206 end */
     // 元素加载完成后
     video.onloadedmetadata = function () {
         // 设置音乐进度为视频进度
@@ -120,6 +129,60 @@ if (musicinfo = findMusic(title.textContent)) {
 } else {
     // tanChuang("此歌曲暂无MV");
     playSong();
+}
+
+/* 处理206 */
+const videoElement = document.getElementById("audioMvVideo1");
+const videoUrl = videoElement.src;
+
+async function fetchVideoSegment(url, start, end) {
+    const headers = new Headers();
+    headers.append("Range", `bytes=${start}-${end}`);
+    const response = await fetch(url, { headers });
+    if (response.status === 206) {
+        return response.arrayBuffer();
+    } else {
+        throw new Error(`Unexpected response status: ${response.status}`);
+    }
+}
+
+async function loadVideo(url) {
+    const totalSize = await fetchVideoSize(url); // 获取视频总大小
+    const chunkSize = 1024 * 1024; // 每次请求 1MB 数据
+    let loadedSize = 0;
+
+    while (loadedSize < totalSize) {
+        const end = Math.min(loadedSize + chunkSize - 1, totalSize - 1);
+        const segment = await fetchVideoSegment(url, loadedSize, end);
+        loadedSize += segment.byteLength;
+
+        // 将数据片段添加到视频源
+        const blob = new Blob([segment], { type: "video/mp4" });
+        const videoSource = URL.createObjectURL(blob);
+        videoElement.src = videoSource;
+    }
+}
+
+async function fetchVideoSize(url) {
+    const response = await fetch(url, { method: "HEAD" });
+    const totalSize = response.headers.get("Content-Length");
+    return parseInt(totalSize, 10);
+}
+
+// 提前获取状态码
+async function checkVideoStatus(url) {
+    try {
+        const response = await fetch(url, { method: "HEAD" }); // 使用 HEAD 请求获取状态码
+        console.log("状态码:", response.status);
+        if (response.status === 206) {
+            // 调用函数加载视频
+            loadVideo(videoUrl);
+        }
+        console.log("状态文本:", response.statusText);
+        return "206"
+    } catch (error) {
+        console.error("检查视频状态时出错:", error);
+    }
 }
 
 let videoList = [
