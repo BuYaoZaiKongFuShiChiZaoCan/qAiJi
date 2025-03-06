@@ -157,7 +157,12 @@ function playSong() {
     playBtn.querySelector('i.fas').classList.remove('fa-play');
     playBtn.querySelector('i.fas').classList.add('fa-pause');
 
-    audio.play();
+    // 存在mv且在播放状态就暂停播放
+    if (findMusic(title.textContent & window.audioMvVideo1.pause == false)) {
+        pauseSong();
+    } else {
+        audio.play();
+    }
 
     // 如果因为错误暂停就自动下一首
     if (songs[songIndex] == '已暂停') {
@@ -218,7 +223,6 @@ const observer = new MutationObserver((mutationsList) => {
             } else {
                 musliIng.style.opacity = 0.8;
             }
-            pauseSong(); // 仅用于设置状态
 
             // src属性发生变化时的处理逻辑 音乐改变
             getLrc(songs[songIndex]);
