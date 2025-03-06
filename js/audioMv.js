@@ -64,7 +64,7 @@ function audioMvmain(musicInfo = findMusic(title.textContent), autoplay = true) 
     // 设置循环播放
     // video.loop = true;
     // 设置静音播放
-    // video.muted = true;
+    video.muted = true;
     // 设置音量
     // video.volume = 0.5;
     // 控制条
@@ -78,9 +78,10 @@ function audioMvmain(musicInfo = findMusic(title.textContent), autoplay = true) 
         // setTimeout(() => {
         video.webkitRequestFullScreen();
         // }, 17);
-        video.play().catch((error) => {
-            console.log(`视频播放失败：${error}`);
-        });
+        video.play();
+        if (video.muted == true) {
+            video.muted = false;
+        }
         video.onended = function () {
             lastChange === "prevSong" ? prevSong() : nextSong();
         };
