@@ -249,8 +249,8 @@ const observer = new MutationObserver((mutationsList) => {
             // audio加载完毕后暂停播放
             audio.addEventListener('loadedmetadata', () => {
                 pauseSong();
+                playSong();
             })
-            playSong();
         }
     }
 });

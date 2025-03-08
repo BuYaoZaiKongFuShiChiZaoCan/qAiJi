@@ -68,6 +68,7 @@ function audioMvmain(musicInfo = findMusic(title.textContent), autoplay = true) 
     // 设置音量
     // video.volume = 0.5;
     // 控制条
+    video.type = musicInfo.type;
     video.controls = true;
     audioMv.appendChild(video);
     // 元素加载完成后
