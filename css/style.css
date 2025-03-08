@@ -646,14 +646,6 @@ main#main-body #ceBian #CBthree .img-container {
     width: 110px;
 }
 
-main#main-body #ceBian #CBthree .img-container::before {
-    content: "";
-    background: url(../images/audio/play.png);
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
 main#main-body #ceBian #CBthree .img-container::after {
     content: "";
     background-color: #fff;

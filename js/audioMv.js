@@ -81,7 +81,8 @@ function audioMvmain(musicInfo = findMusic(title.textContent), autoplay = true) 
         // }, 17);
         if (audioMv.title == musicInfo.id) {
             // 设置视频进度为音乐进度
-            video.currentTime = audioMv.currentTime;
+            video.currentTime = audio.currentTime;
+            pauseSong();
         }
         video.play();
         video.onended = function () {
