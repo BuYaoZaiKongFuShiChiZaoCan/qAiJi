@@ -246,8 +246,10 @@ const observer = new MutationObserver((mutationsList) => {
             listupdate();
             scrollToIng();
 
-            // 先暂停，判断完有没有mv后再播放
-            pauseSong();
+            // audio加载完毕后暂停播放
+            audio.addEventListener('loadedmetadata', () => {
+                pauseSong();
+            })
             playSong();
         }
     }
