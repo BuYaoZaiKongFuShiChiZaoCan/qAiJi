@@ -159,7 +159,7 @@ function playSong() {
 
     updateVideo();
     // 存在mv且在播放状态就暂停播放
-    if (musicinfo = findMusic(title.textContent)) {
+    if (musicinfo = findMusic(title.textContent) || !window.audioMvVideo1.paused) {
         // Mv 有MV的歌曲会切换后会优先自动播放MV
         pauseSong();
         audioMvmain(musicinfo);
@@ -173,7 +173,7 @@ function playSong() {
     }
 
     // 如果因为错误暂停就自动下一首
-    if (songs[songIndex] == '已暂停') {
+    if (title.textContent == '已暂停') {
         nextSong();
     }
 }
