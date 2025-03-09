@@ -81,8 +81,7 @@ function audioMvmain(musicInfo = findMusic(title.textContent), autoplay = true) 
         // }, 17);
         // 设置视频进度为音乐进度
         video.currentTime = audio.currentTime;
-        pauseSong();
-        video.play();
+        video.play();// 页面首次播放会提示需要用户点击一次才能自动播放 main.js:1  Uncaught (in promise) NotAllowedError: play() failed because the user didn't interact with the document first.
         video.onended = function () {
             lastChange === "prevSong" ? prevSong() : nextSong();
         };
