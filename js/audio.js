@@ -520,7 +520,6 @@ if ("mediaSession" in navigator) {
     // 监听暂停按钮事件
     navigator.mediaSession.setActionHandler("pause", function () {
         // 处理暂停按钮事件
-        // audio.pause();
         pauseSong();
         navigator.mediaSession.playbackState = "Paused";
     });

@@ -76,10 +76,13 @@ function audioMvmain(musicInfo = findMusic(title.textContent), autoplay = true) 
         // 设置音乐进度为视频进度
         video.currentTime = window.localStorage.getItem('musicTime');
         // 视频最大化
-        // setTimeout(() => {
-        video.webkitRequestFullScreen();
-        // }, 17);
-        video.play();// 页面首次播放会提示需要用户点击一次才能自动播放 main.js:1  Uncaught (in promise) NotAllowedError: play() failed because the user didn't interact with the document first.
+        setTimeout(() => {
+            video.webkitRequestFullScreen();
+        }, 17);
+        // 页面首次播放会提示需要用户点击一次才能自动播放 main.js:1  Uncaught (in promise) NotAllowedError: play() failed because the user didn't interact with the document first.
+        video.play().catch(error => {
+            console.error('播放失败:', error);
+        });
         video.onended = function () {
             lastChange === "prevSong" ? prevSong() : nextSong();
         };
