@@ -8,41 +8,48 @@ const progress = document.getElementById("progress");
 const progressContainer = document.getElementById("progress-container");
 const title = document.getElementById("title");
 const musicCover = document.getElementById("music-cover");
-const musicList = document.getElementById('musicList');
-
-// 默认从第一首开始
-let songIndex = +window.localStorage.getItem('songIndex');
 
 // 向页面输出音乐数量
 document.getElementById('mlength').textContent = songs.length;
+
+const musicDivs = window.musicList.getElementsByTagName('div'); // 列表内容更新了再重新获取，目前用不到，可以放外面，等用到了再去搞一个函数
 function listupdate() {
-    const musicDivs = window.musicList.getElementsByTagName('div');
-    songs.forEach((song, index) => {
-        if (songIndex === index) {// 不能使用songs[songIndex]了，因为有可能歌词名重复时会有两个正在播放的音乐导致显示等bug，只能用当前播放音乐下标去判断
+    for (let index = 0; index < songs.length; index++) {
+        if (songIndex == index) {// 不能使用songs[songIndex]了，因为有可能歌词名重复时会有两个正在播放的音乐导致显示等bug，只能用当前播放音乐下标去判断
             // 设置正在播放的歌曲列表样式
             musicDivs[index + 1].classList.add('musliIng');
         } else {
             // 恢复其它的样式
             musicDivs[index + 1].classList.remove('musliIng');
         }
-    });
+    }
 
     // 当dog显示时更新dog内歌词列表样式
     if (document.querySelector('#dog #musicListHand')) {
         const dogMusicDivs = dog.getElementsByTagName('div');
-        songs.forEach((song, index) => {
-            if (songIndex === index) {
+        for (let index = 0; index < songs.length; index++) {
+            if (songIndex == index) {
                 // 设置dog内正在播放的歌曲列表样式
                 dogMusicDivs[index + 1].classList.add('musliIng');
             } else {
                 // 恢复dog其它的样式
                 dogMusicDivs[index + 1].classList.remove('musliIng');
             }
-        });
+        }
     }
 }
 
-// 输出列表，使用更高阶的分时函数去封装，也就是不让这个插入元素时阻塞浏览器渲染，分段去渲染，回到16.6ms渲染一次的状态
+// 遍历、输出列表
+let musicList = document.getElementById('musicList');
+// let index2;
+// 目前方法对此问题并不是很大的影响了
+/* for (let index = 0; index < songs.length; index++) {
+    index2 = index + 1;
+    let obect = '<div id="' + index + '" style="cursor: pointer;">      <span class="musicItem">' + index2 + '.</span> ' + songs[index] + '</div>';
+    musicList.insertAdjacentHTML('beforeend', obect);
+} */
+performChunk(songs)
+// 使用更高阶的分时函数去封装，也就是不让这个插入元素时阻塞浏览器渲染，分段去渲染，回到16.6ms渲染一次的状态
 function performChunk(datas) {
     if (datas.length === 0) {
         return;
@@ -60,6 +67,8 @@ function performChunk(datas) {
             // 得到当前这一帧剩余多少毫秒 idle.timeRemaining()
             let fragment = document.createDocumentFragment();
             while (idle.timeRemaining() > 0 && i < datas.length) {
+                // 为了以后更灵活，这里可以使用传参+函数写，而不是直接写代码去写死，目前就不更改了
+                // let obect = '<div id="' + i + '" style="cursor: pointer;">      <span class="musicItem">' + (i + 1) + '.</span> ' + songs[i] + '</div>';
                 let div = document.createElement('div');
                 div.id = i;
                 let span = document.createElement('span');
@@ -67,7 +76,9 @@ function performChunk(datas) {
                 span.textContent = (i + 1) + '.';
                 div.appendChild(span);
                 div.appendChild(document.createTextNode(songs[i]));
+                // div.insertAdjacentText('beforeend', songs[i]);
                 fragment.appendChild(div);
+                // musicList.appendChild(div);
                 i++;
             }
             musicList.appendChild(fragment);
@@ -77,45 +88,67 @@ function performChunk(datas) {
     }
     _run();
 }
-performChunk(songs)
 
 // 列表点击
 window.musicList.addEventListener('click', function (e) {
     e.preventDefault();
     e.stopPropagation();
     // console.log(e);
-
-    let targetId = e.target.id;
-    let targetIndex = +targetId;
-    if (targetId && targetId !== 'musicListHand' && targetId !== 'musicList') {
-        if (songIndex === targetIndex) {
-            audio.paused ? playSong() : pauseSong();
+    if (!(e.target.id == '') && !(e.target.id == 'musicListHand') && !(e.target.id == 'musicList')) {
+        if (songIndex == +e.target.id) {
+            if (audio.paused) {
+                playSong();
+                // tanChuang('当前歌曲正在播放，可以点击进度条设置音乐进度');
+            } else {
+                pauseSong();
+            }
         } else {
             // 点击后设置一下当前播放音乐的index，不然songindex还是之前的，到下一首就会以之前播放的音乐为下一首跳转
-            songIndex = targetIndex;
-            loadSong(songs[songIndex]);
+            songIndex = +e.target.id;
+            loadSong(songs[+e.target.id]);
+            playSong();
         }
     }
 })
 
-let mErrTimeout = null;
-let lastChange = "nextSong";
+// let ind = 0;
+let musChange = false;
 // 音乐加载错误
 function MusicError() {
-    tanChuang('加载错误，即将自动切换', 2000);
-    clearTimeout(mErrTimeout);
-    title.textContent = '已暂停';
-    mErrTimeout = setTimeout(() => {
-        let playIconClassList = playBtn.querySelector('i.fas').classList;
-        if (playIconClassList.contains('fa-pause')) {
-            lastChange === "prevSong" ? prevSong() : nextSong();
-        } else if (playIconClassList.contains('fa-play')) {
-            tanChuang('已暂停自动切换', 3700)
+    /* if (ind < 1) {
+        audio.src = `https://chennas.hh2022.cn:5001/fsdownload/webapi/file_download.cgi/${songs[songIndex]}.mp3?dlink=%222f6d757369632f436f6c6c617073696e6720576f726c642e6d7033%22&noCache=1713104417321&_sharing_id=%22ZGvZ0PyIf%22&api=SYNO.FolderSharing.Download&version=2&method=download&mode=download&stdhtml=false/`;
+        ind++;
+    } else {
+        // console.error('音乐播放错误');
+        nextSong();
+        ind = 0;
+    } */
+    tanChuang('音乐播放错误，2秒后播放下一首', 1700);
+    setTimeout(() => {
+        if (musChange) {
+            musChange = false;
+            return;
+        } else {
+            let a = playBtn.querySelector('i.fas').classList;
+            for (let index = 0; index < a.length; index++) {
+                if (a[index] == 'fa-pause' || a[index] == 'fa-play') {
+                    // 是播放暂停按钮
+                    if (a[index] == 'fa-pause') {
+                        // 播放
+                        nextSong();
+                    } else {
+                        // 暂停
+                        tanChuang('已暂停，可手动切换下一首', 3700);
+                    }
+                }
+            }
         }
     }, 2000)
 }
 audio.addEventListener('error', MusicError);
 
+// 默认从第一首开始
+let songIndex = +window.localStorage.getItem('songIndex');
 // 更新歌曲细节
 function loadSong(song) {
     title.textContent = song;
@@ -157,24 +190,15 @@ function playSong() {
     playBtn.querySelector('i.fas').classList.remove('fa-play');
     playBtn.querySelector('i.fas').classList.add('fa-pause');
 
-    // 存在mv且在播放状态就暂停播放
-    if (musicinfo = findMusic(title.textContent) && window.audioMvVideo1) {
-        if (!window.audioMvVideo1.paused) {
-            updateVideo();
-            // Mv 有MV的歌曲会切换后会优先自动播放MV
-            pauseSong();
-            audioMvmain(musicinfo);
-        }
-    } else {
-        // tanChuang("此歌曲暂无MV");
-        // 清除错误超时
-        clearTimeout(mErrTimeout);
-        audio.play();
-    }
+    audio.play();
 
     // 如果因为错误暂停就自动下一首
-    if (title.textContent == '已暂停') {
+    if (songs[songIndex] == '已暂停') {
         nextSong();
+    }
+
+    if (window.audioMvVideo1) {
+        window.audioMvVideo1.pause();
     }
 }
 
@@ -187,18 +211,15 @@ function pauseSong() {
     audio.pause();
 }
 
-// 上一首 
+// 上一首
 function prevSong() {
     songIndex--;
     if (songIndex < 0) {
         songIndex = songs.length - 1
     }
-
-
-    // 加载歌曲信息并播放 上、下共同代码放到切换歌曲后那里，load是点击后在对音乐src做切换，有这个才能知道音乐切换了
+    // 加载歌曲信息并播放
     loadSong(songs[songIndex]);
-
-    lastChange = "prevSong";
+    playSong();
 }
 // 下一首
 function nextSong() {
@@ -209,8 +230,7 @@ function nextSong() {
     }
 
     loadSong(songs[songIndex]);
-
-    lastChange = "nextSong";
+    playSong();
 }
 
 // 创建一个MutationObserver实例
@@ -222,19 +242,16 @@ const observer = new MutationObserver((mutationsList) => {
             if (musliIngOpt !== undefined && musliIngOpt !== '') {
                 musliIng.style.opacity = parseFloat(musliIngOpt) - 0.2;
                 if (musliIngOpt <= 0.2) {
-                    musliIng.style.opacity = 0.2; // 确保透明度不小于0.2
+                    musliIng.style.opacity = 0.2; // 确保不小于0.2
                 }
             } else {
                 musliIng.style.opacity = 0.8;
             }
-
             // src属性发生变化时的处理逻辑 音乐改变
             getLrc(songs[songIndex]);
 
             // 存储正在播放的音乐下标到应用程序
             window.localStorage.setItem('songIndex', songIndex);
-            // 设置播放进度
-            window.localStorage.setItem('musicTime', '0');
 
             // 对歌词位置做初始化
             lrc.style.transform = `translateY(0px)`;
@@ -244,7 +261,64 @@ const observer = new MutationObserver((mutationsList) => {
             listupdate();
             scrollToIng();
 
-            playSong();
+            // 切换歌曲后设置localstorage的播放时间为0
+            window.localStorage.setItem('musicTime', 0);
+
+            // 每当音乐更新以后，再重新去设置一个歌词更新
+            setOffset = () => {
+                // 重新设置函数内容
+                setOffset = () => {
+                    var index = findIndex();
+                    if (index <= 0 || typeof (index) == 'undefined') {// 刚开始一条都没有，直接返回0，不然就是-1或者undefined
+                        index = 0;
+                    }
+                    var offset = window.lrc.childNodes[index].offsetTop - 20;
+                    if (Yindex == index || musicLrcHandmouse) {
+                        // 鼠标移入元素，不执行歌词滚动
+                    } else {
+                        // 向下滚动歌词
+                        Yindex = index
+                        if (offset < 0) {
+                            offset = 0
+                        }
+                        // lrc.style.transform = `translateY(-${offset}px)`
+                        requestAnimationFrame(() => {
+                            window.musicLrcHand.scroll(0, offset);
+                            if (window.dogLrc) {
+                                window.dog.scroll(0, offset - dogHeight / 2);
+                            }
+                        })
+                    }
+                    // 去掉之前的样式，因为歌词进度样式要一直设置，所以放if外面
+                    var li = lrc.querySelector('.active');
+                    if (li) {
+                        li.classList.remove('active');
+                        li.classList.add('visited');
+                    }
+                    li = lrc.children[index];
+                    if (li) {
+                        li.classList.add('active');
+                        li.style.height = liHeight;
+                    }
+                    // 对Dog内的歌词更新
+                    if (window.dogLrc) {
+                        var dogLi = window.dogLrc.querySelector('.active');
+                        if (dogLi) {
+                            dogLi.classList.remove('active');
+                            dogLi.classList.add('visited');
+                        }
+                        dogLi = window.dogLrc.children[index];
+                        if (dogLi) {
+                            dogLi.classList.add('active');
+                        }
+                    }
+                }
+            }
+
+            musChange = true;
+
+            // Mv 有MV的歌曲会切换后会优先自动播放MV
+            audioMvmain();
         }
     }
 });
@@ -357,6 +431,25 @@ function parseTime(timeStr) {
     return +parts[0] * 60 + +parts[1]
 }
 
+/**
+ * 计算出，在当前播放器播放到第几秒的情况下
+ * lrcData数组中，应改高亮显示的歌词下标
+ * 在0秒时不显示任何数据，也就是返回-1,
+ */
+function findIndex() {
+    // 播放器当前时间
+    var curTime = audio.currentTime;
+    if (lrcData) {
+        for (var i = 0; i < lrcData.length; i++) {
+            if (curTime < lrcData[i].time) {
+                return i - 1
+            }
+        }
+        // 找遍了都没找到（说明播放到最后一句），就返回最后一句，不然会是undefined
+        return lrcData.length - 1
+    }
+}
+
 /** 
  * 鼠标划入进度条事件
  * 显示一下时间
@@ -430,6 +523,93 @@ function createLrcElements() {
     }
 }
 
+/**
+ * 设置偏移量
+ */
+let Yindex;
+let musicLrcHandmouse = false;
+window.musicLrcHand.onmouseover = function () {// 鼠标移入后包括滚动时执行
+    musicLrcHandmouse = true;
+}
+window.musicLrcHand.onmouseleave = function () {// 鼠标移出时执行
+    musicLrcHandmouse = false;
+    setOffset();
+}
+
+function setOffset() {
+    // 重新设置函数内容
+    setOffset = () => {
+        var index = findIndex();
+        if (index <= 0 || typeof (index) == 'undefined') {// 刚开始一条都没有，直接返回0，不然就是-1或者undefined
+            index = 0;
+        }
+        var offset = window.lrc.childNodes[index].offsetTop - 20;
+        if (Yindex == index || musicLrcHandmouse) {
+            // 鼠标移入元素，不执行歌词滚动
+        } else {
+            // 向下滚动歌词
+            Yindex = index
+            if (offset < 0) {
+                offset = 0
+            }
+            // lrc.style.transform = `translateY(-${offset}px)`
+            requestAnimationFrame(() => {
+                window.musicLrcHand.scroll(0, offset);
+                if (window.dogLrc) {
+                    window.dog.scroll(0, offset - dogHeight / 2);
+                }
+            })
+        }
+        // 去掉之前的样式，因为歌词进度样式要一直设置，所以放if外面
+        var li = lrc.querySelector('.active');
+        if (li) {
+            li.classList.remove('active');
+            li.classList.add('visited');
+        }
+        li = lrc.children[index];
+        if (li) {
+            li.classList.add('active');
+            li.style.height = liHeight;
+        }
+        // 对Dog内的歌词更新
+        if (window.dogLrc) {
+            var dogLi = window.dogLrc.querySelector('.active');
+            if (dogLi) {
+                dogLi.classList.remove('active');
+                dogLi.classList.add('visited');
+            }
+            dogLi = window.dogLrc.children[index];
+            if (dogLi) {
+                dogLi.classList.add('active');
+            }
+        }
+    }
+}
+
+
+// 设置时间间隔
+/* function throttle(func, limit) {
+    let inThrottle;
+    return function () {
+        const args = arguments;
+        const context = this;
+        if (!inThrottle) {
+            func.apply(context, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    };
+}
+ */
+/* audio.addEventListener('timeupdate', throttle(function () {
+    // 在这里放置处理timeupdate事件的代码
+    setOffset();
+}, 860)); */
+
+audio.addEventListener('timeupdate', () => {
+    setOffset();
+})
+
 // 进度条更新
 function updateProgress(e) {
     // audio.duration: 音频长度
@@ -476,7 +656,7 @@ progressContainer.onclick = setProgress
 audio.ontimeupdate = updateProgress
 // 3.3 歌曲结束后自动下一首
 audio.onended = function () {
-    lastChange === "prevSong" ? prevSong() : nextSong();
+    nextSong();
 }
 
 // 监听a标签点击后如果播放音乐就在新标签页打开
@@ -520,6 +700,7 @@ if ("mediaSession" in navigator) {
     // 监听暂停按钮事件
     navigator.mediaSession.setActionHandler("pause", function () {
         // 处理暂停按钮事件
+        // audio.pause();
         pauseSong();
         navigator.mediaSession.playbackState = "Paused";
     });
