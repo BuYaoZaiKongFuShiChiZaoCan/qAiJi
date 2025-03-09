@@ -159,9 +159,9 @@ function playSong() {
 
     updateVideo();
     // 存在mv且在播放状态就暂停播放
-    if (musicinfo = findMusic(title.textContent) && window.audioMvVideo1 && window.audioMvVideo1.paused) {
-        pauseSong();
+    if (musicinfo = findMusic(title.textContent)) {
         // Mv 有MV的歌曲会切换后会优先自动播放MV
+        pauseSong();
         audioMvmain(musicinfo);
         console.log("播放MV");
     } else {
@@ -244,11 +244,7 @@ const observer = new MutationObserver((mutationsList) => {
             listupdate();
             scrollToIng();
 
-            // audio加载完毕后暂停播放
-            audio.addEventListener('loadedmetadata', () => {
-                pauseSong();
-                playSong();
-            })
+            playSong();
         }
     }
 });
