@@ -163,11 +163,13 @@ function playSong() {
         pauseSong();
         // Mv 有MV的歌曲会切换后会优先自动播放MV
         audioMvmain(musicinfo);
+        console.log("播放MV");
     } else {
         // tanChuang("此歌曲暂无MV");
         // 清除错误超时
         clearTimeout(mErrTimeout);
         audio.play();
+        console.log("播放歌曲");
     }
 
     // 如果因为错误暂停就自动下一首
