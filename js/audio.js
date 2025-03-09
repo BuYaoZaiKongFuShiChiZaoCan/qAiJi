@@ -159,7 +159,7 @@ function playSong() {
 
     updateVideo();
     // 存在mv且在播放状态就暂停播放
-    if (musicinfo = findMusic(title.textContent) && window.audioMvVideo1 && !window.audioMvVideo1.paused) {
+    if (musicinfo = findMusic(title.textContent) && window.audioMvVideo1 && window.audioMvVideo1.paused) {
         pauseSong();
         // Mv 有MV的歌曲会切换后会优先自动播放MV
         audioMvmain(musicinfo);
