@@ -79,11 +79,9 @@ function audioMvmain(musicInfo = findMusic(title.textContent), autoplay = true) 
         // setTimeout(() => {
         video.webkitRequestFullScreen();
         // }, 17);
-        if (audioMv.title == musicInfo.id) {
-            // 设置视频进度为音乐进度
-            video.currentTime = audio.currentTime;
-            pauseSong();
-        }
+        // 设置视频进度为音乐进度
+        video.currentTime = audio.currentTime;
+        pauseSong();
         video.play();
         video.onended = function () {
             lastChange === "prevSong" ? prevSong() : nextSong();
