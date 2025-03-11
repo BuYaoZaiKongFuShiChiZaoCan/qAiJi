@@ -58,6 +58,7 @@ let songs = [
         不知不觉就找了好多歌
     */
     /* New Songs 241225 */
+    "我怀念的-孙燕姿",
     "越来越不懂-蔡健雅",
     "DJ马哥 - C哩C哩",
     "Gamper & Dadoni、Ember Island - Creep",
