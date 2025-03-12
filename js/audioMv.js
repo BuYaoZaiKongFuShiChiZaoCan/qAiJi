@@ -40,6 +40,15 @@ let mvList = [
         srcNetwork: null,
         poster: null,
         desc: '《挪威的森林》是由伍佰创作词曲并演唱的流行摇滚歌曲，由伍佰与China Blue乐队共同编曲，收录在伍佰&China Blue于1996年6月18日发行的专辑《爱情的尽头》中 。创作灵感来源于日本作家村上春树出版的同名长篇小说《挪威的森林》，是伍佰有感而发创作出的歌曲。伍佰音乐生涯中传唱度最高的音乐作品。'
+    },
+    {
+        id: "坟草纲目",
+        type: 'video/mp4',
+        title: "坟草纲目",
+        srcLocalhost: './music/mv/坟草纲目.mp4',
+        srcNetwork: null,
+        poster: null,
+        desc: '《坟草纲目》'
     }
 ]
 
