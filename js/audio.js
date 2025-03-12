@@ -158,12 +158,10 @@ function playSong() {
     playBtn.querySelector('i.fas').classList.add('fa-pause');
 
     // 存在mv且在播放状态就暂停播放
-    if (musicinfo = findMusic(title.textContent) && window.audioMvVideo1) {
-        if (!window.audioMvVideo1.paused) {
-            // Mv 有MV的歌曲会切换后会优先自动播放MV
-            pauseSong();
-            audioMvmain(musicinfo);
-        }
+    if (musicinfo = findMusic(title.textContent)) {
+        // Mv 有MV的歌曲会切换后会优先自动播放MV
+        pauseSong();
+        audioMvmain(musicinfo);
     } else {
         // tanChuang("此歌曲暂无MV");
         // 清除错误超时
