@@ -152,11 +152,6 @@ function scrollToIng() {
 
 // 播放歌曲
 function playSong() {
-    // 元素添加类名
-    musicContainer.classList.add("play");
-    playBtn.querySelector('i.fas').classList.remove('fa-play');
-    playBtn.querySelector('i.fas').classList.add('fa-pause');
-
     // 存在mv且在播放状态就暂停播放
     if (musicinfo = findMusic(title.textContent)) {
         // Mv 有MV的歌曲会切换后会优先自动播放MV
@@ -167,6 +162,10 @@ function playSong() {
         // 清除错误超时
         clearTimeout(mErrTimeout);
         audio.play();
+        // 元素添加类名
+        musicContainer.classList.add("play");
+        playBtn.querySelector('i.fas').classList.remove('fa-play');
+        playBtn.querySelector('i.fas').classList.add('fa-pause');
     }
 
     // 如果因为错误暂停就自动下一首

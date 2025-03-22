@@ -59,54 +59,52 @@ let mvList = [
  * @returns {null} 无返回
  */
 function audioMvmain(musicInfo = findMusic(title.textContent), autoplay = true) {
-    if (window.audioMvVideo1 && title.textContent == musicInfo.id) {
-        // 创建一个video元素
-        let video = document.createElement('video');
-        // 设置ID为audioMvVideo
-        video.id = 'audioMvVideo1';
-        video.className = 'audioMvVideo';
-        // 设置样式
-        // video.style.cssText = ``;
-        // 设置src属性为视频地址
-        video.src = musicInfo.srcLocalhost;
-        // 设置自动播放
-        video.autoplay = autoplay;
-        // 设置循环播放
-        // video.loop = true;
-        // 设置静音播放
-        // video.muted = true;
-        // 设置音量
-        // video.volume = 0.5;
-        // 控制条
-        video.type = musicInfo.type;
-        video.controls = true;
-        audioMv.appendChild(video);
-        // 元素加载完成后
-        video.onloadedmetadata = function () {
-            // 设置音乐进度为视频进度
-            video.currentTime = window.localStorage.getItem('musicTime');
-            // 视频最大化
-            setTimeout(() => {
-                video.webkitRequestFullScreen();
-                // 页面首次播放会提示需要用户点击一次才能自动播放 main.js:1  Uncaught (in promise) NotAllowedError: play() failed because the user didn't interact with the document first.
-                video.play().catch(error => {
-                    console.error('播放失败:', error);
-                });
-            }, 17);
-            video.onended = function () {
-                lastChange === "prevSong" ? prevSong() : nextSong();
-            };
+    // 创建一个video元素
+    let video = document.createElement('video');
+    // 设置ID为audioMvVideo
+    video.id = 'audioMvVideo1';
+    video.className = 'audioMvVideo';
+    // 设置样式
+    // video.style.cssText = ``;
+    // 设置src属性为视频地址
+    video.src = musicInfo.srcLocalhost;
+    // 设置自动播放
+    video.autoplay = autoplay;
+    // 设置循环播放
+    // video.loop = true;
+    // 设置静音播放
+    // video.muted = true;
+    // 设置音量
+    // video.volume = 0.5;
+    // 控制条
+    video.type = musicInfo.type;
+    video.controls = true;
+    audioMv.appendChild(video);
+    // 元素加载完成后
+    video.onloadedmetadata = function () {
+        // 设置音乐进度为视频进度
+        video.currentTime = window.localStorage.getItem('musicTime');
+        // 视频最大化
+        setTimeout(() => {
+            video.webkitRequestFullScreen();
+            // 页面首次播放会提示需要用户点击一次才能自动播放 main.js:1  Uncaught (in promise) NotAllowedError: play() failed because the user didn't interact with the document first.
+            video.play().catch(error => {
+                console.error('播放失败:', error);
+            });
+        }, 17);
+        video.onended = function () {
+            lastChange === "prevSong" ? prevSong() : nextSong();
         };
-        // 添加标题等表述元素
-        let title = document.createElement('h2');
-        title.classList.add('audioMvTitle');
-        title.textContent = musicInfo.title;
-        let desc = document.createElement('p');
-        desc.classList.add('audioMvDesc');
-        desc.textContent = musicInfo.desc;
-        audioMv.appendChild(title);
-        audioMv.appendChild(desc);
-    }
+    };
+    // 添加标题等表述元素
+    let title = document.createElement('h2');
+    title.classList.add('audioMvTitle');
+    title.textContent = musicInfo.title;
+    let desc = document.createElement('p');
+    desc.classList.add('audioMvDesc');
+    desc.textContent = musicInfo.desc;
+    audioMv.appendChild(title);
+    audioMv.appendChild(desc);
 }
 
 // 更新video元素
