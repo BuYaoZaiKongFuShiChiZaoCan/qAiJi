@@ -156,6 +156,7 @@ function playSong() {
     if (musicinfo = findMusic(title.textContent)) {
         // Mv 有MV的歌曲会切换后会优先自动播放MV
         pauseSong();
+        updateVideo();
         audioMvmain(musicinfo);
     } else {
         // tanChuang("此歌曲暂无MV");

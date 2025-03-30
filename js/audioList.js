@@ -25,6 +25,10 @@
 let songs = [
     "宿敌_田人",
     "浮夸-陈奕迅",
+    /* happy */
+    "李克勤-护花使者",
+    "Nathan Evans - Wellerman (Sea Shanty)", // https://www.kuaishou.com/profile/3xv4pcbm9mvv77k @Mushini https://www.youtube.com/watch?v=qP-7GNoDJ5c https://www.youtube.com/watch?v=90Oc9Xl5Aps https://www.youtube.com/watch?v=lLGLUSzzuWU
+    /* happyEnd */
     /* 泪水打湿数据线 边听音乐边漏电 不分敌我一穿七 全体给我忆亡妻 */
     "琪大妈-画心",
     "忘了",
@@ -69,7 +73,6 @@ let songs = [
     "曹操-林俊杰",
     '林忆莲-至少还有你',
     "开往早晨的午夜-张碧晨",
-    "李克勤-护花使者",
     /* New Songs 241225 */
     "你走-李宗锦（松紧先生）",
     "我怀念的-孙燕姿",
