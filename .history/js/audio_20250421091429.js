@@ -152,17 +152,22 @@ function scrollToIng() {
 
 // 播放歌曲
 function playSong() {
-    if (window.audioMvVideo1) {
-        audioMvVideo1.pause();
+    // 存在mv且在播放状态就暂停播放
+    if (musicinfo = findMusic(title.textContent)) {
+        // Mv 有MV的歌曲会切换后会优先自动播放MV
+        pauseSong();
+        updateVideo();
+        audioMvmain(musicinfo);
+    } else {
+        // tanChuang("此歌曲暂无MV");
+        // 清除错误超时
+        clearTimeout(mErrTimeout);
+        audio.play();
+        // 元素添加类名
+        musicContainer.classList.add("play");
+        playBtn.querySelector('i.fas').classList.remove('fa-play');
+        playBtn.querySelector('i.fas').classList.add('fa-pause');
     }
-
-    // 清除错误超时
-    clearTimeout(mErrTimeout);
-    audio.play();
-    // 元素添加类名
-    musicContainer.classList.add("play");
-    playBtn.querySelector('i.fas').classList.remove('fa-play');
-    playBtn.querySelector('i.fas').classList.add('fa-pause');
 
     // 如果因为错误暂停就自动下一首
     if (title.textContent == '已暂停') {
@@ -185,6 +190,7 @@ function prevSong() {
     if (songIndex < 0) {
         songIndex = songs.length - 1
     }
+
 
     // 加载歌曲信息并播放 上、下共同代码放到切换歌曲后那里，load是点击后在对音乐src做切换，有这个才能知道音乐切换了
     loadSong(songs[songIndex]);
@@ -235,16 +241,8 @@ const observer = new MutationObserver((mutationsList) => {
             listupdate();
             scrollToIng();
 
-            // 不管有没有MV都要更新一下video块区内容
             updateVideo();
-
-            // 存在mv且在播放状态就暂停播放
-            if (musicinfo = findMusic(title.textContent)) {
-                // Mv 有MV的歌曲会切换后会优先自动播放MV
-                audioMvmain(musicinfo);
-            } else {
-                playSong();
-            }
+            playSong();
         }
     }
 });

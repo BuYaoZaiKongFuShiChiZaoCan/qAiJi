@@ -235,12 +235,10 @@ const observer = new MutationObserver((mutationsList) => {
             listupdate();
             scrollToIng();
 
-            // 不管有没有MV都要更新一下video块区内容
-            updateVideo();
-
             // 存在mv且在播放状态就暂停播放
             if (musicinfo = findMusic(title.textContent)) {
                 // Mv 有MV的歌曲会切换后会优先自动播放MV
+                pauseSong();
                 audioMvmain(musicinfo);
             } else {
                 playSong();

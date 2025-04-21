@@ -540,8 +540,8 @@ main#main-body #Center #audioMv {
 
 main#main-body #Center #audioMv video {
     width: 100%;
-    /* 减去header、input、audioMvDesc*2 3/72 */
-    height: calc(100vmin - 70px - 44px - 48px);
+    height: calc(100vmin - 70px - 44px - 24px);
+    /* 减去header、input、audioMvDesc*1 3/72 */
     border-radius: inherit;
 }
 

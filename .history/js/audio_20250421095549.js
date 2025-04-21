@@ -152,10 +152,6 @@ function scrollToIng() {
 
 // 播放歌曲
 function playSong() {
-    if (window.audioMvVideo1) {
-        audioMvVideo1.pause();
-    }
-
     // 清除错误超时
     clearTimeout(mErrTimeout);
     audio.play();
@@ -235,16 +231,14 @@ const observer = new MutationObserver((mutationsList) => {
             listupdate();
             scrollToIng();
 
-            // 不管有没有MV都要更新一下video块区内容
-            updateVideo();
-
             // 存在mv且在播放状态就暂停播放
             if (musicinfo = findMusic(title.textContent)) {
                 // Mv 有MV的歌曲会切换后会优先自动播放MV
+                pauseSong();
                 audioMvmain(musicinfo);
-            } else {
-                playSong();
             }
+
+            playSong();
         }
     }
 });

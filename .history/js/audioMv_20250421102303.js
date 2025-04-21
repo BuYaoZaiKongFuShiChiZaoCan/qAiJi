@@ -95,6 +95,8 @@ let mvList = [
  * @returns {null} 无返回
  */
 function audioMvmain(musicInfo = findMusic(title.textContent), autoplay = true) {
+    updateVideo();
+
     // 创建一个video元素
     let video = document.createElement('video');
     // 设置ID为audioMvVideo
@@ -128,10 +130,6 @@ function audioMvmain(musicInfo = findMusic(title.textContent), autoplay = true) 
         // 设置音乐进度为视频进度
         video.currentTime = window.localStorage.getItem('musicTime');
         pauseSong();
-    };
-    video.onpause = function () {
-        // 设置音乐进度为视频进度
-        window.localStorage.setItem('musicTime', video.currentTime);
     };
     video.onended = function () {
         lastChange === "prevSong" ? prevSong() : nextSong();

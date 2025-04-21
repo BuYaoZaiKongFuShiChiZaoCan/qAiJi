@@ -95,6 +95,8 @@ let mvList = [
  * @returns {null} 无返回
  */
 function audioMvmain(musicInfo = findMusic(title.textContent), autoplay = true) {
+    updateVideo();
+
     // 创建一个video元素
     let video = document.createElement('video');
     // 设置ID为audioMvVideo
@@ -118,6 +120,8 @@ function audioMvmain(musicInfo = findMusic(title.textContent), autoplay = true) 
     audioMv.appendChild(video);
     // 元素加载完成后
     video.onload = function () {
+        // 设置音乐进度为视频进度
+        video.currentTime = window.localStorage.getItem('musicTime');
         // 视频最大化
         video.webkitRequestFullScreen();
         video.play().catch(error => {
@@ -125,13 +129,7 @@ function audioMvmain(musicInfo = findMusic(title.textContent), autoplay = true) 
         });
     };
     video.onplay = function () {
-        // 设置音乐进度为视频进度
-        video.currentTime = window.localStorage.getItem('musicTime');
         pauseSong();
-    };
-    video.onpause = function () {
-        // 设置音乐进度为视频进度
-        window.localStorage.setItem('musicTime', video.currentTime);
     };
     video.onended = function () {
         lastChange === "prevSong" ? prevSong() : nextSong();
@@ -155,9 +153,9 @@ function updateVideo() {
         if (decodeURIComponent(video.src).includes(title.textContent)) {
             window.localStorage.setItem('musicTime', video.currentTime);
         }
+        // 移除#audioMv中的所有元素
+        audioMv.textContent = '';
     }
-    // 移除#audioMv中的所有元素
-    audioMv.textContent = '';
 }
 
 // 查找ID与歌曲对应的元素

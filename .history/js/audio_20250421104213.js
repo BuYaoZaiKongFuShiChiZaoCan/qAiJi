@@ -235,7 +235,6 @@ const observer = new MutationObserver((mutationsList) => {
             listupdate();
             scrollToIng();
 
-            // 不管有没有MV都要更新一下video块区内容
             updateVideo();
 
             // 存在mv且在播放状态就暂停播放

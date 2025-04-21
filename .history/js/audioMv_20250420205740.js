@@ -117,24 +117,20 @@ function audioMvmain(musicInfo = findMusic(title.textContent), autoplay = true) 
     video.controls = true;
     audioMv.appendChild(video);
     // 元素加载完成后
-    video.onload = function () {
-        // 视频最大化
-        video.webkitRequestFullScreen();
-        video.play().catch(error => {
-            console.error('播放失败:', error);
-        });
-    };
-    video.onplay = function () {
+    video.onloadedmetadata = function () {
         // 设置音乐进度为视频进度
         video.currentTime = window.localStorage.getItem('musicTime');
-        pauseSong();
-    };
-    video.onpause = function () {
-        // 设置音乐进度为视频进度
-        window.localStorage.setItem('musicTime', video.currentTime);
-    };
-    video.onended = function () {
-        lastChange === "prevSong" ? prevSong() : nextSong();
+        // 视频最大化
+        setTimeout(() => {
+            video.webkitRequestFullScreen();
+            // 页面首次播放会提示需要用户点击一次才能自动播放 main.js:1  Uncaught (in promise) NotAllowedError: play() failed because the user didn't interact with the document first.
+            video.play().catch(error => {
+                console.error('播放失败:', error);
+            });
+        }, 17);
+        video.onended = function () {
+            lastChange === "prevSong" ? prevSong() : nextSong();
+        };
     };
     // 添加标题等表述元素
     let title = document.createElement('h2');
@@ -155,9 +151,9 @@ function updateVideo() {
         if (decodeURIComponent(video.src).includes(title.textContent)) {
             window.localStorage.setItem('musicTime', video.currentTime);
         }
+        // 移除#audioMv中的所有元素
+        audioMv.textContent = '';
     }
-    // 移除#audioMv中的所有元素
-    audioMv.textContent = '';
 }
 
 // 查找ID与歌曲对应的元素
