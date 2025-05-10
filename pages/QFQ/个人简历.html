@@ -1,325 +1,328 @@
 <!DOCTYPE html>
 <html lang="zh_CN">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>一个帅逼的个人简历</title>
-        <style>
-            ::-webkit-scrollbar {
-                display: none;
-            }
 
-            @font-face {
-                font-family: "千图小兔体";
-                src: url("../../font/QTXTT.ttf");
-                font-weight: normal;
-                font-style: normal;
-            }
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>一个帅逼的个人简历</title>
+	<style>
+		::-webkit-scrollbar {
+			display: none;
+		}
 
-            body {
-                margin: 0;
-            }
+		@font-face {
+			font-family: "千图小兔体";
+			src: url("../../font/QTXTT.ttf");
+			font-weight: normal;
+			font-style: normal;
+		}
 
-            table {
-                min-width: 14.8cm;
-                width: 21cm;
-                max-width: 29.7cm;
-                margin: auto;
-                font-size: 18px;
-            }
+		body {
+			margin: 0;
+		}
 
-            a {
-                color: #000;
-                font-size: 24px;
-                border-width: 2px;
-                border-style: dotted;
-                border-color: #000;
-                transition: all 0.3s;
-                text-decoration: none;
-            }
+		table {
+			min-width: 14.8cm;
+			width: 21cm;
+			max-width: 29.7cm;
+			margin: auto;
+			font-size: 18px;
+		}
 
-            a:hover {
-                text-decoration: underline;
-                color: aqua;
-                border-color: red;
-            }
-        </style>
-    </head>
-    <body>
-        <a style="display: inline-block; margin: 20px 100px;" href="../../index.html">点击返回首页</a>
-        <label for="styleChange">切换样式</label>
-        <select name="styleChange" id="styleChangeSelect" onchange="changeStyle(cssUrls[this.value])">
-        </select>
-        <table cellspacing="0" cellpadding="5">
-            <tr>
-                <th colspan="5">
-                    <span>一个帅逼的个人简历</span>
-                </th>
-            </tr>
-            <tr>
-                <td>姓名</td>
-                <td>
-                    <details>
-                        <summary>点击查看姓名</summary>
-                        <span>看不见看不见看不见看不见看不见略略略~</span>
-                    </details>
-                </td>
-                <td>性别</td>
-                <td>男</td>
-                <td rowspan="8">
-                    <details>
-                        <summary>点击查看照片</summary>
-                        <span>聪明的都能看见他的帅，相信你也是个聪明人</span>
-                    </details>
-                </td>
-            </tr>
-            <tr>
-                <td>民族</td>
-                <td>汉族</td>
-                <td>籍贯</td><!-- 出生地，只需要写到区县一级 -->
-                <td>甘肃省宕昌县</td>
-            </tr>
-            <tr>
-                <td>第一学历</td>
-                <td>专科</td>
-                <td>专业</td>
-                <td>电子商务</td>
-            </tr>
-            <tr>
-                <td>出生年月</td>
-                <td>2004年xx月</td>
-                <td>政治面貌</td>
-                <td>群众</td>
-            </tr>
-            <tr>
-                <td>婚姻状况</td>
-                <td>
-                    <details>
-                        <summary>嘿嘿嘿！(>ω･* )ﾉ</summary>
-                        <span>求姻缘应该去哪个寺庙？A、灵隐寺B、光法寺C、广济寺D、化城寺<b>E、找我试一寺。</b></span>
-                    </details>
-                </td>
-                <!-- <td>健康状况</td> -->
-                <!-- <td>健康</td>非常健康 -->
-                <td>邮箱</td>
-                <td>1425979360@qq.com</td>
-            </tr>
-            <tr>
-                <td>联系电话</td>
-                <td>1*1 **** **85</td>
-                <td>QQ</td>
-                <td>1*2 *9*9 3*0</td>
-            </tr>
-            <tr>
-                <td>爱好特长</td>
-                <td colspan="3">计算机、乒乓球、阅读、跑步、骑行、摄影、发呆++</td>
-            </tr>
-            <tr>
-                <td>个性标签</td>
-                <td colspan="3">
-                    <span>天然呆</span>
-                    <span>钢琴</span>
-                    <span>尤克里里</span>
-                    <span>社恐</span>
-                    <span>口琴</span>
-                    <span>音乐</span>
-                    <span>夜猫子</span>
-                    <span>QQ飞车</span>
-                    <span>王者荣耀</span>
-                    <span>宅男拯救世界</span>
-                    <span>唱</span>
-                    <span>跳</span>
-                    <span>rap</span>
-                    <span>篮球</span>
-                    <span>全能</span>
-                </td>
-            </tr>
-            <tr>
-                <td>联系地址</td>
-                <td colspan="4">甘肃省陇南市宕昌县</td>
-            </tr>
-            <tr>
-                <td>毕业院校</td>
-                <td colspan="4" class="tal">
-                    <ul>
-                        <li>2011~2017年就读于：新寨乡富坪小学</li>
-                        <li>2017~2020年就读于：宕昌县新寨初级中学</li>
-                        <li>2020~2023年就读于：宕昌县职业中等专业学校</li>
-                        <li>2023~2026年就读于：甘肃农业职业技术学院</li>
-                    </ul>
-                </td>
-            </tr>
-            <tr style="height: 128px;">
-                <td>个人荣誉</td>
-                <td colspan="4" class="tal">
-                    <ul>
-                        <li>
-                            2015年第一学期获得“最佳进步奖”
-                            <img src="" alt="暂无照片">
-                        </li>
-                        <li>
-                            2020年11月17日获得职业资格四级/中级工“保育员”证
-                            <img src="./img/个人简历/2 职业资格四级中级工“保育员”证.jpg" alt="">
-                        </li>
-                        <li>
-                            2022年01月08日获得县级学生技能大赛“电子商务”项目一等奖
-                            <img src="./img/个人简历/3 县级学生技能大赛“电子商务”项目一等奖.jpg" alt="">
-                        </li>
-                        <li>
-                            2022年04月07日获得“电子商务数据分析职业技能等级证书（初级）”
-                            <img src="./img/个人简历/4 电子商务数据分析职业技能等级证书（初级）.jpg" alt="">
-                        </li>
-                        <li>
-                            2022年06月28日获得第二学期“技能之星三等奖”
-                            <img src="./img/个人简历/5 第二学期“技能之星三等奖“.jpg" alt="">
-                        </li>
-                        <li>
-                            2022年10月28日获得县级学生技能大赛“电子商务”项目二等奖
-                            <img src="./img/个人简历/6 县级学生技能大赛“电子商务”项目二等奖.jpg" alt="">
-                        </li>
-                        <li>
-                            2022年12月28日获得市级学生技能大赛“电子商务”项目一等奖
-                            <img src="./img/个人简历/7 市级学生技能大赛“电子商务”项目一等奖.jpg" alt="">
-                        </li>
-                        <li>
-                            2023年10月02日在全国大学生计算机知识竞赛全国总决赛中获得一等奖
-                            <img src="./img/个人简历/8 中国大学生计算机知识竞赛全国总决赛中获得一等奖.jpg" alt="">
-                        </li>
-                        <li>
-                            2024年01月07日获得省级职业院校学生技能大赛“电子商务”项目一等奖<!-- 第三名 -->
-                            <img src="./img/个人简历/9 省级职业院校学生技能大赛“电子商务”项目一等奖.jpg" alt="">
-                        </li>
-                        <li>
-                            2024年07月26日获得2024奥运第14600818位火炬手
-                            <img src="./img/个人简历/10 抖音奥运火炬手.jpg" alt="">
-                        </li>
-                        <li>
-                            2024年07月31日获得2024哈尔滨马拉松官方线上赛参赛证书
-                            <img src="./img/个人简历/11 2024哈尔滨马拉松官方线上赛.jpg" alt="">
-                        </li>
-                        <li>
-                            2024年08月01日获得2024六盘水马拉松官方线上赛参赛证书
-                            <img src="./img/个人简历/12 2024六盘水马拉松官方线上赛.png" alt="">
-                        </li>
-                        <li>
-                            2024年10月13日获得救护员（初级）证书
-                            <img src="./img/个人简历/13 救护员（初级）证书（背面）.png" alt="">
-                        </li>
-                        <li>
-                            2024年10月21日获得中央专项宏志助航计划结业证书
-                            <img src="./img/个人简历/14 中央专项彩票公益金宏志助航计划.png" alt="">
-                        </li>
-                        <li>
-                            2024年10月21日获得高等学校英语应用能力考试A级成绩合格证书<!-- 实际考试时间：6月16日 -->
-                            <img src="./img/个人简历/15 高等学校英语应用能力考试A级.jpg" alt="">
-                        </li>
-                        <li>
-                            2024年11月09日获得国防教育及爱国主义教育主题公益活动合格证明
-                            <img src="./img/个人简历/16 国防教育及爱国主义教育主题公益活动合格证明.jpg" alt="">
-                        </li>
-                        <li>
-                            2024年11月27日获得入党积极分子结业证书
-                            <img src="./img/个人简历/17 入党积极分子.jpg" alt="">
-                        </li>
-                        <li>
-                            2025年01月12日获得2025年甘肃省职业院校技能大赛“电子商务”项目省级三等奖
-                            <img src="./img/个人简历/18 2025年甘肃省职业院校技能大赛.jpg" alt="">
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-            <tr>
-                <td>教育背景</td>
-                <td colspan="4" class="tal">
-                    [时间] [学校] [专业] [学历]
-                    院校 甘肃农业职业技术学院
-                    主修课程 市场营销、电子商务基础、软文写作、网店运营管理、网站运营数据分析、品牌策划、消费者行为分析、PhotoShop 基础、移动电子商务、跨境电商、网店推广
-                    担任职务 在校期间曾担任学生会成员、学委、社团部长等职务
-                </td>
-            </tr>
-            <tr>
-                <td>专业技能</td>
-                <td colspan="4" class="tal">
-                    <ul>
-                        <!-- <li>熟悉HTML、CSS、JavaScript、PHP、MySQL等前端技术</li>
+		a {
+			color: #000;
+			font-size: 24px;
+			border-width: 2px;
+			border-style: dotted;
+			border-color: #000;
+			transition: all 0.3s;
+			text-decoration: none;
+		}
+
+		a:hover {
+			text-decoration: underline;
+			color: aqua;
+			border-color: red;
+		}
+	</style>
+</head>
+
+<body>
+	<a style="display: inline-block; margin: 20px 100px;" href="../../index.html">点击返回首页</a>
+	<label for="styleChange">切换样式</label>
+	<select name="styleChange" id="styleChangeSelect" onchange="changeStyle(cssUrls[this.value])">
+	</select>
+	<table cellspacing="0" cellpadding="5">
+		<tr>
+			<th colspan="5">
+				<span>一个帅逼的个人简历</span>
+			</th>
+		</tr>
+		<tr>
+			<td>姓名</td>
+			<td>
+				<details>
+					<summary>点击查看姓名</summary>
+					<span>看不见看不见看不见看不见看不见略略略~</span>
+				</details>
+			</td>
+			<td>性别</td>
+			<td>男</td>
+			<td rowspan="8">
+				<details>
+					<summary>点击查看照片</summary>
+					<span>聪明的都能看见他的帅，相信你也是个聪明人</span>
+				</details>
+			</td>
+		</tr>
+		<tr>
+			<td>民族</td>
+			<td>汉族</td>
+			<td>籍贯</td><!-- 出生地，只需要写到区县一级 -->
+			<td>甘肃省宕昌县</td>
+		</tr>
+		<tr>
+			<td>第一学历</td>
+			<td>专科</td>
+			<td>专业</td>
+			<td>电子商务</td>
+		</tr>
+		<tr>
+			<td>出生年月</td>
+			<td>2004年xx月</td>
+			<td>政治面貌</td>
+			<td>群众</td>
+		</tr>
+		<tr>
+			<td>婚姻状况</td>
+			<td>
+				<details>
+					<summary>嘿嘿嘿！(>ω･* )ﾉ</summary>
+					<span>求姻缘应该去哪个寺庙？A、灵隐寺B、光法寺C、广济寺D、化城寺<b>E、找我试一寺。</b></span>
+				</details>
+			</td>
+			<!-- <td>健康状况</td> -->
+			<!-- <td>健康</td>非常健康 -->
+			<td>邮箱</td>
+			<td>1425979360@qq.com</td>
+		</tr>
+		<tr>
+			<td>联系电话</td>
+			<td>1*1 **** **85</td>
+			<td>QQ</td>
+			<td>1*2 *9*9 3*0</td>
+		</tr>
+		<tr>
+			<td>爱好特长</td>
+			<td colspan="3">计算机、乒乓球、阅读、跑步、骑行、摄影、发呆++</td>
+		</tr>
+		<tr>
+			<td>个性标签</td>
+			<td colspan="3">
+				<span>天然呆</span>
+				<span>钢琴</span>
+				<span>尤克里里</span>
+				<span>社恐</span>
+				<span>口琴</span>
+				<span>音乐</span>
+				<span>夜猫子</span>
+				<span>QQ飞车</span>
+				<span>王者荣耀</span>
+				<span>宅男拯救世界</span>
+				<span>唱</span>
+				<span>跳</span>
+				<span>rap</span>
+				<span>篮球</span>
+				<span>全能</span>
+			</td>
+		</tr>
+		<tr>
+			<td>联系地址</td>
+			<td colspan="4">甘肃省陇南市宕昌县</td>
+		</tr>
+		<tr>
+			<td>毕业院校</td>
+			<td colspan="4" class="tal">
+				<ul>
+					<li>2011~2017年就读于：新寨乡富坪小学</li>
+					<li>2017~2020年就读于：宕昌县新寨初级中学</li>
+					<li>2020~2023年就读于：宕昌县职业中等专业学校</li>
+					<li>2023~2026年就读于：甘肃农业职业技术学院</li>
+				</ul>
+			</td>
+		</tr>
+		<tr style="height: 128px;">
+			<td>个人荣誉</td>
+			<td colspan="4" class="tal">
+				<ul>
+					<li>
+						2015年第一学期获得“最佳进步奖”
+						<img src="" alt="暂无照片">
+					</li>
+					<li>
+						2020年11月17日获得职业资格四级/中级工“保育员”证
+						<img src="./img/个人简历/2 职业资格四级中级工“保育员”证.jpg" alt="">
+					</li>
+					<li>
+						2022年01月08日获得县级学生技能大赛“电子商务”项目一等奖
+						<img src="./img/个人简历/3 县级学生技能大赛“电子商务”项目一等奖.jpg" alt="">
+					</li>
+					<li>
+						2022年04月07日获得“电子商务数据分析职业技能等级证书（初级）”
+						<img src="./img/个人简历/4 电子商务数据分析职业技能等级证书（初级）.jpg" alt="">
+					</li>
+					<li>
+						2022年06月28日获得第二学期“技能之星三等奖”
+						<img src="./img/个人简历/5 第二学期“技能之星三等奖“.jpg" alt="">
+					</li>
+					<li>
+						2022年10月28日获得县级学生技能大赛“电子商务”项目二等奖
+						<img src="./img/个人简历/6 县级学生技能大赛“电子商务”项目二等奖.jpg" alt="">
+					</li>
+					<li>
+						2022年12月28日获得市级学生技能大赛“电子商务”项目一等奖
+						<img src="./img/个人简历/7 市级学生技能大赛“电子商务”项目一等奖.jpg" alt="">
+					</li>
+					<li>
+						2023年10月02日在全国大学生计算机知识竞赛全国总决赛中获得一等奖
+						<img src="./img/个人简历/8 中国大学生计算机知识竞赛全国总决赛中获得一等奖.jpg" alt="">
+					</li>
+					<li>
+						2024年01月07日获得省级职业院校学生技能大赛“电子商务”项目一等奖<!-- 第三名 -->
+						<img src="./img/个人简历/9 省级职业院校学生技能大赛“电子商务”项目一等奖.jpg" alt="">
+					</li>
+					<li>
+						2024年07月26日获得2024奥运第14600818位火炬手
+						<img src="./img/个人简历/10 抖音奥运火炬手.jpg" alt="">
+					</li>
+					<li>
+						2024年07月31日获得2024哈尔滨马拉松官方线上赛参赛证书
+						<img src="./img/个人简历/11 2024哈尔滨马拉松官方线上赛.jpg" alt="">
+					</li>
+					<li>
+						2024年08月01日获得2024六盘水马拉松官方线上赛参赛证书
+						<img src="./img/个人简历/12 2024六盘水马拉松官方线上赛.png" alt="">
+					</li>
+					<li>
+						2024年10月13日获得救护员（初级）证书
+						<img src="./img/个人简历/13 救护员（初级）证书（背面）.png" alt="">
+					</li>
+					<li>
+						2024年10月21日获得中央专项宏志助航计划结业证书
+						<img src="./img/个人简历/14 中央专项彩票公益金宏志助航计划.png" alt="">
+					</li>
+					<li>
+						2024年10月21日获得高等学校英语应用能力考试A级成绩合格证书<!-- 实际考试时间：6月16日 -->
+						<img src="./img/个人简历/15 高等学校英语应用能力考试A级.jpg" alt="">
+					</li>
+					<li>
+						2024年11月09日获得国防教育及爱国主义教育主题公益活动合格证明
+						<img src="./img/个人简历/16 国防教育及爱国主义教育主题公益活动合格证明.jpg" alt="">
+					</li>
+					<li>
+						2024年11月27日获得入党积极分子结业证书
+						<img src="./img/个人简历/17 入党积极分子.jpg" alt="">
+					</li>
+					<li>
+						2025年01月12日获得2025年甘肃省职业院校技能大赛“电子商务”项目省级三等奖
+						<img src="./img/个人简历/18 2025年甘肃省职业院校技能大赛.jpg" alt="">
+					</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td>教育背景</td>
+			<td colspan="4" class="tal">
+				[时间] [学校] [专业] [学历]
+				院校 甘肃农业职业技术学院
+				主修课程 市场营销、电子商务基础、软文写作、网店运营管理、网站运营数据分析、品牌策划、消费者行为分析、PhotoShop 基础、移动电子商务、跨境电商、网店推广
+				担任职务 在校期间曾担任学生会成员、学委、社团部长等职务
+			</td>
+		</tr>
+		<tr>
+			<td>专业技能</td>
+			<td colspan="4" class="tal">
+				<ul>
+					<!-- <li>熟悉HTML、CSS、JavaScript、PHP、MySQL等前端技术</li>
                         <li>熟悉C、C++、Java、Python等后端技术</li>
                         <li>熟悉Linux操作系统</li>
                         <li>熟悉Windows操作系统</li>
                         <li>熟悉Office办公软件</li>
                         <li>熟悉微信小程序、微信网页开发、微信公众号开发</li> -->
-                        <li>语言技能：<!-- 英语CET6、粤语 -->英语 A 级</li>
-                        <li>专业技能：<!-- 熟悉Web、iOS和Android开发，精通数据库、C++及Java -->熟练操作 windows 系统及各类应用软件，如：Office 系列、VScode、Adobe 系列专业证书</li>
-                        <li>办公技能：<!-- 熟练使用Office 办公软件、Axure RP、Visio --></li>
-                    </ul>
-                </td>
-            </tr>
-            <tr style="height: 160px;">
-                <td>实习经历</td>
-                <td colspan="4" class="tal">
-                    <ul>
-                        <li><!-- 2022年在宕昌县甘江头邮政物流中转公司实习一天 --></li>
-                    </ul>
-                </td>
-            </tr>
-            <tr style="height: 160px;">
-                <td>工作经历</td>
-                <td colspan="4" class="tal">
-                    <ul>
-                        <li><!-- 2024年9月上海上钢街道城运中心上班 --></li>
-                    </ul>
-                </td>
-            </tr>
-            <tr style="height: 64px;">
-                <td>自我评价</td>
-                <td colspan="4" class="tal">
-                    <!-- 本人敬业，工作认真，积极主动，有坚强的意志和耐劳吃苦之心。性格成熟、稳重、有一点幽默，待人热情。做事情有耐心、责任心以及谨慎，细心。坚信“没有做不到的事，只有不想做的事”。所以只要本人喜欢，愿意做的事，本人相信会做到的。本人具有一定组织能力、协调能力。 -->
-                    <!-- 具开阔视野及全局观念;思维开放、理解、接受新事物能力较强;心态好，自信、自律性强;具有良好的语言沟通能力和有一定的文字功底。亲和力好，懂服从，重配合，具备良好的管理知识及技能技巧;具有较强的沟通协调能力、学习及适应能力。 -->
-                </td>
-            </tr>
-        </table>
-    </body>
-    <!-- 设置CSS样式 -->
-    <script>
-        // 样式文件路径数组
-        let cssUrls = [
-            'grjlStyle1.css',
-            'grjlStyle2.css',
-            'grjlStyle3.css'/* 通义ai样式 */
-        ]
+					<li>语言技能：<!-- 英语CET6、粤语 -->英语 A 级</li>
+					<li>专业技能：<!-- 熟悉Web、iOS和Android开发，精通数据库、C++及Java -->熟练操作 windows 系统及各类应用软件，如：Office 系列、VScode、Adobe 系列专业证书</li>
+					<li>办公技能：<!-- 熟练使用Office 办公软件、Axure RP、Visio --></li>
+				</ul>
+			</td>
+		</tr>
+		<tr style="height: 160px;">
+			<td>实习经历</td>
+			<td colspan="4" class="tal">
+				<ul>
+					<li><!-- 2022年在宕昌县甘江头邮政物流中转公司实习一天 --></li>
+				</ul>
+			</td>
+		</tr>
+		<tr style="height: 160px;">
+			<td>工作经历</td>
+			<td colspan="4" class="tal">
+				<ul>
+					<li><!-- 2024年9月上海上钢街道城运中心上班 --></li>
+				</ul>
+			</td>
+		</tr>
+		<tr style="height: 64px;">
+			<td>自我评价</td>
+			<td colspan="4" class="tal">
+				<!-- 本人敬业，工作认真，积极主动，有坚强的意志和耐劳吃苦之心。性格成熟、稳重、有一点幽默，待人热情。做事情有耐心、责任心以及谨慎，细心。坚信“没有做不到的事，只有不想做的事”。所以只要本人喜欢，愿意做的事，本人相信会做到的。本人具有一定组织能力、协调能力。 -->
+				<!-- 具开阔视野及全局观念;思维开放、理解、接受新事物能力较强;心态好，自信、自律性强;具有良好的语言沟通能力和有一定的文字功底。亲和力好，懂服从，重配合，具备良好的管理知识及技能技巧;具有较强的沟通协调能力、学习及适应能力。 -->
+			</td>
+		</tr>
+	</table>
+</body>
+<!-- 设置CSS样式 -->
+<script>
+	// 样式文件路径数组
+	let cssUrls = [
+		'grjlStyle1.css',
+		'grjlStyle2.css',
+		'grjlStyle3.css'/* 通义ai样式 */
+	]
 
-        let styleChangeSelect = document.getElementById('styleChangeSelect');
-        for (let i = 0; i < cssUrls.length; i++) {
-            let option = document.createElement('option');
-            option.value = i;
-            option.textContent = '样式' + (i + 1);
-            // 样式表数量不多，就不做fragment了
-            styleChangeSelect.appendChild(option);
-        }
+	let styleChangeSelect = document.getElementById('styleChangeSelect');
+	for (let i = 0; i < cssUrls.length; i++) {
+		let option = document.createElement('option');
+		option.value = i;
+		option.textContent = '样式' + (i + 1);
+		// 样式表数量不多，就不做fragment了
+		styleChangeSelect.appendChild(option);
+	}
 
-        /**
-         * 动态加载CSS样式
-         * @param {string} url css文件路径
-         */
-        function changeStyle(url) {
-            removeStyle();
-            var link = document.createElement('link');
-            link.type = 'text/css';
-            link.rel = 'stylesheet';
-            link.href = url;
-            var head = document.getElementsByTagName('head')[0];
-            head.appendChild(link);
-        }
+	/**
+	 * 动态加载CSS样式
+	 * @param {string} url css文件路径
+	 */
+	function changeStyle(url) {
+		removeStyle();
+		var link = document.createElement('link');
+		link.type = 'text/css';
+		link.rel = 'stylesheet';
+		link.href = url;
+		var head = document.getElementsByTagName('head')[0];
+		head.appendChild(link);
+	}
 
-        function removeStyle() {
-            // 获取document的Stylesheet大于1删除后面的直到只剩1个
-            while (document.styleSheets.length > 1) {
-                // 删除最后一个stylesheet
-                document.head.removeChild(document.styleSheets[document.styleSheets.length - 1].ownerNode);
-            }
-        }
+	function removeStyle() {
+		// 获取document的Stylesheet大于1删除后面的直到只剩1个
+		while (document.styleSheets.length > 1) {
+			// 删除最后一个stylesheet
+			document.head.removeChild(document.styleSheets[document.styleSheets.length - 1].ownerNode);
+		}
+	}
 
-        // 初始化调用 使用方法引入css 页面进入默认样式
-        changeStyle(cssUrls[0]);
-    </script>
+	// 初始化调用 使用方法引入css 页面进入默认样式
+	changeStyle(cssUrls[0]);
+</script>
+
 </html>

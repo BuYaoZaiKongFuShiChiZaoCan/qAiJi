@@ -225,7 +225,7 @@ const observer = new MutationObserver((mutationsList) => {
             // 存储正在播放的音乐下标到应用程序
             window.localStorage.setItem('songIndex', songIndex);
             // 设置播放进度
-            window.localStorage.setItem('musicTime', '0');
+            window.localStorage.setItem('musicTime', 0);
 
             // 对歌词位置做初始化
             lrc.style.transform = `translateY(0px)`;
