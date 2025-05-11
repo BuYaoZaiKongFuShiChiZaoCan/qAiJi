@@ -536,6 +536,7 @@ main#main-body #Center #audioMv {
     position: relative;
     border-radius: 5px;
     overflow: hidden;
+    box-shadow: 0 0 5px #b3cbed;
 }
 
 main#main-body #Center #audioMv video {
@@ -543,6 +544,7 @@ main#main-body #Center #audioMv video {
     /* 减去              header、input、audioMvDesc*/
     height: calc(100vmin - 70px - 44px - (72px + 10px));
     border-radius: inherit;
+    box-shadow: 0 0 10px #c6cdc7 inset;
 }
 
 main#main-body #Center #audioMv .audioMvTitle {
@@ -564,8 +566,10 @@ main#main-body #Center #audioMv:hover .audioMvTitle {
 }
 
 main#main-body #Center #audioMv .audioMvDesc {
-    margin: 10px 10px 0 10px;
+    margin: 10px;
     font-size: 18px;
+    text-indent: 2em;
+    text-align: justify;
 }
 
 main#main-body #ceBian {

@@ -7,7 +7,7 @@ var display = 0;
 function headers() {
     if (display == 0) {
         Hbutton.innerHTML = '<span id="hspanone"></span><span id="hspantwo"></span>';
-        document.getElementById('main').style.display = 'none';
+        document.getElementById('main-body').style.display = 'none';
         document.getElementById('hspanone').style.transform = 'rotateZ(-45deg) translateX(-6px)';
         document.getElementById('hspantwo').style.transform = 'rotateZ(45deg) translateX(-6px)';
         zbbq.transform = "translateX(-800px) matrix3d(3, -1, 30, 0, 0, 1, 10, 0, 1, 0, 10, 0, 0, 0, 0, 3)";
@@ -18,7 +18,7 @@ function headers() {
         }, 500);
         display = 1;
     } else {
-        document.getElementById('main').style.display = 'block';
+        document.getElementById('main-body').style.display = 'block';
         zbbq.transform = "translateX(520px) matrix3d(1, 20, 0, -1, -1, 2, 5, 0, 0, 0, 1, 0, 0, 0, 0, 2)";
         setTimeout(() => {
             Hbutton.innerHTML = '<span></span><span></span><span></span>';
