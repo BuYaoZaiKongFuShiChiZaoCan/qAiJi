@@ -27,6 +27,24 @@ let mvList = [
 		desc: "《Wellerman》是新西兰民谣，最早由新西兰的捕鲸船员在19世纪40年代创作。歌曲讲述了捕鲸船员们在海上等待补给船“Wellerman”到来的故事。"
 	},
 	{
+		id: "别怕我伤心-张信哲",
+		type: "video/mp4",
+		title: "【4K修复】《别怕我伤心》张信哲_60FPS(高保真音质)",
+		srcLocalhost: "./music/mv/【4K修复】《别怕我伤心》张信哲_MV_60FPS(高保真音质).mp4",
+		srcNetwork: null,
+		poster: null,
+		desc: "《别怕我伤心》是由李宗盛作词并作曲，张信哲演唱的歌曲，收录于张信哲1994年6月1日发行的专辑《等待》中。"
+	},
+	{
+		id: "胡彦斌-你要的全拿走",
+		type: "video/mp4",
+		title: "【胡彦斌】你要的全拿走",
+		srcLocalhost: "./music/mv/【胡彦斌】你要的全拿走MV.mp4",
+		srcNetwork: null,
+		poster: null,
+		desc: "2018年胡彦斌演唱的歌曲。《你要的全拿走》是胡彦斌演唱的一首歌曲，由胡彦斌作词、作曲，谷粟编曲，收录在胡彦斌2018年1月23日发行的专辑《覅忒好》中 。"
+	},
+	{
 		id: "说了再见-周杰伦",
 		type: "video/mp4",
 		title: "4K·重制周杰伦《说了再见》MV 修复版",
@@ -160,14 +178,14 @@ function audioMvmain(musicInfo = findMusic(title.textContent), autoplay = true) 
 	video.onplay = function () {
 		// 设置音乐进度为视频进度
 		let savedTime = parseFloat(window.localStorage.getItem("musicTime")) || 0;
-		if (savedTime >= 0 && savedTime < video.duration) {
+		if (savedTime > 0 && savedTime < video.duration) {
 			video.currentTime = savedTime;
 		}
 		pauseSong();
 	};
 	video.onpause = function () {
 		// 设置音乐进度为视频进度
-		window.localStorage.setItem("musicTime", video.currentTime);
+		// window.localStorage.setItem("musicTime", video.currentTime); // 这里取消是因为在切换音乐的时候会影响到loaclstorage的修改，所有不得不取消在视频暂停时设置，因为切换时必须要更改，所以这里还不能在切换时设置它
 	};
 	video.onended = function () {
 		lastChange === "prevSong" ? prevSong() : nextSong();

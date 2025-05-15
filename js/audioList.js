@@ -25,6 +25,10 @@
 let songs = [
 	"宿敌_田人",
 	"浮夸-陈奕迅",
+	/* shw */
+	"别怕我伤心-张信哲",
+	"胡彦斌-你要的全拿走",
+	/* shw·end */
 	/* happy */
 	"李克勤-护花使者",
 	"Nathan Evans - Wellerman (Sea Shanty)",
@@ -185,7 +189,6 @@ let songs = [
 	"江南-林俊杰",
 	"背对背拥抱-林俊杰",
 	"明天过后-张杰",
-	"多远都要在一起-G.E.M.邓紫棋",
 	"李克勤、周深 - 天下有情人",
 	"7爷、9爷 - 漫步人生路 (DJ版)",
 	"DJ河园 - 青海摇",
@@ -441,6 +444,7 @@ if (urlIng == 'buyaozaikongfushichizaocan.github.io') {
 		"杨仁清 - 是我一人放不下",
 		"李荣浩、王俊凯 - 李白 (Live)",
 		// ===End
+		"多远都要在一起-G.E.M.邓紫棋",
 		"24KGoldn、iann dior - Mood (Clean)",
 		"Against The Current - Legends Never Die",
 		"Alan Walker - Alone",
@@ -1130,7 +1134,6 @@ if (urlIng == 'buyaozaikongfushichizaocan.github.io') {
 		"黄霑 - 男儿当自强",
 		"黄霑、罗大佑、徐克 - 沧海一声笑",
 		"黄征、羽·泉 - 奔跑",
-		"會想起我嗎 - 多远都要在一起 (0.8)",
 		"火风 - 大花轿",
 		"火火兔 - 一闪一闪亮晶晶",
 		"火箭少女101 - 卡路里",
@@ -1460,7 +1463,6 @@ if (urlIng == 'buyaozaikongfushichizaocan.github.io') {
 		"米津玄師 - Lemon",
 		"米津玄師、DAOKO - 打上花火",
 		"蜜雪冰城 - 蜜雪冰城主题曲 (官方版)",
-		"眠 - 多远都要在一起 (0.8x)",
 		"面具锋 - 霸王别姬",
 		"明洋 - 好心分手 (DJ版)",
 		"明洋 - 离开我你会遇见更好的人 (DJ版)",
