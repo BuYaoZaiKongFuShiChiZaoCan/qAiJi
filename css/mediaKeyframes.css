@@ -29,6 +29,10 @@
         align-items: center;
     }
 
+    main#main-body #ceBian #CBthree #tiShi {
+        display: none;
+    }
+
     #header nav ul li {
         width: 7vw;
     }
@@ -112,6 +116,10 @@
     /* 小于700 */
     #header nav {
         width: 100px;
+    }
+
+    #header nav ul li div.list {
+        left: 76px;
     }
 }
 

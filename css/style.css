@@ -356,7 +356,6 @@ main#main-body {
 
 main#main-body>* {
     margin: 20px;
-    margin-top: 5px;
 }
 
 main#main-body #time {
@@ -544,7 +543,6 @@ main#main-body #Center #audioMv video {
     /* 减去              header、input、audioMvDesc*/
     height: calc(100vmin - 70px - 44px - (72px + 10px));
     border-radius: inherit;
-    box-shadow: 0 0 10px #c6cdc7 inset;
 }
 
 main#main-body #Center #audioMv .audioMvTitle {
@@ -585,7 +583,8 @@ main#main-body #ceBian>* {
     background-size: 98%;
     background-repeat: no-repeat;
     background-position: 0 3px;
-    border-radius: 5%;
+    border-bottom-left-radius: 0.5em;
+    border-bottom-right-radius: 1.3em;
 }
 
 main#main-body #ceBian>*>h2 {
