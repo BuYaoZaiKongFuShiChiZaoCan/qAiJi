@@ -11,263 +11,11 @@
 	<!-- WPA地址栏主题色 -->
 	<title>Q爱记-官网</title>
 	<!-- loading加载 -->
-	<script>
-		// 刚进入页面[DOM加载完毕后执行的事件]
-		document.addEventListener("DOMContentLoaded", function (event) {
-			// 在DOM加载完成后执行的操作
-		});
-		// 页面及其依赖资源加载完成
-		window.addEventListener("load", function (event) {
-			offLoad();
-		});
-		setTimeout(() => {
-			offLoad();
-		}, 8000);
-		function offLoad() {
-			document.querySelector(".loader-body").style.opacity = 0;
-			document.querySelector(".loader-body").style.filter = `blur(10px)`;
-			if (window.CSS.supports("--loader-soucer", 0)) {
-				setTimeout(() => {
-					document.querySelector(".loader-body").style.display = "none";
-				}, parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--loader-soucer").trim()));
-			} else {
-				setTimeout(() => {
-					document.querySelector(".loader-body").style.display = "none";
-				}, 1500);
-			}
-		}
-	</script>
+	<script src='https://unpkg.com/nprogress@0.2.0/nprogress.js'></script>
+	<link rel='stylesheet' href='https://unpkg.com/nprogress@0.2.0/nprogress.css' />
 	<!-- 为兼容github类网站，统一使用相对位置引入文件 -->
 	<link rel="stylesheet" href="./css/style.css" />
 	<link rel="stylesheet" href="./css/font-awesome_5.10.2_css_all.min.css" />
-	<!-- 加载动画 -->
-	<style>
-		.loader-body * {
-			margin: 0;
-			padding: 0;
-			box-sizing: border-box;
-		}
-
-		.loader-body {
-			height: 100vh;
-			font-size: 28px;
-			background-color: #000;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			position: fixed;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			z-index: 999;
-			opacity: 1;
-			filter: blur(0);
-			transition: all var(--loader-soucer);
-		}
-
-		.loader {
-			color: aqua;
-			width: 500px;
-			height: 500px;
-			/* 弹性布局 居中 */
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			/* 垂直排列 */
-			flex-direction: column;
-			/* 绑定动画：动画名 时长 线性 无限播放 */
-			animation: tiltSpin 8s linear infinite;
-		}
-
-		.loader,
-		.loader-ring {
-			/* 开启3D */
-			transform-style: preserve-3d;
-		}
-
-		.loader-ring {
-			font-size: 56px;
-			position: relative;
-			width: 42px;
-			height: 84px;
-			/* 绑定动画 */
-			animation: spin 4s linear infinite;
-		}
-
-		/* 第二个环 */
-		.loader-ring:nth-child(2) {
-			/* 反向动画 */
-			animation-direction: reverse;
-		}
-
-		.loader-sector {
-			font-weight: 600;
-			/* 转大写 */
-			text-transform: uppercase;
-			/* 绝对定位 */
-			position: absolute;
-			top: 0;
-			left: 0;
-			text-align: center;
-			transform: translateZ(200px);
-		}
-
-		.loader-sector,
-		.loader-sector:empty::before {
-			display: inline-block;
-			width: 100%;
-			height: 100%;
-		}
-
-		/* 画线段 */
-		.loader-sector:empty::before {
-			content: "";
-			background: linear-gradient(transparent 45%,
-					currentColor 45% 50%,
-					transparent 55%);
-		}
-
-		/* 分别为每个div设置旋转角度和Z轴偏移量 */
-		.loader-sector:nth-child(2) {
-			transform: rotateY(12deg) translateZ(200px);
-		}
-
-		.loader-sector:nth-child(3) {
-			transform: rotateY(24deg) translateZ(200px);
-		}
-
-		.loader-sector:nth-child(4) {
-			transform: rotateY(36deg) translateZ(200px);
-		}
-
-		.loader-sector:nth-child(5) {
-			transform: rotateY(48deg) translateZ(200px);
-		}
-
-		.loader-sector:nth-child(6) {
-			transform: rotateY(60deg) translateZ(200px);
-		}
-
-		.loader-sector:nth-child(7) {
-			transform: rotateY(72deg) translateZ(200px);
-		}
-
-		.loader-sector:nth-child(8) {
-			transform: rotateY(84deg) translateZ(200px);
-		}
-
-		.loader-sector:nth-child(9) {
-			transform: rotateY(96deg) translateZ(200px);
-		}
-
-		.loader-sector:nth-child(10) {
-			transform: rotateY(108deg) translateZ(200px);
-		}
-
-		.loader-sector:nth-child(11) {
-			transform: rotateY(120deg) translateZ(200px);
-		}
-
-		.loader-sector:nth-child(12) {
-			transform: rotateY(132deg) translateZ(200px);
-		}
-
-		.loader-sector:nth-child(13) {
-			transform: rotateY(144deg) translateZ(200px);
-		}
-
-		.loader-sector:nth-child(14) {
-			transform: rotateY(156deg) translateZ(200px);
-		}
-
-		.loader-sector:nth-child(15) {
-			transform: rotateY(168deg) translateZ(200px);
-		}
-
-		.loader-sector:nth-child(16) {
-			transform: rotateY(180deg) translateZ(200px);
-		}
-
-		.loader-sector:nth-child(17) {
-			transform: rotateY(192deg) translateZ(200px);
-		}
-
-		.loader-sector:nth-child(18) {
-			transform: rotateY(204deg) translateZ(200px);
-		}
-
-		.loader-sector:nth-child(19) {
-			transform: rotateY(216deg) translateZ(200px);
-		}
-
-		.loader-sector:nth-child(20) {
-			transform: rotateY(228deg) translateZ(200px);
-		}
-
-		.loader-sector:nth-child(21) {
-			transform: rotateY(240deg) translateZ(200px);
-		}
-
-		.loader-sector:nth-child(22) {
-			transform: rotateY(252deg) translateZ(200px);
-		}
-
-		.loader-sector:nth-child(23) {
-			transform: rotateY(264deg) translateZ(200px);
-		}
-
-		.loader-sector:nth-child(24) {
-			transform: rotateY(276deg) translateZ(200px);
-		}
-
-		.loader-sector:nth-child(25) {
-			transform: rotateY(288deg) translateZ(200px);
-		}
-
-		.loader-sector:nth-child(26) {
-			transform: rotateY(300deg) translateZ(200px);
-		}
-
-		.loader-sector:nth-child(27) {
-			transform: rotateY(312deg) translateZ(200px);
-		}
-
-		.loader-sector:nth-child(28) {
-			transform: rotateY(324deg) translateZ(200px);
-		}
-
-		.loader-sector:nth-child(29) {
-			transform: rotateY(336deg) translateZ(200px);
-		}
-
-		.loader-sector:nth-child(30) {
-			transform: rotateY(348deg) translateZ(200px);
-		}
-
-		/* 定义动画 */
-		/* 倾斜旋转动画 */
-		@keyframes tiltSpin {
-			from {
-				transform: rotateY(0) rotateX(30deg);
-			}
-
-			to {
-				transform: rotateY(1turn) rotateX(30deg);
-			}
-		}
-
-		/* 旋转动画 */
-		@keyframes spin {
-			from {
-				transform: rotateY(0);
-			}
-
-			to {
-				transform: rotateY(1turn);
-			}
-		}
-	</style>
 	<link rel="stylesheet" href="./css/max.css" />
 	<link rel="stylesheet" href="./css/mediaKeyframes.css" />
 	<link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
@@ -287,90 +35,21 @@
 	<meta name="title" content="Q爱记 祁富强-官网" />
 	<meta name="copyright" content="qAiJi.com" />
 	<meta property="og:image" content="./images/logo.png" />
-	<meta
-		  name="description"
-		  content="专注于资源、笔记分享，Re01精品，Q愛记 愛 Q爱记 祁富强 官网 笔记 下载 download 资源  分享 sPro 音乐 一言" />
-	<meta
-		  name="keywords"
-		  content="Q爱记 Q愛记 祁富强 官网 笔记 下载 download 资源  分享 sPro 音乐 一言" />
+	<meta name="description" content="专注于资源、笔记分享，Re01精品，Q愛记 愛 Q爱记 祁富强 官网 笔记 下载 download 资源  分享 sPro 音乐 一言" />
+	<meta name="keywords" content="Q爱记 Q愛记 祁富强 官网 笔记 下载 download 资源  分享 sPro 音乐 一言" />
 	<!-- SEO结束 -->
 	<!-- PWA开始 -->
-	<link rel="manifest" href="./js/manifest.json" />
-	<!-- manifest清单、告诉浏览器安装一些应用信息 -->
+	<link rel="manifest" href="./js/manifest.json" /><!-- manifest清单、告诉浏览器安装一些应用信息 -->
 	<!-- PWA结束 -->
 </head>
 <!-- 丝光椋鸟、花椒 -->
 
 <body>
+	<script>
+		NProgress.start(); // 开始加载动画
+		NProgress.set(0);
+	</script>
 	<!-- oncontextmenu="return false" onselect="return false"禁用鼠标右键 -->
-	<div class="loader-body">
-		<div class="loader">
-			<div class="loader-ring">
-				<div class="loader-sector">Q</div>
-				<div class="loader-sector">爱</div>
-				<div class="loader-sector">记</div>
-				<div class="loader-sector"></div>
-				<div class="loader-sector">加</div>
-				<div class="loader-sector">载</div>
-				<div class="loader-sector">中</div>
-				<div class="loader-sector">.</div>
-				<div class="loader-sector">.</div>
-				<div class="loader-sector">.</div>
-				<div class="loader-sector"></div>
-				<div class="loader-sector"></div>
-				<div class="loader-sector"></div>
-				<div class="loader-sector"></div>
-				<div class="loader-sector"></div>
-				<div class="loader-sector"></div>
-				<div class="loader-sector"></div>
-				<div class="loader-sector"></div>
-				<div class="loader-sector"></div>
-				<div class="loader-sector"></div>
-				<div class="loader-sector"></div>
-				<div class="loader-sector"></div>
-				<div class="loader-sector"></div>
-				<div class="loader-sector"></div>
-				<div class="loader-sector"></div>
-				<div class="loader-sector"></div>
-				<div class="loader-sector"></div>
-				<div class="loader-sector"></div>
-				<div class="loader-sector"></div>
-				<div class="loader-sector"></div>
-			</div>
-			<div class="loader-ring">
-				<div class="loader-sector">l</div>
-				<div class="loader-sector">o</div>
-				<div class="loader-sector">a</div>
-				<div class="loader-sector">d</div>
-				<div class="loader-sector">i</div>
-				<div class="loader-sector">n</div>
-				<div class="loader-sector">g</div>
-				<div class="loader-sector">.</div>
-				<div class="loader-sector">.</div>
-				<div class="loader-sector">.</div>
-				<div class="loader-sector"></div>
-				<div class="loader-sector"></div>
-				<div class="loader-sector"></div>
-				<div class="loader-sector"></div>
-				<div class="loader-sector"></div>
-				<div class="loader-sector"></div>
-				<div class="loader-sector"></div>
-				<div class="loader-sector"></div>
-				<div class="loader-sector"></div>
-				<div class="loader-sector"></div>
-				<div class="loader-sector"></div>
-				<div class="loader-sector"></div>
-				<div class="loader-sector"></div>
-				<div class="loader-sector"></div>
-				<div class="loader-sector"></div>
-				<div class="loader-sector"></div>
-				<div class="loader-sector"></div>
-				<div class="loader-sector"></div>
-				<div class="loader-sector"></div>
-				<div class="loader-sector"></div>
-			</div>
-		</div>
-	</div>
 	<!-- 头部 -->
 	<header id="header">
 		<div id="spsjhb" onclick="headers()">
@@ -421,6 +100,8 @@
 					alert("链接地址错误！");
 				}
 			});
+
+			NProgress.set(0.13); // 设置进度条初始值
 		</script>
 		<!-- 以下四项分类来自于一个YouTube的博主，当然也仅此包括了线上的一些内容，人又没有生活在电脑里，所以仅线上还是远远不够，因此将在线上扩展线下业务，如：体验经济、外卖等 -->
 		<nav>
@@ -437,9 +118,7 @@
 								<div class="title">导航</div>
 								<div class="content">
 									<a href="https://www.chinanews.com.cn/">
-										<img
-											 src="https://www.chinanews.com.cn/favicon.ico"
-											 alt="" />
+										<img src="https://www.chinanews.com.cn/favicon.ico" alt="" />
 										中国新闻网
 									</a>
 									<a href="https://news.cctv.com/">
@@ -463,12 +142,10 @@
 										<a href="./biJI/摆钟的工作原理.mhtml" target="_blank">摆钟的工作原理</a>
 									</span>
 									<span>
-										<a href="https://www.51zxw.net/Show.aspx?cid=729&id=78077"
-										   target="_blank">Adobe PR教学</a>
+										<a href="https://www.51zxw.net/Show.aspx?cid=729&id=78077" target="_blank">Adobe PR教学</a>
 									</span>
 									<span>
-										<a href="./biJI/C盘全面清理教程！彻底清理所有垃圾！.mhtml"
-										   target="_blank">C盘全面清理教程！彻底清理所有垃圾！</a>
+										<a href="./biJI/C盘全面清理教程！彻底清理所有垃圾！.mhtml" target="_blank">C盘全面清理教程！彻底清理所有垃圾！</a>
 									</span>
 								</div>
 							</dt>
@@ -482,16 +159,7 @@
 					</div>
 				</li>
 				<!-- 概念、教程文章End -->
-				<!-- 
-                        工具使用痛点
-                            1. 使用时不知道有没有这个工具、该不该使用、应该怎样使用、使用困难等问题对此提出生活状态个性化解决方案，通过实时监测个人状态信息，通过提醒功能合理提醒可用方案解决工具
-                            2. 工具使用便捷：使用B/S架构在线化系统、操作简单易上手、启动快速、使用流畅、合理快捷键设计（额外公司提供标准键盘人体工学优化 + 个性化人体工学外设配置，对不同场景、人群进行合理个性化定制）、无臃肿功能
-                            3. 工具安全性：
-                                (1) 个人隐私信息泄露、使用记录，提倡以本地化加密处理为主，网络保持用户私人隐私信息不外泄、以本公司官方协议为主，非安全、未知不采用原则
-                                (2) 工具本身是否安全，工具以官网出品、合理了解计算机、编程语言底层逻辑、了解并处理过多种漏洞、木马、病毒等问题程序员开发，以实际问题开发为主
-                            4. 信息丢失：官方系统使用在线化云端系统多端同步、私人电脑额外分配企业版化展示功能，便于企业管理 + 私人信息用户可选本地化存储、云端存储两种方式、数据传输、存储加密处理
-                            5. 工具使用后是否有使用反馈、评价、建议、总结以论坛、工单方式整合
-                    -->
+				<!--                         工具使用痛点                            1. 使用时不知道有没有这个工具、该不该使用、应该怎样使用、使用困难等问题对此提出生活状态个性化解决方案，通过实时监测个人状态信息，通过提醒功能合理提醒可用方案解决工具                            2. 工具使用便捷：使用B/S架构在线化系统、操作简单易上手、启动快速、使用流畅、合理快捷键设计（额外公司提供标准键盘人体工学优化 + 个性化人体工学外设配置，对不同场景、人群进行合理个性化定制）、无臃肿功能                            3. 工具安全性：                                (1) 个人隐私信息泄露、使用记录，提倡以本地化加密处理为主，网络保持用户私人隐私信息不外泄、以本公司官方协议为主，非安全、未知不采用原则                                (2) 工具本身是否安全，工具以官网出品、合理了解计算机、编程语言底层逻辑、了解并处理过多种漏洞、木马、病毒等问题程序员开发，以实际问题开发为主                            4. 信息丢失：官方系统使用在线化云端系统多端同步、私人电脑额外分配企业版化展示功能，便于企业管理 + 私人信息用户可选本地化存储、云端存储两种方式、数据传输、存储加密处理                            5. 工具使用后是否有使用反馈、评价、建议、总结以论坛、工单方式整合                    -->
 				<li>
 					<span>实用工具 软件</span>
 					<div class="list">
@@ -530,10 +198,7 @@
 										剪映官网
 									</a>
 									<a href="https://tool.lu/">
-										<img
-											 src="./images/nav/在线工具-你的工具箱.ico"
-											 alt=""
-											 loading="lazy" />
+										<img src="./images/nav/在线工具-你的工具箱.ico" alt="" loading="lazy" />
 										在线工具-你的工具箱
 									</a>
 									<a href="https://gitee.com/">
@@ -541,10 +206,7 @@
 										Gitee
 									</a>
 									<a href="https://github.com/">
-										<img
-											 src="./images/nav/GitHub.svg"
-											 alt=""
-											 loading="lazy" />
+										<img src="./images/nav/GitHub.svg" alt="" loading="lazy" />
 										GitHub
 									</a>
 									<a href="https://www.zhihu.com/">
@@ -552,17 +214,11 @@
 										知乎
 									</a>
 									<a href="https://mail.163.com/">
-										<img
-											 src="./images/nav/163邮箱.ico"
-											 alt=""
-											 loading="lazy" />
+										<img src="./images/nav/163邮箱.ico" alt="" loading="lazy" />
 										163邮箱
 									</a>
 									<a href="http://email.qq.com/">
-										<img
-											 src="./images/nav/QQ邮箱.png"
-											 alt=""
-											 loading="lazy" />
+										<img src="./images/nav/QQ邮箱.png" alt="" loading="lazy" />
 										QQ邮箱
 									</a>
 									<a href="https://www.midorg.com/">
@@ -574,17 +230,11 @@
 										白猫在线识别
 									</a>
 									<a href="https://docs.qq.com/">
-										<img
-											 src="./images/nav/腾讯文档.ico"
-											 alt=""
-											 loading="lazy" />
+										<img src="./images/nav/腾讯文档.ico" alt="" loading="lazy" />
 										腾讯文档
 									</a>
 									<a href="https://tv.cctv.com/">
-										<img
-											 src="./images/nav/CCTV央视网.jpg"
-											 alt=""
-											 loading="lazy" />
+										<img src="./images/nav/CCTV央视网.jpg" alt="" loading="lazy" />
 										CCTV央视网
 									</a>
 									<a href="https://www.csdn.net/">
@@ -592,24 +242,15 @@
 										CSDN
 									</a>
 									<a href="https://www.wetools.com/">
-										<img
-											 src="./images/nav/微工具.ico"
-											 alt=""
-											 loading="lazy" />
+										<img src="./images/nav/微工具.ico" alt="" loading="lazy" />
 										微工具
 									</a>
 									<a href="https://www.iqiyi.com/">
-										<img
-											 src="./images/nav/爱奇艺.ico"
-											 alt=""
-											 loading="lazy" />
+										<img src="./images/nav/爱奇艺.ico" alt="" loading="lazy" />
 										爱奇艺
 									</a>
 									<a href="https://www.kugou.com/">
-										<img
-											 src="./images/nav/酷狗音乐.ico"
-											 alt=""
-											 loading="lazy" />
+										<img src="./images/nav/酷狗音乐.ico" alt="" loading="lazy" />
 										酷狗音乐
 									</a>
 									<a href="https://wx.qq.com/">
@@ -621,17 +262,11 @@
 										微信文件传输助手网页版
 									</a>
 									<a href="https://fanyi.youdao.com/index.html#/">
-										<img
-											 src="./images/nav/有道翻译.ico"
-											 alt=""
-											 loading="lazy" />
+										<img src="./images/nav/有道翻译.ico" alt="" loading="lazy" />
 										有道翻译
 									</a>
 									<a href="https://www.shodan.io/">
-										<img
-											 src="./images/nav/Shodan.png"
-											 alt=""
-											 loading="lazy" />
+										<img src="./images/nav/Shodan.png" alt="" loading="lazy" />
 										Shodan
 									</a>
 									<a href="https://www.baidu.com">
@@ -643,24 +278,15 @@
 										优酷
 									</a>
 									<a href="https://www.runoob.com/">
-										<img
-											 src="./images/nav/菜鸟教程.ico"
-											 alt=""
-											 loading="lazy" />
+										<img src="./images/nav/菜鸟教程.ico" alt="" loading="lazy" />
 										菜鸟教程
 									</a>
 									<a href="https://www.yikm.net/">
-										<img
-											 src="./images/nav/小霸王.ico"
-											 alt=""
-											 loading="lazy" />
+										<img src="./images/nav/小霸王.ico" alt="" loading="lazy" />
 										小霸王游戏机
 									</a>
 									<a href="https://www.bilibili.com/">
-										<img
-											 src="./images/nav/哔哩哔哩.ico"
-											 alt=""
-											 loading="lazy" />
+										<img src="./images/nav/哔哩哔哩.ico" alt="" loading="lazy" />
 										哔哩哔哩
 									</a>
 									<a href="https://www.w3.org/zh-hans/">
@@ -668,17 +294,11 @@
 										w3C
 									</a>
 									<a href="https://tikolu.net/emojimix/">
-										<img
-											 src="./images/nav/emoji合成.ico"
-											 alt=""
-											 loading="lazy" />
+										<img src="./images/nav/emoji合成.ico" alt="" loading="lazy" />
 										emoji合成
 									</a>
 									<a href="https://codingfantasy.com/">
-										<img
-											 src="./images/nav/玩游戏学Flex.ico"
-											 alt=""
-											 loading="lazy" />
+										<img src="./images/nav/玩游戏学Flex.ico" alt="" loading="lazy" />
 										玩游戏学Flex
 									</a>
 								</div>
@@ -758,33 +378,12 @@
 			<form action="https://www.bing.com/search?q=">
 				<!-- target="_blank" -->
 				<img src="./images/logoBing.png" alt="" />
-				<label
-					   for="input"
-					   style="
-							position: absolute;
-							width: 1px;
-							height: 1px;
-							margin: -1px;
-							padding: 0;
-							overflow: hidden;
-							clip: rect(0, 0, 0, 0);
-							white-space: nowrap;
-							border-width: 0;
-						">搜索关键词</label><!-- 即使使用了 placeholder，也应提供一个隐藏的 label 提升无障碍体验。 -->
-				<input
-					   type="text"
-					   name="q"
-					   placeholder="Bing [ Alt + K ]"
-					   id="input" /><!-- 自动获得焦点autofocus 暂时不用type search了，改起来没必要，因为清除事件兼容不是很好 -->
+				<label for="input" style="							position: absolute;							width: 1px;							height: 1px;							margin: -1px;							padding: 0;							overflow: hidden;							clip: rect(0, 0, 0, 0);							white-space: nowrap;							border-width: 0;						">搜索关键词</label><!-- 即使使用了 placeholder，也应提供一个隐藏的 label 提升无障碍体验。 -->
+				<input type="text" name="q" placeholder="Bing [ Alt + K ]" id="input" /><!-- 自动获得焦点autofocus 暂时不用type search了，改起来没必要，因为清除事件兼容不是很好 -->
 				<!-- <svg class="icon" id="clear" aria-hidden="true" width="35px" onclick="clearInput()">
                     <use xlink:href="#icon-qingchu"></use>
                 </svg> -->
-				<button
-						type="reset"
-						class="icon"
-						id="clear"
-						width="35px"
-						onclick="clearInput()">
+				<button type="reset" class="icon" id="clear" width="35px" onclick="clearInput()">
 					X
 				</button>
 				<button title="搜索" type="submit">
@@ -792,19 +391,15 @@
 				</button>
 				<ul id="soSuoItem"></ul>
 			</form>
-			<img
-				 src="./images/toXiang.jpg"
-				 id="toXiang"
-				 alt=""
-				 onclick="toXiang()" />
+			<img src="./images/toXiang.jpg" id="toXiang" alt="" onclick="toXiang()" />
 		</div>
 	</header>
+	<script>
+		NProgress.set(0.25);
+	</script>
 	<!-- 侧边：屏幕小于600px点击右上角按钮事件 -->
 	<div id="spsjhy" style="display: none; transform: translateX(-1000px)">
-		<img
-			 src="./images/logo.png"
-			 alt=""
-			 loading="lazy" /><!-- eager立即加载（默认） -->
+		<img src="./images/logo.png" alt="" loading="lazy" /><!-- eager立即加载（默认） -->
 		<span>Q爱记</span>
 		<audio src="./audio/time/秒针.mp3" id="seconds"></audio>
 		<span id="a_paused">秒针声音：关(默认)</span>
@@ -831,6 +426,9 @@
 			</div>
 			<script src="./js/time.js"></script>
 		</div>
+		<script>
+			NProgress.set(0.3);
+		</script>
 		<div id="Center">
 			<div id="maxImportant">
 				<input type="text" id="content" placeholder="最重要的事?" />
@@ -839,6 +437,9 @@
 			<div id="audioMv"></div>
 			<script src="./js/maxImportant.js"></script>
 		</div>
+		<script>
+			NProgress.set(0.35);
+		</script>
 		<div id="ceBian">
 			<!-- 第一块 -->
 			<div id="CBone">
@@ -868,8 +469,8 @@
 					<audio src="" id="audio" preload="auto"></audio>
 					<!-- 音乐封面 -->
 					<div class="img-container">
-						<img src="./images/audio/play.png" alt="" id="playBgImg" />
 						<img src="" alt="" id="music-cover" />
+						<img src="./images/audio/play.png" alt="" id="playBgImg" /><!-- 后来居上原则，这个图片需要在封面后面写才能显示 -->
 					</div>
 					<!-- 播放控制 -->
 					<div class="navigation">
@@ -884,7 +485,11 @@
 						</button>
 					</div>
 				</div>
-				<div class="container" id="musicLrcHand" title="点击最大化查看歌词">
+				<script>
+					NProgress.set(0.4);
+				</script>
+				<div class="container"
+					 id="musicLrcHand" title="点击最大化查看歌词">
 					<ul id="lrc"></ul>
 				</div>
 				<!-- 音乐列表 -->
@@ -905,6 +510,9 @@
 						<span>《</span>
 					</div>
 				</div>
+				<script>
+					NProgress.set(0.45);
+				</script>
 				<script>
 					let fwllocal = window.localStorage.getItem("fwllocal");
 					function tiShi() {
@@ -941,31 +549,18 @@
 			</div>
 		</div>
 	</main>
+	<script>
+		NProgress.set(0.618);
+	</script>
 	<!-- 页脚，定位，向下滚动隐藏 -->
 	<footer>
 		<div footer>
-			<svg
-				 class="shake-horizontal wave"
-				 fill="#133c55"
-				 xmlns="http://www.w3.org/2000/svg"
-				 version="1.1"
-				 width="100%"
-				 viewBox="0 -0.5 1024 182"
-				 preserveAspectRatio="none">
-				<path
-					  style="opacity: 0.12"
-					  d="M0 182.086h1024V41.593c-28.058-21.504-60.109-37.581-97.075-37.581-112.845 0-198.144 93.798-289.792 93.798S437.658 6.777 351.846 6.777s-142.234 82.125-238.49 82.125c-63.078 0-75.776-31.744-113.357-53.658L0 182.086z"></path>
-				<path
-					  style="opacity: 0.18"
-					  d="M1024 181.062v-75.878c-39.731 15.872-80.794 27.341-117.658 25.805-110.387-4.506-191.795-109.773-325.53-116.224-109.158-5.12-344.166 120.115-429.466 166.298H1024v-.001z"></path>
-				<path
-					  style="opacity: 0.24"
-					  d="M0 182.086h1024V90.028C966.451 59.103 907.059 16.3 824.115 15.071 690.278 13.023 665.19 102.93 482.099 102.93S202.138-1.62 74.24.019C46.49.326 21.811 4.217 0 9.849v172.237z"></path>
-				<path
-					  style="opacity: 0.3"
-					  d="M0 182.086h1024V80.505c-37.171 19.558-80.691 35.328-139.571 36.25-151.142 2.355-141.619-28.57-298.496-29.184s-138.854 47.002-305.459 43.725C132.813 128.428 91.238 44.563 0 28.179v153.907z"></path>
-				<path
-					  d="M0 182.086h1024v-77.312c-49.05 20.07-120.525 42.394-193.229 42.086-128.922-.512-159.846-72.294-255.795-72.294-89.088 0-134.656 80.179-245.043 82.022S169.063 99.346 49.971 97.401C32.768 97.094 16.077 99.244 0 103.135v78.951z"></path>
+			<svg class="shake-horizontal wave" fill="#133c55" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" viewBox="0 -0.5 1024 182" preserveAspectRatio="none">
+				<path style="opacity: 0.12" d="M0 182.086h1024V41.593c-28.058-21.504-60.109-37.581-97.075-37.581-112.845 0-198.144 93.798-289.792 93.798S437.658 6.777 351.846 6.777s-142.234 82.125-238.49 82.125c-63.078 0-75.776-31.744-113.357-53.658L0 182.086z"></path>
+				<path style="opacity: 0.18" d="M1024 181.062v-75.878c-39.731 15.872-80.794 27.341-117.658 25.805-110.387-4.506-191.795-109.773-325.53-116.224-109.158-5.12-344.166 120.115-429.466 166.298H1024v-.001z"></path>
+				<path style="opacity: 0.24" d="M0 182.086h1024V90.028C966.451 59.103 907.059 16.3 824.115 15.071 690.278 13.023 665.19 102.93 482.099 102.93S202.138-1.62 74.24.019C46.49.326 21.811 4.217 0 9.849v172.237z"></path>
+				<path style="opacity: 0.3" d="M0 182.086h1024V80.505c-37.171 19.558-80.691 35.328-139.571 36.25-151.142 2.355-141.619-28.57-298.496-29.184s-138.854 47.002-305.459 43.725C132.813 128.428 91.238 44.563 0 28.179v153.907z"></path>
+				<path d="M0 182.086h1024v-77.312c-49.05 20.07-120.525 42.394-193.229 42.086-128.922-.512-159.846-72.294-255.795-72.294-89.088 0-134.656 80.179-245.043 82.022S169.063 99.346 49.971 97.401C32.768 97.094 16.077 99.244 0 103.135v78.951z"></path>
 			</svg>
 		</div>
 		<div>
@@ -982,69 +577,80 @@
 				<!-- <img src="./images/footer/客服中心.png" alt=""> -->
 				联系我们
 			</a>
-			<a href="./pages/QFQ/QFQ.html#接下来更新日志">历史更新</a>
+			<a href="./pages/QFQ/QFQ.html#lastUpdate">历史更新</a>
 			<a href="./pages/QFQ/QFQ.html#特别鸣谢">特别鸣谢</a>
 			<a href="#" content="无障碍">
 				<img src="./images/footer/无障碍.png" alt="" />
-				<img
-					 src="./images/footer/残疾人辅助工具.png"
-					 alt=""
-					 title="无障碍优化" />
+				<img src="./images/footer/残疾人辅助工具.png" alt="" title="无障碍优化" />
 			</a>
 		</div>
 		<script src="./js/footer.js"></script>
+		<script>
+			NProgress.set(0.7);
+		</script>
 	</footer>
 	<!-- 最大化-蒙版 -->
 	<dialog id="dog" onclose="delMaxScreeen()"></dialog>
-</body>
-<!-- 时钟 -->
-<script src="./js/header.js"></script>
-<script src="./js/shizhongaudio.js"></script>
-<!-- 灰色 -->
-<script src="./js/qingmingFestival.js"></script>
-<!-- 搜索提示内容 -->
-<script src="./js/soSuoItem.js"></script>
-<!-- 键盘事件 -->
-<script src="./js/key.js"></script>
-<!-- 音乐 -->
-<script src="./js/audioList.js"></script>
-<script src="./js/audio.js"></script>
-<script src="./js/audioLrcSetOffSet.js"></script>
-<script src="./js/audioMv.js"></script>
-<!-- 窗口 -->
-<script src="./js/window.on.js"></script>
-<!-- 彩蛋 -->
-<script async src="./js/caiDan.js"></script>
-<!-- 脚本独立运行，无依赖	❌ 不必要，可考虑  -->
-<!-- 最大化窗口 -->
-<script src="./js/maxScreen.js" defer></script>
-<!-- Click on the pop-up text -->
-<script src="./js/ClickOnThePop-UpText.js" defer></script>
-<!-- 标题整蛊 -->
-<script type="text/javascript">
-	/*自动刷新页面，避免无法访问*/
-	var OriginTitile = document.title; // 记录原来的标题
-	var titleTime;
-	document.addEventListener("visibilitychange", function () {
-		if (document.hidden) {
-			document.title = "404啦！!!!∑(ﾟДﾟノ)ノ ";
-			clearTimeout(titleTime);
-		} else {
-			document.title = "哈哈，骗你的！ヾ(ﾟ∀ﾟゞ)";
-			titleTime = setTimeout(function () {
-				document.title = OriginTitile;
-			}, 2000);
-		}
-	});
-</script>
-<!-- PWA -->
-<script>
-	/* 如果浏览器支持加载完成后就开启PWA功能 */
-	if ("serviceWorker" in navigator) {
-		window.addEventListener("load", function () {
-			navigator.serviceWorker.register("./js/sw.js");
+	<script>
+		NProgress.set(0.8);
+	</script>
+
+
+	<!-- 时钟 -->
+	<script src="./js/header.js"></script>
+	<script src="./js/shizhongaudio.js"></script>
+	<!-- 灰色 -->
+	<script src="./js/qingmingFestival.js"></script>
+	<!-- 搜索提示内容 -->
+	<script src="./js/soSuoItem.js"></script>
+	<!-- 键盘事件 -->
+	<script src="./js/key.js"></script>
+	<!-- 音乐 -->
+	<script src="./js/audioList.js"></script>
+	<script src="./js/audio.js"></script>
+	<script src="./js/audioLrcSetOffSet.js"></script>
+	<script src="./js/audioMv.js"></script>
+	<script>
+		NProgress.set(0.9);
+	</script>
+	<!-- 窗口 -->
+	<script src="./js/window.on.js"></script>
+	<!-- 彩蛋 -->
+	<script async src="./js/caiDan.js"></script>
+	<!-- 脚本独立运行，无依赖	❌ 不必要，可考虑  -->
+	<!-- 最大化窗口 -->
+	<script src="./js/maxScreen.js" defer></script>
+	<!-- Click on the pop-up text -->
+	<script src="./js/ClickOnThePop-UpText.js" defer></script>
+	<!-- 标题整蛊 -->
+	<script type="text/javascript">
+		/*自动刷新页面，避免无法访问*/
+		var OriginTitile = document.title; // 记录原来的标题
+		var titleTime;
+		document.addEventListener("visibilitychange", function () {
+			if (document.hidden) {
+				document.title = "404啦！!!!∑(ﾟДﾟノ)ノ ";
+				clearTimeout(titleTime);
+			} else {
+				document.title = "哈哈，骗你的！ヾ(ﾟ∀ﾟゞ)";
+				titleTime = setTimeout(function () {
+					document.title = OriginTitile;
+				}, 2000);
+			}
 		});
-	}
-</script>
+	</script>
+	<!-- PWA -->
+	<script>
+		/* 如果浏览器支持加载完成后就开启PWA功能 */
+		if ("serviceWorker" in navigator) {
+			window.addEventListener("load", function () {
+				navigator.serviceWorker.register("./js/sw.js");
+			});
+		}
+	</script>
+	<script>
+		NProgress.done(); // 结束加载动画
+	</script>
+</body>
 
 </html>

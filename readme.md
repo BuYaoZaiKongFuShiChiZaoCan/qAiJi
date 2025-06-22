@@ -43,6 +43,19 @@ Q爱记 - 官方，一个专注分享的平台
 1. 丝光椋鸟
 2. 花椒
 
+## 使用NProgress
+```javascript
+// 配置NProgress
+NProgress.configure({ showSpinner: true }) // 是否显示右上角螺旋加载提示
+NProgress.configure({ minimum: 0.08, showSpinner: true, parent: '#box1' })
+
+// 在路由守卫中使用NProgress
+NProgress.start() // 开启进度条
+NProgress.set(n) // 设置进度条的百分比，其中n是0到1之间的数字
+NProgress.done() // 关闭进度条 
+NProgress.inc() // 随机增加进度条的进度，但不会达到100%
+```
+
 ## 用到的API
 #### 来自：https://api.aa1.cn/
 ```cs

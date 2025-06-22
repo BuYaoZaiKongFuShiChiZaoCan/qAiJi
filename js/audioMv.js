@@ -1,5 +1,18 @@
 const audioMv = document.querySelector("#audioMv");
 
+
+/**
+ * mvList  视频列表
+ * @param {string} id 对应songs的歌曲名称
+ * @param {string} type 文件类型 一般为video/mp4
+ * @param {string} title 视频标题
+ * @param {string} srcLocalhost 视频本服务器播放地址
+ * @param {string} srcNetwork 其他服务器视频播放地址
+ * @param {string} poster 视频封面
+ * @param {string} desc 视频简介
+ * @param {string} id 对应songs的歌曲名称
+ * @returns {null} 无返回
+ */
 let mvList = [
 	{
 		id: "浮夸-陈奕迅",
@@ -158,7 +171,7 @@ let mvList = [
 		title: "李克勤-护花使者",
 		srcLocalhost: "./music/mv/李克勤-护花使者.mp4",
 		srcNetwork: null,
-		poster: "",
+		poster: null,
 		desc: `《护花使者》是中国香港男歌手李克勤演唱的粤语歌曲，由长谷川集平作曲，潘伟源填词，苏德华编曲，收录在李克勤于1991年6月9日通过环球唱片发行的粤语专辑《雨中街头剧》中。《护花使者》改编自日本Sement Mixers组合的《真っ赤な夕阳が燃えている》，该曲节奏感强烈，动感十足，旋律欢快，往往在听众心情低落时，能够激发人们的活力，让人忘却烦恼与忧伤。前奏一响，便足以唤醒人们内心深处的旋律记忆，成为不少人心中的“表白金曲”。1992年1月19日，该曲获得了1991年度十大劲歌金曲“最佳音乐录影带演出”奖。此后，在2018年、2020年与2024年，李克勤分别在梦圆东方·2019东方卫视跨年盛典、2021江苏卫视跨年演唱会以及“湾区升明月”2024大湾区电影音乐晚会上，现场演绎了这首标志性曲目"。`
 	}
 ]
@@ -190,7 +203,8 @@ function audioMvmain(musicInfo = findMusic(title.textContent), autoplay = true) 
 	// 预加载
 	// video.preload = "auto";
 	// 视频封面
-	video.poster = musicInfo.poster;
+	musicInfo.poster && (video.poster = musicInfo.poster);
+	// musicInfo.poster ? video.poster = musicInfo.poster : void 0;
 	// 视频类型
 	video.type = musicInfo.type;
 	// 控制条
@@ -218,7 +232,7 @@ function audioMvmain(musicInfo = findMusic(title.textContent), autoplay = true) 
 		lastChange === "prevSong" ? prevSong() : nextSong();
 	};
 	// 添加标题等表述元素
-	let title = document.createElement("h2");
+	let title = document.createElement("h3");
 	title.classList.add("audioMvTitle");
 	title.textContent = musicInfo.title;
 	let desc = document.createElement("p");

@@ -120,7 +120,7 @@ audio.addEventListener('error', MusicError);
 function loadSong(song) {
     title.textContent = song;
     audio.src = `music/${song}.mp3`;
-    musicCover.src = `images/audio/${song}.png`;
+    musicCover.src = `music/audio/${song}.png`;
 }
 loadSong(songs[songIndex]);
 
