@@ -1,0 +1,55 @@
+{
+    "Tools": [
+        {
+            "id": 1,
+            "name": "屏幕补光灯",
+            "EnglishName": "screenFlashlight",
+            "url": null,
+            "icon": null,
+            "tags": [
+                "补光灯",
+                "屏幕补光灯",
+                "补光"
+            ],
+            "category": {
+                "name": "一类",
+                "EnglishName": "category1",
+                "description": "一类描述",
+                "subCategory": [
+                    {
+                        "id": 1,
+                        "name": "二类",
+                        "EnglishName": "subCategory1",
+                        "description": "二类描述",
+                        "ofTheSameClass": [
+                            {
+                                "id": 1,
+                                "name": "三类",
+                                "EnglishName": "ofTheSameClass1",
+                                "description": "三类描述",
+                                "tools": [
+                                    {
+                                        "id": 1,
+                                        "name": "工具1",
+                                        "EnglishName": "tool1",
+                                        "description": "工具1描述"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "createdAt": "2021-01-01",
+            "updatedAt": "2021-01-01",
+            "demand": "需求",
+            "function": "功能",
+            "scene": "使用场景",
+            "method": "使用方法",
+            "limit": "使用限制",
+            "attention": "使用注意事项",
+            "skill": "使用技巧",
+            "description": "Tool1 description"
+        }
+    ]
+}
